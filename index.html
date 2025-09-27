@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Айжан & Жанбулат - Приглашение на свадьбу</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Айжан & Жалгас - Свадебное приглашение</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -14,253 +14,350 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #f9f0ff 0%, #fff0f8 100%);
-            color: #5d4157;
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #0a3d1c 0%, #1a5c2c 50%, #2d7d46 100%);
+            color: #f0e6d2;
             line-height: 1.6;
-            background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23f0e6ff" opacity="0.3"/></svg>');
-            background-size: 200px 200px;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,50 C30,30 50,30 50,50 C50,70 70,70 70,50 C70,30 50,30 50,50 Z" fill="%23d4af37" opacity="0.05"/></svg>');
+            background-size: cover, cover, 150px 150px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header Styles */
-        .header {
-            background: linear-gradient(135deg, #8b5f8d 0%, #d4a6c8 100%);
-            padding: 80px 20px;
+        /* Luxury Header */
+        .luxury-header {
+            background: linear-gradient(135deg, 
+                rgba(10, 61, 28, 0.9) 0%, 
+                rgba(212, 175, 55, 0.8) 50%, 
+                rgba(10, 61, 28, 0.9) 100%);
+            padding: 100px 20px;
             text-align: center;
-            color: white;
             position: relative;
             overflow: hidden;
+            border-bottom: 3px solid #d4af37;
         }
 
-        .header::before {
+        .luxury-header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M30,5 C40,5 45,15 45,30 C45,45 40,55 30,55 C20,55 15,45 15,30 C15,15 20,5 30,5 Z" fill="white" opacity="0.1"/></svg>');
-            background-size: 80px 80px;
+            background: url('data:image/svg+xml,<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,20 C120,20 140,30 160,50 C180,70 180,100 160,120 C140,140 120,150 100,150 C80,150 60,140 40,120 C20,100 20,70 40,50 C60,30 80,20 100,20 Z" fill="none" stroke="%23d4af37" stroke-width="2" opacity="0.1"/></svg>');
+            background-size: 300px 300px;
         }
 
         .names {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5em;
-            font-weight: 500;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #d4af37, #f0e6d2, #d4af37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .wedding-title {
-            font-size: 1.8em;
+        .invitation-text {
+            font-size: 2em;
             font-weight: 300;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             margin-bottom: 30px;
-            opacity: 0.9;
+            color: #f0e6d2;
         }
 
-        .date {
-            font-size: 1.4em;
-            background: rgba(255,255,255,0.2);
-            padding: 10px 30px;
-            border-radius: 30px;
+        .wedding-date {
+            font-size: 1.8em;
+            background: rgba(212, 175, 55, 0.2);
+            padding: 15px 40px;
+            border-radius: 50px;
             display: inline-block;
+            border: 2px solid #d4af37;
             backdrop-filter: blur(10px);
         }
 
-        /* Timer Styles */
-        .timer-section {
-            background: white;
-            padding: 60px 20px;
+        /* Luxury Timer */
+        .luxury-timer {
+            background: rgba(10, 61, 28, 0.8);
+            padding: 80px 20px;
             text-align: center;
-            box-shadow: 0 5px 25px rgba(139, 95, 141, 0.1);
+            border-bottom: 2px solid #d4af37;
         }
 
-        .section-title {
+        .timer-title {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            color: #8b5f8d;
-            margin-bottom: 40px;
+            font-size: 3em;
+            color: #d4af37;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        .timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            max-width: 600px;
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .timer-unit {
-            background: linear-gradient(135deg, #f0e6ff 0%, #e6d4f5 100%);
-            padding: 20px;
-            border-radius: 15px;
-            min-width: 100px;
-            box-shadow: 0 5px 15px rgba(139, 95, 141, 0.2);
+        .timer-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(10, 61, 28, 0.3));
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .timer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
         }
 
         .timer-number {
-            font-size: 2.5em;
-            font-weight: 600;
-            color: #8b5f8d;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: #d4af37;
             display: block;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .timer-label {
-            font-size: 0.9em;
-            color: #7a5a7d;
-            margin-top: 5px;
+            font-size: 1.1em;
+            color: #f0e6d2;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Calendar Styles */
-        .calendar-section {
-            padding: 80px 20px;
+        /* Luxury Calendar */
+        .luxury-calendar {
+            padding: 100px 20px;
+            background: rgba(10, 61, 28, 0.6);
             text-align: center;
         }
 
-        .calendar {
-            max-width: 400px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(139, 95, 141, 0.15);
+        .calendar-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(10, 61, 28, 0.8));
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid #d4af37;
+            position: relative;
+            overflow: hidden;
         }
 
-        .calendar-header {
-            font-size: 1.5em;
-            color: #8b5f8d;
-            margin-bottom: 20px;
-            font-weight: 500;
+        .calendar-container::before {
+            content: '❖';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 2em;
+            color: #d4af37;
+            opacity: 0.3;
+        }
+
+        .calendar-container::after {
+            content: '❖';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #d4af37;
+            opacity: 0.3;
+        }
+
+        .calendar-month {
+            font-size: 2.5em;
+            color: #d4af37;
+            margin-bottom: 30px;
+            font-family: 'Playfair Display', serif;
         }
 
         .calendar-grid {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
+            gap: 10px;
         }
 
-        .calendar-day {
-            padding: 10px;
-            font-weight: 500;
-            color: #7a5a7d;
+        .calendar-day-name {
+            padding: 15px;
+            font-weight: 600;
+            color: #d4af37;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
         }
 
         .calendar-date {
-            padding: 12px;
-            border-radius: 50%;
+            padding: 15px;
+            border-radius: 15px;
             transition: all 0.3s ease;
+            font-size: 1.1em;
+            position: relative;
         }
 
-        .calendar-date.wedding-day {
-            background: linear-gradient(135deg, #8b5f8d 0%, #d4a6c8 100%);
-            color: white;
+        .calendar-date.wedding-date {
+            background: linear-gradient(135deg, #d4af37, #f0e6d2);
+            color: #0a3d1c;
             transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(139, 95, 141, 0.4);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+            font-weight: 700;
+            z-index: 2;
         }
 
-        /* Schedule Styles */
-        .schedule-section {
-            background: linear-gradient(135deg, #f9f0ff 0%, #fff0f8 100%);
-            padding: 80px 20px;
+        .calendar-date.wedding-date::after {
+            content: '💍';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 1.2em;
+        }
+
+        /* Luxury Schedule */
+        .luxury-schedule {
+            padding: 100px 20px;
+            background: rgba(10, 61, 28, 0.8);
         }
 
         .schedule-item {
-            background: white;
-            margin: 20px auto;
-            padding: 30px;
-            border-radius: 15px;
-            max-width: 600px;
-            box-shadow: 0 5px 20px rgba(139, 95, 141, 0.1);
-            border-left: 4px solid #d4a6c8;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin: 60px 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .schedule-image {
+            background: linear-gradient(135deg, #d4af37, #f0e6d2);
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: #0a3d1c;
+            border: 3px solid #d4af37;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .schedule-content {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(10px);
         }
 
         .schedule-time {
-            font-size: 1.3em;
-            color: #8b5f8d;
+            font-size: 1.8em;
+            color: #d4af37;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
         }
 
         .schedule-event {
-            font-size: 1.1em;
-            color: #5d4157;
+            font-size: 1.3em;
+            color: #f0e6d2;
+            line-height: 1.8;
         }
 
-        /* Footer */
-        .footer {
-            background: linear-gradient(135deg, #8b5f8d 0%, #6a4a6b 100%);
-            color: white;
-            padding: 40px 20px;
+        /* Luxury Footer */
+        .luxury-footer {
+            background: linear-gradient(135deg, #0a3d1c, #1a5c2c);
+            padding: 60px 20px;
             text-align: center;
+            border-top: 3px solid #d4af37;
         }
 
-        .heart {
-            color: #ff6b94;
-            animation: heartbeat 1.5s ease-in-out infinite;
+        .footer-text {
+            font-size: 1.5em;
+            color: #f0e6d2;
+            margin-bottom: 20px;
         }
 
-        @keyframes heartbeat {
+        .gold-heart {
+            color: #d4af37;
+            font-size: 2em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .names { font-size: 3em; }
-            .timer { gap: 10px; }
-            .timer-unit { min-width: 80px; padding: 15px; }
-            .timer-number { font-size: 2em; }
+            .timer-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+            .schedule-item { grid-template-columns: 1fr; gap: 30px; }
+            .schedule-image { height: 200px; font-size: 3em; }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="header">
+    <!-- Luxury Header -->
+    <header class="luxury-header">
         <div class="container">
-            <div class="names">Айжан & Жанбулат</div>
-            <div class="wedding-title">Приглашают на свадьбу</div>
-            <div class="date">28 ноября 2025 года</div>
+            <div class="names">Айжан & Жалгас</div>
+            <div class="invitation-text">С Любовью Приглашают</div>
+            <div class="wedding-date">28 Ноября 2024 Года</div>
         </div>
     </header>
 
-    <!-- Timer Section -->
-    <section class="timer-section">
+    <!-- Luxury Timer -->
+    <section class="luxury-timer">
         <div class="container">
-            <h2 class="section-title">До нашего дня осталось</h2>
-            <div class="timer" id="weddingTimer">
-                <div class="timer-unit">
+            <h2 class="timer-title">До Нашего Торжества</h2>
+            <div class="timer-grid" id="weddingTimer">
+                <div class="timer-card">
                     <span class="timer-number" id="days">00</span>
-                    <span class="timer-label">дней</span>
+                    <span class="timer-label">Дней</span>
                 </div>
-                <div class="timer-unit">
+                <div class="timer-card">
                     <span class="timer-number" id="hours">00</span>
-                    <span class="timer-label">часов</span>
+                    <span class="timer-label">Часов</span>
                 </div>
-                <div class="timer-unit">
+                <div class="timer-card">
                     <span class="timer-number" id="minutes">00</span>
-                    <span class="timer-label">минут</span>
+                    <span class="timer-label">Минут</span>
                 </div>
-                <div class="timer-unit">
+                <div class="timer-card">
                     <span class="timer-number" id="seconds">00</span>
-                    <span class="timer-label">секунд</span>
+                    <span class="timer-label">Секунд</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Calendar Section -->
-    <section class="calendar-section">
+    <!-- Luxury Calendar -->
+    <section class="luxury-calendar">
         <div class="container">
-            <h2 class="section-title">Ноябрь 2024</h2>
-            <div class="calendar">
-                <div class="calendar-header">Ноябрь</div>
+            <h2 class="timer-title">Ноябрь 2024</h2>
+            <div class="calendar-container">
+                <div class="calendar-month">Ноябрь</div>
                 <div class="calendar-grid" id="novemberCalendar">
                     <!-- Calendar will be generated by JavaScript -->
                 </div>
@@ -268,48 +365,67 @@
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section class="schedule-section">
+    <!-- Luxury Schedule -->
+    <section class="luxury-schedule">
         <div class="container">
-            <h2 class="section-title">Распорядок дня</h2>
+            <h2 class="timer-title">Расписание Торжества</h2>
             
             <div class="schedule-item">
-                <div class="schedule-time">15:00 - 16:00</div>
-                <div class="schedule-event">Сбор гостей, фуршет</div>
+                <div class="schedule-image">🏰</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">15:00 - 16:00</div>
+                    <div class="schedule-event">Приветственный фуршет с шампанским и канапе в Золотом Зале</div>
+                </div>
             </div>
 
             <div class="schedule-item">
-                <div class="schedule-time">16:00 - 16:30</div>
-                <div class="schedule-event">Торжественная церемония</div>
+                <div class="schedule-image">💒</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">16:00 - 16:30</div>
+                    <div class="schedule-event">Торжественная церемония бракосочетания с казахскими традициями</div>
+                </div>
             </div>
 
             <div class="schedule-item">
-                <div class="schedule-time">16:30 - 18:00</div>
-                <div class="schedule-event">Фотосессия, congratulations</div>
+                <div class="schedule-image">📸</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">16:30 - 18:00</div>
+                    <div class="schedule-event">Фотосессия в национальных костюмах и праздничные поздравления</div>
+                </div>
             </div>
 
             <div class="schedule-item">
-                <div class="schedule-time">18:00 - 19:00</div>
-                <div class="schedule-event">Свадебный ужин</div>
+                <div class="schedule-image">🍽️</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">18:00 - 20:00</div>
+                    <div class="schedule-event">Роскошный свадебный банкет с национальной кухней</div>
+                </div>
             </div>
 
             <div class="schedule-item">
-                <div class="schedule-time">19:00 - 22:00</div>
-                <div class="schedule-event">Танцы, развлекательная программа</div>
+                <div class="schedule-image">💃</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">20:00 - 23:00</div>
+                    <div class="schedule-event">Танцевальная программа с живой музыкой и традиционные обряды</div>
+                </div>
             </div>
 
             <div class="schedule-item">
-                <div class="schedule-time">22:00</div>
-                <div class="schedule-event">Завершение праздника</div>
+                <div class="schedule-image">🎆</div>
+                <div class="schedule-content">
+                    <div class="schedule-time">23:00</div>
+                    <div class="schedule-event">Фейерверк и завершение праздника</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Luxury Footer -->
+    <footer class="luxury-footer">
         <div class="container">
-            <p>С любовью, Айжан и Жанбулат</p>
-            <p>Ждём вас на нашем празднике! <span class="heart">❤</span></p>
+            <p class="footer-text">С благодарностью и любовью,</p>
+            <p class="footer-text">Айжан и Жалгас</p>
+            <p class="footer-text">Ждём вас на нашем празднике! <span class="gold-heart">❤</span></p>
         </div>
     </footer>
 
@@ -333,20 +449,20 @@
             }
         }
 
-        // Calendar generation for November 2024
+        // Luxury Calendar generation
         function generateCalendar() {
             const calendarGrid = document.getElementById('novemberCalendar');
-            const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            const daysOfWeek = ['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'ВС'];
             
             // Add day names
             daysOfWeek.forEach(day => {
                 const dayElement = document.createElement('div');
-                dayElement.className = 'calendar-day';
+                dayElement.className = 'calendar-day-name';
                 dayElement.textContent = day;
                 calendarGrid.appendChild(dayElement);
             });
 
-            // November 2024 starts on Friday (5th day of week array)
+            // November 2024 starts on Friday (5th position in array)
             const startDay = 5;
             const daysInMonth = 30;
             const weddingDay = 28;
@@ -365,15 +481,14 @@
                 dateElement.textContent = day;
                 
                 if (day === weddingDay) {
-                    dateElement.classList.add('wedding-day');
-                    dateElement.innerHTML = `${day}<br><small>Свадьба!</small>`;
+                    dateElement.classList.add('wedding-date');
                 }
                 
                 calendarGrid.appendChild(dateElement);
             }
         }
 
-        // Initialize everything when page loads
+        // Initialize everything
         document.addEventListener('DOMContentLoaded', function() {
             updateTimer();
             generateCalendar();
