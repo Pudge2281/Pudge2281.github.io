@@ -229,8 +229,8 @@
       }
     }
   </script>
-  
-  <audio id="wedding-music" autoplay loop>
+<!-- 🎵 Музыка -->
+<audio id="wedding-music" autoplay loop>
   <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
   Ваш браузер не поддерживает аудио.
 </audio>
@@ -238,7 +238,7 @@
 <script>
   // Устанавливаем громкость и автозапуск
   const music = document.getElementById("wedding-music");
-  music.volume = 0.2; // 0.2 = 20% громкости
+  music.volume = 0.2; // 20% громкости
 
   // Иногда браузеры блокируют autoplay — включаем при первом клике
   document.addEventListener("click", () => {
