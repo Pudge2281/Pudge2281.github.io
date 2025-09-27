@@ -3,26 +3,382 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Приглашение на нашу свадьбу!</title>
+    <title>Айжан & Жанбулат - Приглашение на свадьбу</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f9f9f9;
-            color: #333;
-            padding: 50px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        h1 {
-            color: #d4a76a;
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f9f0ff 0%, #fff0f8 100%);
+            color: #5d4157;
+            line-height: 1.6;
+            background-image: url('data:image/svg+xml,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23f0e6ff" opacity="0.3"/></svg>');
+            background-size: 200px 200px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #8b5f8d 0%, #d4a6c8 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M30,5 C40,5 45,15 45,30 C45,45 40,55 30,55 C20,55 15,45 15,30 C15,15 20,5 30,5 Z" fill="white" opacity="0.1"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5em;
+            font-weight: 500;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .wedding-title {
+            font-size: 1.8em;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .date {
+            font-size: 1.4em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Timer Styles */
+        .timer-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 5px 25px rgba(139, 95, 141, 0.1);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+            color: #8b5f8d;
+            margin-bottom: 40px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timer-unit {
+            background: linear-gradient(135deg, #f0e6ff 0%, #e6d4f5 100%);
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 100px;
+            box-shadow: 0 5px 15px rgba(139, 95, 141, 0.2);
+        }
+
+        .timer-number {
+            font-size: 2.5em;
+            font-weight: 600;
+            color: #8b5f8d;
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 0.9em;
+            color: #7a5a7d;
+            margin-top: 5px;
+        }
+
+        /* Calendar Styles */
+        .calendar-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .calendar {
+            max-width: 400px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(139, 95, 141, 0.15);
+        }
+
+        .calendar-header {
+            font-size: 1.5em;
+            color: #8b5f8d;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            font-weight: 500;
+            color: #7a5a7d;
+        }
+
+        .calendar-date {
+            padding: 12px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .calendar-date.wedding-day {
+            background: linear-gradient(135deg, #8b5f8d 0%, #d4a6c8 100%);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(139, 95, 141, 0.4);
+        }
+
+        /* Schedule Styles */
+        .schedule-section {
+            background: linear-gradient(135deg, #f9f0ff 0%, #fff0f8 100%);
+            padding: 80px 20px;
+        }
+
+        .schedule-item {
+            background: white;
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            box-shadow: 0 5px 20px rgba(139, 95, 141, 0.1);
+            border-left: 4px solid #d4a6c8;
+        }
+
+        .schedule-time {
+            font-size: 1.3em;
+            color: #8b5f8d;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .schedule-event {
+            font-size: 1.1em;
+            color: #5d4157;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #8b5f8d 0%, #6a4a6b 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .heart {
+            color: #ff6b94;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .names { font-size: 3em; }
+            .timer { gap: 10px; }
+            .timer-unit { min-width: 80px; padding: 15px; }
+            .timer-number { font-size: 2em; }
         }
     </style>
 </head>
 <body>
-    <h1>Мы женимся!</h1>
-    <p>Катя и Иван</p>
-    <p>Приглашаем вас отпраздновать этот особенный день вместе с нами!</p>
-    <p><strong>Дата:</strong> 7 сентября 2024 года</p>
-    <p><strong>Место:</strong> Ресторан "Подсолнух"</p>
-    <!-- Добавляйте сюда свою информацию -->
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="names">Айжан & Жанбулат</div>
+            <div class="wedding-title">Приглашают на свадьбу</div>
+            <div class="date">28 ноября 2024 года</div>
+        </div>
+    </header>
+
+    <!-- Timer Section -->
+    <section class="timer-section">
+        <div class="container">
+            <h2 class="section-title">До нашего дня осталось</h2>
+            <div class="timer" id="weddingTimer">
+                <div class="timer-unit">
+                    <span class="timer-number" id="days">00</span>
+                    <span class="timer-label">дней</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-number" id="hours">00</span>
+                    <span class="timer-label">часов</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-number" id="minutes">00</span>
+                    <span class="timer-label">минут</span>
+                </div>
+                <div class="timer-unit">
+                    <span class="timer-number" id="seconds">00</span>
+                    <span class="timer-label">секунд</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="calendar-section">
+        <div class="container">
+            <h2 class="section-title">Ноябрь 2024</h2>
+            <div class="calendar">
+                <div class="calendar-header">Ноябрь</div>
+                <div class="calendar-grid" id="novemberCalendar">
+                    <!-- Calendar will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section class="schedule-section">
+        <div class="container">
+            <h2 class="section-title">Распорядок дня</h2>
+            
+            <div class="schedule-item">
+                <div class="schedule-time">15:00 - 16:00</div>
+                <div class="schedule-event">Сбор гостей, фуршет</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">16:00 - 16:30</div>
+                <div class="schedule-event">Торжественная церемония</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">16:30 - 18:00</div>
+                <div class="schedule-event">Фотосессия, congratulations</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">18:00 - 19:00</div>
+                <div class="schedule-event">Свадебный ужин</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">19:00 - 22:00</div>
+                <div class="schedule-event">Танцы, развлекательная программа</div>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-time">22:00</div>
+                <div class="schedule-event">Завершение праздника</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>С любовью, Айжан и Жанбулат</p>
+            <p>Ждём вас на нашем празднике! <span class="heart">❤</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Timer functionality
+        function updateTimer() {
+            const weddingDate = new Date('2024-11-28T16:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+        }
+
+        // Calendar generation for November 2024
+        function generateCalendar() {
+            const calendarGrid = document.getElementById('novemberCalendar');
+            const daysOfWeek = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
+            
+            // Add day names
+            daysOfWeek.forEach(day => {
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day;
+                calendarGrid.appendChild(dayElement);
+            });
+
+            // November 2024 starts on Friday (5th day of week array)
+            const startDay = 5;
+            const daysInMonth = 30;
+            const weddingDay = 28;
+
+            // Add empty cells for days before the start of the month
+            for (let i = 0; i < startDay - 1; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.className = 'calendar-date';
+                calendarGrid.appendChild(emptyCell);
+            }
+
+            // Add days of the month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dateElement = document.createElement('div');
+                dateElement.className = 'calendar-date';
+                dateElement.textContent = day;
+                
+                if (day === weddingDay) {
+                    dateElement.classList.add('wedding-day');
+                    dateElement.innerHTML = `${day}<br><small>Свадьба!</small>`;
+                }
+                
+                calendarGrid.appendChild(dateElement);
+            }
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTimer();
+            generateCalendar();
+            setInterval(updateTimer, 1000);
+        });
+    </script>
 </body>
 </html>
