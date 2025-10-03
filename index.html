@@ -14,23 +14,23 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.9);
       margin: 30px auto;
       padding: 20px;
-      max-width: 800px;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 850px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
     }
 
     h1 {
-      font-size: 32px;
-      margin-bottom: 15px;
+      font-size: 36px;
+      margin-bottom: 10px;
+      color: #b30059;
     }
 
     h2 {
-      font-size: 26px;
-      margin-top: 0;
-      color: #b30059;
+      font-size: 28px;
+      margin: 15px 0;
     }
 
     p {
@@ -38,18 +38,19 @@
       line-height: 1.6;
     }
 
+    /* Календарь */
     .calendar {
       display: inline-block;
-      border: 2px solid #b30059;
-      border-radius: 10px;
-      padding: 15px;
+      border-radius: 15px;
+      padding: 20px;
       margin: 20px 0;
       background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
     }
 
     .calendar h3 {
       margin: 0 0 10px;
-      font-size: 20px;
+      font-size: 22px;
       color: #333;
     }
 
@@ -59,16 +60,20 @@
     }
 
     .calendar th, .calendar td {
-      padding: 8px;
+      padding: 12px;
       text-align: center;
       font-size: 16px;
+    }
+
+    .calendar th {
+      color: #b30059;
     }
 
     .calendar .highlight {
       background: #b30059;
       color: #fff;
       font-weight: bold;
-      border-radius: 5px;
+      border-radius: 50%;
     }
 
     .location {
@@ -79,13 +84,18 @@
 
     .btn {
       display: inline-block;
-      margin: 10px 0;
-      padding: 12px 20px;
+      margin: 10px;
+      padding: 12px 25px;
       background: #b30059;
       color: #fff;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #800040;
     }
 
     .schedule {
@@ -96,15 +106,33 @@
       line-height: 1.8;
     }
 
+    /* Таймер */
     .timer {
-      font-size: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
       margin: 20px 0;
-      padding: 15px;
-      border: 3px solid #333;
-      border-radius: 15px;
-      display: inline-block;
+    }
+
+    .timer .time-box {
       background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border: 3px solid #b30059;
+      border-radius: 15px;
+      padding: 20px;
+      width: 100px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    .timer .time-box span {
+      display: block;
+      font-size: 28px;
+      font-weight: bold;
+      color: #b30059;
+    }
+
+    .timer .time-box small {
+      font-size: 14px;
+      color: #333;
     }
 
     audio {
@@ -154,7 +182,8 @@
 
     <!-- Мекен-жай -->
     <div class="location">Мекен-жайымыз: Ресторан "Хан Шахар"</div>
-    <a href="https://2gis.kz" target="_blank" class="btn">Картада көру (2ГИС)</a>
+    <a href="https://go.2gis.com/2x57k" target="_blank" class="btn">Картада көру (2ГИС)</a>
+    <a href="tel:+77001234567" class="btn">Телефон соғу</a>
 
     <!-- Расписание -->
     <div class="schedule">
@@ -169,7 +198,12 @@
     </div>
 
     <!-- Таймер -->
-    <div class="timer" id="timer">Жүктелуде...</div>
+    <div class="timer">
+      <div class="time-box"><span id="days">0</span><small>күн</small></div>
+      <div class="time-box"><span id="hours">0</span><small>сағ</small></div>
+      <div class="time-box"><span id="minutes">0</span><small>мин</small></div>
+      <div class="time-box"><span id="seconds">0</span><small>сек</small></div>
+    </div>
 
     <!-- Музыка -->
     <audio controls autoplay loop>
@@ -188,7 +222,7 @@
 
       if (distance < 0) {
         clearInterval(timerFunc);
-        document.getElementById("timer").innerHTML = "Мереке басталды!";
+        document.querySelector(".timer").innerHTML = "<h3>Мереке басталды!</h3>";
         return;
       }
 
@@ -197,8 +231,10 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("timer").innerHTML =
-        days + " күн " + hours + " сағ " + minutes + " мин " + seconds + " сек ";
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
     }, 1000);
   </script>
 </body>
