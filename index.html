@@ -2,131 +2,188 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <title>Айжан Қыз ұзату</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Айжан – Қыз ұзату</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: #fffdf8;
-      text-align: center;
       margin: 0;
-      padding: 0;
-    }
-
-    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      background: #fdfaf4 url('https://github.com/Pudge2281/Pudge2281.github.io/blob/main/1.png') no-repeat center center fixed;
+      background-size: cover;
+      background-attachment: fixed;
       color: #3a2e2a;
-      margin-top: 40px;
+      line-height: 1.6;
     }
-
-    /* Таймер */
-    .timer-box {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
-      border: 6px double #d4af37;
-      border-radius: 20px;
-      background: #fff8e7;
-      box-shadow: 0 0 20px rgba(212,175,55,0.5);
-      font-size: 20px;
-      margin: 20px auto;
-      width: fit-content;
-    }
-    .timer-box div {
+    header {
       text-align: center;
-      font-weight: bold;
-      color: #3a2e2a;
+      padding: 80px 20px 40px;
+      background: rgba(58,46,42,0.85);
+      color: #f5e2a9;
+      border-bottom: 6px solid #d4af37;
     }
-    .timer-box span {
-      font-size: 36px;
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 72px;
+      margin: 0;
+      letter-spacing: 2px;
       color: #d4af37;
-      display: block;
-      margin-bottom: 5px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
     }
-
-    /* Календарь */
-    .calendar {
-      display: inline-block;
-      border: 6px double #d4af37;
+    header p {
+      font-size: 26px;
+      margin-top: 15px;
+    }
+    .page {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fffdf8;
+      border: 12px double #d4af37;
       border-radius: 20px;
-      background: #fff8e7;
-      padding: 20px;
-      box-shadow: 0 0 20px rgba(212,175,55,0.5);
-      margin-top: 20px;
+      padding: 40px;
+      box-shadow: 0 0 30px rgba(212,175,55,0.4);
+      animation: fadeIn 1.5s ease;
     }
-    .calendar .month {
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    h2 {
       text-align: center;
-      font-weight: bold;
-      font-size: 24px;
-      margin-bottom: 15px;
-      color: #3a2e2a;
+      font-size: 38px;
+      color: #5a4633;
+      margin-bottom: 25px;
+      font-family: 'Great Vibes', cursive;
+      position: relative;
     }
-    .calendar .days {
-      display: grid;
-      grid-template-columns: repeat(7, 40px);
-      gap: 8px;
+    h2::after {
+      content: url('https://github.com/Pudge2281/Pudge2281.github.io/blob/main/2.svg');
+      display: block;
+      margin: 15px auto 0;
+    }
+    .countdown {
+      font-size: 28px;
+      color: #8b6c2c;
+      font-weight: bold;
+      margin: 20px auto;
+      border: 6px solid #d4af37;
+      border-radius: 50%;
+      width: 260px;
+      height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      box-shadow: 0 0 20px rgba(212,175,55,0.6), inset 0 0 15px rgba(0,0,0,0.1);
       text-align: center;
     }
-    .calendar .days span {
-      padding: 8px;
-      border-radius: 8px;
-      font-weight: bold;
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+      font-size: 20px;
     }
-    .calendar .highlight {
+    .calendar th {
+      color: #8b6c2c;
+      padding-bottom: 10px;
+    }
+    .calendar td {
+      padding: 12px;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #fff;
       background: #d4af37;
-      color: white;
+      border-radius: 50%;
+      padding: 10px 14px;
       box-shadow: 0 0 10px rgba(212,175,55,0.8);
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: rgba(58,46,42,0.9);
+      color: #f5e2a9;
+      font-size: 18px;
+      margin-top: 60px;
+      border-top: 6px solid #d4af37;
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>Айжан</h1>
+    <p>Қыз ұзату – 28 қараша 2025</p>
+  </header>
 
-  <h1>Айжан Қыз ұзату</h1>
-
-  <h2>Қалған уақыт</h2>
-  <div id="timer" class="timer-box">
-    <div><span id="days">00</span><br>күн</div>
-    <div><span id="hours">00</span><br>сағат</div>
-    <div><span id="minutes">00</span><br>минут</div>
-    <div><span id="seconds">00</span><br>секунд</div>
+  <div class="page">
+    <h2>Тойға дейін</h2>
+    <div class="countdown" id="countdown"></div>
   </div>
 
-  <h2>Күнтізбе</h2>
-  <div class="calendar">
-    <div class="month">Қазан 2025</div>
-    <div class="days">
-      <span>Пн</span><span>Сс</span><span>Ср</span><span>Бс</span><span>Жм</span><span>Сб</span><span>Жс</span>
-      <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
-      <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="highlight">11</span><span>12</span>
-      <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
-      <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
-      <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
-    </div>
+  <div class="page">
+    <h2>Құрметті қонақтар!</h2>
+    <p style="font-size:22px; text-align:center;">
+      Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат,  
+      дос-жаран, құрдастар, көршілер, ұжымдастар!  
+    </p>
+    <p style="font-size:22px; text-align:center; margin-top:15px;">
+      Сіздерді аяулы қызымыз <b>Айжанды</b>  
+      ыстық ұясынан қимастықпен ұзатуға арналған  
+      ақ дастарханымыздың қадірлі қонағы болуға  
+      шақырамыз!  
+    </p>
   </div>
+
+  <div class="page calendar">
+    <h2>Қараша 2025</h2>
+    <table>
+      <tr>
+        <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сб</th><th>Жс</th>
+      </tr>
+      <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+      <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+      <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+      <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+      <tr><td>24</td><td>25</td><td>26</td><td>27</td><td><span class="highlight">28</span></td><td>29</td><td>30</td></tr>
+    </table>
+  </div>
+
+  <!-- 🎵 Музыка -->
+  <audio id="wedding-music" autoplay loop>
+    <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
 
   <script>
-    // Таймер (на 11 октября 2025 18:00)
-    const targetDate = new Date("2025-10-11T18:00:00").getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
-
+    // Таймер
+    function updateCountdown() {
+      const weddingDate = new Date('2025-11-28T00:00:00+05:00');
+      const now = new Date();
+      const diff = weddingDate - now;
       if (diff <= 0) {
-        clearInterval(timer);
-        document.getElementById("timer").innerHTML = "<b>Мереке басталды!</b>";
+        document.getElementById('countdown').innerText = "Мереке басталды!";
         return;
       }
+      const days = Math.floor(diff / (1000*60*60*24));
+      const hours = Math.floor((diff / (1000*60*60)) % 24);
+      const minutes = Math.floor((diff / (1000*60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      document.getElementById('countdown').innerText =
+        days + " күн " + hours + " сағ\n" + minutes + " мин " + seconds + " сек";
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
-      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
-      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
-    }, 1000);
+    // Музыка
+    const music = document.getElementById("wedding-music");
+    music.volume = 0.2;
+    document.addEventListener("click", () => {
+      if (music.paused) music.play();
+    }, { once: true });
   </script>
 
+  <footer>
+    Айжан • Қыз ұзату • 28 қараша 2025
+  </footer>
 </body>
 </html>
