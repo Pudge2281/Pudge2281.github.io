@@ -2,249 +2,131 @@
 <html lang="kk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Айжан & Жалгас – Свадьба 28 қараша</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <title>Айжан Қыз ұзату</title>
   <style>
     body {
+      font-family: "Segoe UI", sans-serif;
+      background: #fffdf8;
+      text-align: center;
       margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      background: #fdfaf4 url('https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/1.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #3a2e2a;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-      background: rgba(58,46,42,0.85);
-      color: #f5e2a9;
-      border-bottom: 6px solid #d4af37;
-    }
-    header h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 72px;
-      margin: 0;
-      letter-spacing: 2px;
-      color: #d4af37;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-    }
-    header p {
-      font-size: 26px;
-      margin-top: 15px;
-    }
-    .page {
-      max-width: 900px;
-      margin: 50px auto;
-      background: rgba(255, 253, 248, 0.95);
-      border: 12px double #d4af37;
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: 0 0 30px rgba(212,175,55,0.4);
-      animation: fadeIn 1.5s ease;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(40px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-    h2 {
-      text-align: center;
-      font-size: 38px;
-      color: #5a4633;
-      margin-bottom: 25px;
-      font-family: 'Great Vibes', cursive;
-      position: relative;
-    }
-    h2::after {
-      content: url('https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/2.svg');
-      display: block;
-      margin: 15px auto 0;
-    }
-    .countdown {
-      font-size: 28px;
-      color: #8b6c2c;
-      font-weight: bold;
-      margin: 20px 0;
-      border: 4px solid #d4af37;
-      border-radius: 15px;
-      padding: 20px;
-      background: #fff;
-    }
-    .calendar table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: center;
-      font-size: 20px;
-    }
-    .calendar th {
-      color: #8b6c2c;
-      padding-bottom: 10px;
-    }
-    .calendar td {
-      padding: 12px;
-    }
-    .highlight {
-      font-weight: bold;
-      color: #fff;
-      background: #d4af37;
-      border-radius: 50%;
-      padding: 10px 14px;
-      box-shadow: 0 0 10px rgba(212,175,55,0.8);
-    }
-    .schedule ul {
-      list-style: none;
       padding: 0;
     }
-    .schedule li {
-      padding: 14px;
-      margin: 10px 0;
-      background: #fffdf8;
-      border-left: 6px solid #d4af37;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+    h2 {
+      color: #3a2e2a;
+      margin-top: 40px;
+    }
+
+    /* Таймер */
+    .timer-box {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      border: 6px double #d4af37;
+      border-radius: 20px;
+      background: #fff8e7;
+      box-shadow: 0 0 20px rgba(212,175,55,0.5);
       font-size: 20px;
+      margin: 20px auto;
+      width: fit-content;
     }
-    .rsvp-form input {
-      width: 80%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 2px solid #d4af37;
-      border-radius: 8px;
-      font-size: 18px;
-      font-family: 'Cormorant Garamond', serif;
-    }
-    .rsvp-form button {
-      background: #d4af37;
-      color: #fff;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 12px;
-      font-size: 20px;
-      font-family: 'Cormorant Garamond', serif;
-      cursor: pointer;
-      margin: 10px;
-      transition: background 0.3s;
-    }
-    .rsvp-form button:hover {
-      background: #b08c2b;
-    }
-    footer {
+    .timer-box div {
       text-align: center;
-      padding: 30px;
-      background: rgba(58,46,42,0.9);
-      color: #f5e2a9;
-      font-size: 18px;
-      margin-top: 60px;
-      border-top: 6px solid #d4af37;
+      font-weight: bold;
+      color: #3a2e2a;
+    }
+    .timer-box span {
+      font-size: 36px;
+      color: #d4af37;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Календарь */
+    .calendar {
+      display: inline-block;
+      border: 6px double #d4af37;
+      border-radius: 20px;
+      background: #fff8e7;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(212,175,55,0.5);
+      margin-top: 20px;
+    }
+    .calendar .month {
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #3a2e2a;
+    }
+    .calendar .days {
+      display: grid;
+      grid-template-columns: repeat(7, 40px);
+      gap: 8px;
+      text-align: center;
+    }
+    .calendar .days span {
+      padding: 8px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .calendar .highlight {
+      background: #d4af37;
+      color: white;
+      box-shadow: 0 0 10px rgba(212,175,55,0.8);
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Айжан & Жалгас</h1>
-    <p>Үйлену тойы – 28 қараша 2025</p>
-  </header>
 
-  <div class="page">
-    <h2>Тойға дейін</h2>
-    <div class="countdown" id="countdown"></div>
+  <h1>Айжан Қыз ұзату</h1>
+
+  <h2>Қалған уақыт</h2>
+  <div id="timer" class="timer-box">
+    <div><span id="days">00</span><br>күн</div>
+    <div><span id="hours">00</span><br>сағат</div>
+    <div><span id="minutes">00</span><br>минут</div>
+    <div><span id="seconds">00</span><br>секунд</div>
   </div>
 
-  <div class="page calendar">
-    <h2>Қараша 2025</h2>
-    <table>
-      <tr>
-        <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сб</th><th>Жс</th>
-      </tr>
-      <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
-      <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
-      <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
-      <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
-      <tr><td>24</td><td>25</td><td>26</td><td>27</td><td><span class="highlight">28</span></td><td>29</td><td>30</td></tr>
-    </table>
+  <h2>Күнтізбе</h2>
+  <div class="calendar">
+    <div class="month">Қазан 2025</div>
+    <div class="days">
+      <span>Пн</span><span>Сс</span><span>Ср</span><span>Бс</span><span>Жм</span><span>Сб</span><span>Жс</span>
+      <span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+      <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span class="highlight">11</span><span>12</span>
+      <span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+      <span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span>
+      <span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+    </div>
   </div>
-
-  <div class="page schedule">
-    <h2>Той бағдарламасы</h2>
-    <ul>
-      <li>16:00 – Қонақтарды қарсы алу</li>
-      <li>16:30 – Салтанатты ашылу рәсімі</li>
-      <li>17:00 – Қазақи дәстүрлі бата</li>
-      <li>17:30 – Айжан мен Жалгастың алғашқы биі</li>
-      <li>18:00 – Сыйлықтар мен құттықтаулар</li>
-      <li>19:00 – Дастархан, ұлттық тағамдар</li>
-      <li>20:30 – Қызықты ойындар мен байқаулар</li>
-      <li>22:00 – Концерттік бағдарлама</li>
-      <li>23:30 – Тойдың аяқталуы</li>
-    </ul>
-  </div>
-
-  <!-- 🎵 Музыка -->
-  <audio id="wedding-music" autoplay loop>
-    <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
-    Ваш браузер не поддерживает аудио.
-  </audio>
 
   <script>
-    const music = document.getElementById("wedding-music");
-    music.volume = 0.2;
+    // Таймер (на 11 октября 2025 18:00)
+    const targetDate = new Date("2025-10-11T18:00:00").getTime();
+    const timer = setInterval(() => {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
 
-    document.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-      }
-    }, { once: true });
-  </script>
-  
-  <div class="page">
-    <h2>RSVP – Қатысуыңызды растаңыз</h2>
-    <form class="rsvp-form" onsubmit="submitRSVP(event)">
-      <input type="text" id="name" placeholder="Атыңыз және тегі" required>
-      <br>
-      <button type="submit">Мен келемін</button>
-      <button type="button" onclick="declineRSVP()">Келе алмаймын</button>
-    </form>
-    <p id="rsvp-message" style="text-align:center; margin-top:15px; color:#5a4633; font-weight:bold;"></p>
-  </div>
-
-  <footer>
-    Айжан & Жалгас • 28 қараша 2025
-  </footer>
-
-  <script>
-    function updateCountdown() {
-      const weddingDate = new Date('2025-11-28T00:00:00+05:00');
-      const now = new Date();
-      const diff = weddingDate - now;
       if (diff <= 0) {
-        document.getElementById('countdown').innerText = "Той басталды!";
+        clearInterval(timer);
+        document.getElementById("timer").innerHTML = "<b>Мереке басталды!</b>";
         return;
       }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff / (1000*60*60)) % 24);
-      const minutes = Math.floor((diff / (1000*60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      document.getElementById('countdown').innerText =
-        "Қалған уақыт: " + days + " күн " + hours + " сағ " + minutes + " мин " + seconds + " сек";
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
 
-    function submitRSVP(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      document.getElementById('rsvp-message').innerText =
-        name + ", сіздің қатысуыңыз расталды! Рахмет.";
-      document.getElementById('name').value = '';
-    }
-    function declineRSVP() {
-      const name = document.getElementById('name').value;
-      if (name.trim() !== '') {
-        document.getElementById('rsvp-message').innerText =
-          name + ", сіз келе алмайтыныңызды ескердік.";
-        document.getElementById('name').value = '';
-      }
-    }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+    }, 1000);
   </script>
+
 </body>
 </html>
-
