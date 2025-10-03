@@ -9,9 +9,8 @@
     body {
       margin: 0;
       font-family: 'Cormorant Garamond', serif;
-      background: #fdfaf4 url('https://github.com/Pudge2281/Pudge2281.github.io/blob/main/1.png');
+      background: #fdfaf4 url('https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/1.png') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
       color: #3a2e2a;
       line-height: 1.6;
     }
@@ -37,7 +36,7 @@
     .page {
       max-width: 900px;
       margin: 50px auto;
-      background: #fffdf8;
+      background: rgba(255, 253, 248, 0.95);
       border: 12px double #d4af37;
       border-radius: 20px;
       padding: 40px;
@@ -57,7 +56,7 @@
       position: relative;
     }
     h2::after {
-      content: url('https://github.com/Pudge2281/Pudge2281.github.io/blob/main/2.svg');
+      content: url('https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/2.svg');
       display: block;
       margin: 15px auto 0;
     }
@@ -178,24 +177,23 @@
       <li>23:30 – Тойдың аяқталуы</li>
     </ul>
   </div>
-<!-- 🎵 Музыка -->
-<audio id="wedding-music" autoplay loop>
-  <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
-  Ваш браузер не поддерживает аудио.
-</audio>
 
-<script>
-  // Устанавливаем громкость и автозапуск
-  const music = document.getElementById("wedding-music");
-  music.volume = 0.2; // 20% громкости
+  <!-- 🎵 Музыка -->
+  <audio id="wedding-music" autoplay loop>
+    <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
 
-  // Иногда браузеры блокируют autoplay — включаем при первом клике
-  document.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-    }
-  }, { once: true });
-</script>
+  <script>
+    const music = document.getElementById("wedding-music");
+    music.volume = 0.2;
+
+    document.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+      }
+    }, { once: true });
+  </script>
   
   <div class="page">
     <h2>RSVP – Қатысуыңызды растаңыз</h2>
@@ -247,7 +245,6 @@
       }
     }
   </script>
-
-
 </body>
 </html>
+
