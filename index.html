@@ -132,32 +132,38 @@ document.getElementById("guestForm").addEventListener("submit", function(e) {
 });
 </script>
 
+<script>
+  function updateCountdown() {
+    const weddingDate = new Date('2025-11-28T00:00:00+05:00'); // дата события
+    const now = new Date();
+    const diff = weddingDate - now;
 
+    const countdownEl = document.getElementById('countdown');
+    if (!countdownEl) return; // если элемента нет, не выполняем
 
-  <script>
-    
-    // Обратный отсчет
-    function updateCountdown() {
-      const weddingDate = new Date('2025-11-28T00:00:00+05:00');
-      const now = new Date();
-      const diff = weddingDate - now;
-      if (diff <= 0) {
-        document.getElementById('countdown').innerText = "Той басталды!";
-        return;
-      }
-      const d = Math.floor(diff / (1000*60*60*24));
-      const h = Math.floor((diff / (1000*60*60)) % 24);
-      const m = Math.floor((diff / (1000*60)) % 60);
-      const s = Math.floor((diff / 1000) % 60);
-      document.getElementById('countdown').innerHTML = `
-        <div class="time-box">${d}<span>күн</span></div>
-        <div class="time-box">${h}<span>сағ</span></div>
-        <div class="time-box">${m}<span>мин</span></div>
-        <div class="time-box">${s}<span>сек</span></div>
-      `;
+    if (diff <= 0) {
+      countdownEl.innerText = "Той басталды! 🎉";
+      return;
     }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    countdownEl.innerHTML = `
+      <div class="time-box">${d}<span>күн</span></div>
+      <div class="time-box">${h}<span>сағ</span></div>
+      <div class="time-box">${m}<span>мин</span></div>
+      <div class="time-box">${s}<span>сек</span></div>
+    `;
+  }
+
+  // вызываем сразу и обновляем каждую секунду
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
 
     // Отправка формы
 function doPost(e) {
