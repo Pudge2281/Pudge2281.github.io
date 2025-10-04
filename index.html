@@ -108,7 +108,30 @@
   <button type="submit">Жіберу</button>
 </form>
 
-<p id="formMessage" style="text-align:center; margin-top:10px; color:goldenrod;"></p>
+<p id="formMessage" style="text-align:center; color:goldenrod;"></p>
+
+<script>
+document.getElementById("guestForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbymR8vXztyWVqvjsfbuEHW00bFp7VqedODVu1MXwBoeR8UdkVkFzp_ce_CJWNT5E-SP/exec", {
+    method: "POST",
+    body: formData,
+    mode: "no-cors" // добавлено, чтобы Google принял запрос без CORS-ошибки
+  })
+  .then(() => {
+    document.getElementById("formMessage").textContent = "Жауабыңыз сақталды!";
+    form.reset();
+  })
+  .catch(() => {
+    document.getElementById("formMessage").textContent = "Қате пайда болды.";
+  });
+});
+</script>
+
 
 
   <script>
@@ -136,28 +159,18 @@
     updateCountdown();
 
     // Отправка формы
-   <script>
-document.getElementById("guestForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
+function doPost(e) {
+  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const sheet = ss.getSheets()[0];
 
-  fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === 'ok') {
-      document.getElementById("formMessage").textContent = "Жауабыңыз сақталды!";
-      form.reset();
-    } else {
-      document.getElementById("formMessage").textContent = "Қате: " + data.message;
-    }
-  })
-  .catch(error => {
-    document.getElementById("formMessage").textContent = "Қате пайда болды: " + error;
-  });
-});
-</script>
+  const name = e.parameter.name || "";
+  const attendance = e.parameter.attendance || "";
+
+  sheet.appendRow([new Date(), name, attendance]);
+
+  return ContentService
+    .createTextOutput("OK")
+    .setMimeType(ContentService.MimeType.TEXT);
+}
+
 
