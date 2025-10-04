@@ -1,120 +1,120 @@
 body {
+  background: url('1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fce38a;
+  font-family: 'Great Vibes', cursive, sans-serif;
+  text-align: center;
   margin: 0;
   padding: 0;
-  background: url('1.jpg') center/cover no-repeat fixed;
-  font-family: 'Playfair Display', serif;
-  color: #ffd700;
-  text-align: center;
 }
 
-.invitation {
-  background: rgba(0, 0, 0, 0.5);
+.container {
+  background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
   margin: 40px auto;
-  padding: 40px;
-  width: 90%;
+  padding: 30px;
   max-width: 800px;
-  box-shadow: 0 0 25px gold;
+  box-shadow: 0 0 30px gold;
 }
 
 h1, h2, h3 {
-  font-family: 'Great Vibes', cursive;
-  color: #ffcc33;
-  text-shadow: 0 0 10px #fff5b7;
+  color: gold;
+  text-shadow: 0 0 10px #ffea00;
 }
 
-.calendar {
-  margin: 20px auto;
-  background: rgba(255, 215, 0, 0.1);
-  border: 2px solid gold;
-  border-radius: 12px;
-  display: inline-block;
-  padding: 10px;
+.inv-text {
+  font-size: 20px;
+  margin: 10px 0;
 }
-.calendar-header {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.calendar-body {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-.calendar-body div {
-  padding: 10px 15px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-}
-.calendar-body .active {
-  background: gold;
-  color: black;
+
+.name {
+  font-size: 26px;
+  color: #ffd700;
   font-weight: bold;
 }
 
-.place img.map-icon {
-  width: 140px;
-  margin-top: 10px;
-  border-radius: 10px;
+.map-icon {
+  width: 100px;
+  margin: 10px;
   transition: transform 0.3s;
 }
-.place img.map-icon:hover {
-  transform: scale(1.05);
+.map-icon:hover {
+  transform: scale(1.1);
 }
 
-.timer {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin: 20px 0;
+.events {
+  list-style: none;
+  padding: 0;
+  font-size: 20px;
 }
-.timer-box {
+.events li {
+  margin: 5px 0;
+  background: rgba(255, 215, 0, 0.15);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+#calendar {
+  display: inline-block;
   background: rgba(255, 215, 0, 0.15);
   border: 2px solid gold;
   border-radius: 15px;
   padding: 15px;
-  width: 80px;
-  box-shadow: 0 0 15px rgba(255, 223, 0, 0.5);
+  margin: 15px auto;
 }
-.timer-box span {
-  font-size: 1.8em;
-  display: block;
+#calendar table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff7c0;
 }
-.timer-box p {
-  margin: 0;
-  font-size: 0.9em;
+#calendar th, #calendar td {
+  padding: 5px;
 }
-
-.rsvp-form {
-  margin-top: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.rsvp-form input[type="text"] {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid gold;
-  width: 80%;
-  max-width: 300px;
-  margin-bottom: 15px;
-}
-.rsvp-form label {
-  margin-right: 10px;
-}
-.rsvp-form button {
-  padding: 10px 20px;
+.highlight {
   background: gold;
   color: black;
-  font-weight: bold;
-  border: none;
+  border-radius: 50%;
+}
+
+.timer {
+  margin-top: 20px;
+  border: 2px solid gold;
+  border-radius: 15px;
+  display: inline-block;
+  padding: 15px;
+  background: rgba(255, 215, 0, 0.1);
+}
+.clock span {
+  font-size: 28px;
+  color: #ffe66d;
+  margin: 0 4px;
+}
+
+form {
+  margin-top: 25px;
+}
+input[type="text"] {
+  padding: 8px;
   border-radius: 10px;
+  border: 1px solid gold;
+  font-size: 16px;
+}
+.options {
+  margin: 10px 0;
+}
+button {
+  background: gold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  color: #333;
   cursor: pointer;
-  transition: 0.3s;
 }
-.rsvp-form button:hover {
-  background: #fff5b7;
+button:hover {
+  background: #ffef8f;
 }
-#status {
+#responseMsg {
+  color: #fff8dc;
   margin-top: 10px;
-  font-style: italic;
 }
