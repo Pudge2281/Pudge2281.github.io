@@ -1,103 +1,119 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Айжанның қыз ұзатуы</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Қыз ұзату - Айжан</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Фоновая музыка -->
   <audio autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <div class="invitation">
+  <div class="container">
     <h1>Құрметті қонақтар!</h1>
     <h2>Қыз ұзату</h2>
-    <p>Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
+    <p class="inv-text">
+      Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!
+    </p>
+    <p class="inv-text">
+      Сіздерді аяулы қызымыз<br><span class="name">Айжан</span><br>
+      ыстық ұясынан құтты босағасына ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+    </p>
 
-    <p>Сіздерді аяулы қызымыз</p>
-    <h3>Айжан</h3>
-    <p>ыстық ұясынан құтты босағасына ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+    <div class="event-info">
+      <p><strong>Басталу уақыты:</strong> 28 қараша 2025 жыл</p>
+      <div id="calendar"></div>
 
-    <p><strong>Басталу уақыты:</strong> 28 қараша 2025 жыл</p>
-
-    <div class="calendar">
-      <div class="calendar-header">Қараша 2025</div>
-      <div class="calendar-body">
-        <div>27</div>
-        <div class="active">28</div>
-        <div>29</div>
-      </div>
-    </div>
-
-    <div class="place">
       <p><strong>Мекен-жайымыз:</strong> Aktau Palace</p>
-      <a href="https://2gis.kz/aktau/inside/1234567890123456" target="_blank">
-        <img src="2gis.png" alt="2ГИС картасы" class="map-icon">
+      <a href="https://2gis.kz/aktau/firm/70000001041466093" target="_blank">
+        <img src="2gis.png" alt="2GIS" class="map-icon" />
       </a>
     </div>
 
-    <h2>Мерекелік бағдарлама</h2>
+    <h3>Мерекелік бағдарлама</h3>
+    <ul class="events">
+      <li>Қонақтарды қарсы алу</li>
+      <li>Салтанатты ашылу</li>
+      <li>Той иелерінің сөзі</li>
+      <li>Би және көңілді ойындар</li>
+      <li>Арнайы ән мен би нөмірлері</li>
+      <li>Торт және естелік фотосессия</li>
+    </ul>
 
-    <div id="timer" class="timer"></div>
+    <div class="timer">
+      <h3>Тойға дейін қалған уақыт</h3>
+      <div id="countdown"></div>
+    </div>
 
-    <form id="rsvpForm" class="rsvp-form">
-      <label for="name">Атыңыз (ФИО):</label>
-      <input type="text" id="name" name="name" required>
-
-      <div class="attendance">
-        <label><input type="radio" name="attendance" value="Приду" required> Приду</label>
-        <label><input type="radio" name="attendance" value="Не приду"> Не приду</label>
+    <form id="rsvpForm">
+      <h3>Қатысуыңызды растаңыз</h3>
+      <input type="text" id="name" name="name" placeholder="Атыңызды енгізіңіз" required />
+      <div class="options">
+        <label><input type="radio" name="attendance" value="Приду" required /> Приду</label>
+        <label><input type="radio" name="attendance" value="Келе алмаймын" required /> Келе алмаймын</label>
       </div>
-
       <button type="submit">Жіберу</button>
-      <p id="status"></p>
+      <p id="responseMsg"></p>
     </form>
   </div>
 
   <script>
-    // Таймер
-    const eventDate = new Date("November 28, 2025 18:00:00").getTime();
-    const timer = document.getElementById("timer");
+    // Календарь
+    const calendar = document.getElementById('calendar');
+    const date = new Date(2025, 10); // Ноябрь 2025
+    const month = date.toLocaleString('kk-KZ', { month: 'long' });
+    let html = `<h4>${month} 2025</h4><table><tr>`;
+    const days = ['Дс','Сс','Ср','Бс','Жм','Сб','Жс'];
+    days.forEach(d => html += `<th>${d}</th>`);
+    html += '</tr><tr>';
+    const startDay = new Date(2025, 10, 1).getDay();
+    const offset = startDay === 0 ? 6 : startDay - 1;
+    for (let i = 0; i < offset; i++) html += '<td></td>';
+    for (let d = 1; d <= 30; d++) {
+      if ((i + offset) % 7 === 0) html += '</tr><tr>';
+      html += d === 28 ? `<td class="highlight">${d}</td>` : `<td>${d}</td>`;
+      i++;
+    }
+    html += '</tr></table>';
+    calendar.innerHTML = html;
 
+    // Таймер
+    const targetDate = new Date("2025-11-28T18:00:00").getTime();
+    const countdown = document.getElementById("countdown");
     setInterval(() => {
       const now = new Date().getTime();
-      const distance = eventDate - now;
-
-      if (distance < 0) {
-        timer.innerHTML = "Той басталды!";
+      const diff = targetDate - now;
+      if (diff <= 0) {
+        countdown.innerHTML = "Той басталды!";
         return;
       }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      timer.innerHTML = `
-        <div class="timer-box"><span>${days}</span><p>күн</p></div>
-        <div class="timer-box"><span>${hours}</span><p>сағат</p></div>
-        <div class="timer-box"><span>${minutes}</span><p>минут</p></div>
-        <div class="timer-box"><span>${seconds}</span><p>секунд</p></div>
-      `;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const mins = Math.floor((diff / (1000 * 60)) % 60);
+      const secs = Math.floor((diff / 1000) % 60);
+      countdown.innerHTML = `<div class="clock"><span>${days}</span> күн <span>${hours}</span> сағ <span>${mins}</span> мин <span>${secs}</span> сек</div>`;
     }, 1000);
 
     // Отправка формы
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxgS14uWUx05c1jyZB0670AFrdvz7wuJ0lGgLEKON-3vorFG6929HwkXAfbeM5uWcuf/exec";
-    const form = document.getElementById("rsvpForm");
-    const status = document.getElementById("status");
-
-    form.addEventListener("submit", e => {
+    const form = document.getElementById('rsvpForm');
+    form.addEventListener('submit', e => {
       e.preventDefault();
       const data = new FormData(form);
-      fetch(scriptURL, { method: "POST", body: data })
-        .then(() => {
-          status.textContent = "✅ Жауабыңыз жіберілді!";
-          form.reset();
-        })
-        .catch(() => status.textContent = "⚠️ Қате! Қайта байқап көріңіз.");
+      fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(res => {
+        document.getElementById('responseMsg').innerText = "Рақмет! Жауабыңыз жіберілді 💌";
+        form.reset();
+      })
+      .catch(() => {
+        document.getElementById('responseMsg').innerText = "Қате! Кейінірек қайталап көріңіз.";
+      });
     });
   </script>
 </body>
