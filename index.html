@@ -1,120 +1,133 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Қыз ұзату - Айжан</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Қыз ұзату – Айжан</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Фоновая музыка -->
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
+  <!-- Фон и музыка -->
+  <audio id="bg-music" autoplay loop>
+    <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.mp3" type="audio/mpeg">
   </audio>
 
+  <script>
+    const music = document.getElementById("bg-music");
+    music.volume = 0.3;
+    document.addEventListener("click", () => {
+      if (music.paused) music.play();
+    }, { once: true });
+  </script>
+
   <div class="container">
-    <h1>Құрметті қонақтар!</h1>
-    <h2>Қыз ұзату</h2>
-    <p class="inv-text">
-      Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!
-    </p>
-    <p class="inv-text">
-      Сіздерді аяулы қызымыз<br><span class="name">Айжан</span><br>
-      ыстық ұясынан құтты босағасына ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
-    </p>
+    <section class="invitation">
+      <h1>Құрметті қонақтар!</h1>
+      <p>
+        Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!<br><br>
+        Сіздерді аяулы қызымыз<br>
+        <span class="highlight">Айжан</span><br>
+        ыстық ұясынан құтты босағасына ұзату тойына арналған<br>
+        ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+      </p>
+    </section>
 
-    <div class="event-info">
-      <p><strong>Басталу уақыты:</strong> 28 қараша 2025 жыл</p>
-      <div id="calendar"></div>
-
-      <p><strong>Мекен-жайымыз:</strong> Aktau Palace</p>
-      <a href="https://2gis.kz/aktau/firm/70000001041466093" target="_blank">
-        <img src="2gis.png" alt="2GIS" class="map-icon" />
+    <section class="venue">
+      <h2>Мекен жайымыз</h2>
+      <p><strong>Aktau Palace</strong></p>
+      <a href="https://2gis.kz/aktau/firm/70000001043232040" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/2GIS_logo.svg" alt="2ГИС" class="map-icon">
       </a>
-    </div>
+    </section>
 
-    <h3>Мерекелік бағдарлама</h3>
-    <ul class="events">
-      <li>Қонақтарды қарсы алу</li>
-      <li>Салтанатты ашылу</li>
-      <li>Той иелерінің сөзі</li>
-      <li>Би және көңілді ойындар</li>
-      <li>Арнайы ән мен би нөмірлері</li>
-      <li>Торт және естелік фотосессия</li>
-    </ul>
+    <section class="calendar-section">
+      <h2>Қараша 2025</h2>
+      <table class="calendar">
+        <tr><th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сб</th><th>Жс</th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+        <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+        <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+        <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+        <tr><td>24</td><td>25</td><td>26</td><td>27</td><td><span class="highlight-day">28</span></td><td>29</td><td>30</td></tr>
+      </table>
+    </section>
 
-    <div class="timer">
-      <h3>Тойға дейін қалған уақыт</h3>
+    <section class="schedule">
+      <h2>Мерекелік бағдарлама</h2>
+      <ul>
+        <li>Қонақтарды қарсы алу</li>
+        <li>Салтанатты рәсім</li>
+        <li>Бата және тілек</li>
+        <li>Айжанның алғашқы биі</li>
+        <li>Қызықты ойындар мен сыйлықтар</li>
+        <li>Түнгі көңілді би бағдарламасы</li>
+      </ul>
+    </section>
+
+    <section class="countdown-section">
+      <h2>Тойға дейін қалған уақыт</h2>
       <div id="countdown"></div>
-    </div>
+    </section>
 
-    <form id="rsvpForm">
-      <h3>Қатысуыңызды растаңыз</h3>
-      <input type="text" id="name" name="name" placeholder="Атыңызды енгізіңіз" required />
-      <div class="options">
-        <label><input type="radio" name="attendance" value="Приду" required /> Приду</label>
-        <label><input type="radio" name="attendance" value="Келе алмаймын" required /> Келе алмаймын</label>
-      </div>
-      <button type="submit">Жіберу</button>
-      <p id="responseMsg"></p>
-    </form>
+    <section class="rsvp">
+      <h2>Қатысуыңызды растаңыз</h2>
+      <form id="rsvp-form">
+        <input type="text" id="name" placeholder="Атыңыз және тегі" required>
+        <div class="radio-group">
+          <label><input type="radio" name="attendance" value="Келемін" required> Келемін</label>
+          <label><input type="radio" name="attendance" value="Келе алмаймын"> Келе алмаймын</label>
+        </div>
+        <button type="submit">Жіберу</button>
+      </form>
+      <p id="form-message"></p>
+    </section>
   </div>
 
   <script>
-    // Календарь
-    const calendar = document.getElementById('calendar');
-    const date = new Date(2025, 10); // Ноябрь 2025
-    const month = date.toLocaleString('kk-KZ', { month: 'long' });
-    let html = `<h4>${month} 2025</h4><table><tr>`;
-    const days = ['Дс','Сс','Ср','Бс','Жм','Сб','Жс'];
-    days.forEach(d => html += `<th>${d}</th>`);
-    html += '</tr><tr>';
-    const startDay = new Date(2025, 10, 1).getDay();
-    const offset = startDay === 0 ? 6 : startDay - 1;
-    for (let i = 0; i < offset; i++) html += '<td></td>';
-    for (let d = 1; d <= 30; d++) {
-      if ((i + offset) % 7 === 0) html += '</tr><tr>';
-      html += d === 28 ? `<td class="highlight">${d}</td>` : `<td>${d}</td>`;
-      i++;
-    }
-    html += '</tr></table>';
-    calendar.innerHTML = html;
-
-    // Таймер
-    const targetDate = new Date("2025-11-28T18:00:00").getTime();
-    const countdown = document.getElementById("countdown");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = targetDate - now;
+    // Обратный отсчет
+    function updateCountdown() {
+      const weddingDate = new Date('2025-11-28T00:00:00+05:00');
+      const now = new Date();
+      const diff = weddingDate - now;
       if (diff <= 0) {
-        countdown.innerHTML = "Той басталды!";
+        document.getElementById('countdown').innerText = "Той басталды!";
         return;
       }
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((diff / (1000 * 60)) % 60);
-      const secs = Math.floor((diff / 1000) % 60);
-      countdown.innerHTML = `<div class="clock"><span>${days}</span> күн <span>${hours}</span> сағ <span>${mins}</span> мин <span>${secs}</span> сек</div>`;
-    }, 1000);
+      const d = Math.floor(diff / (1000*60*60*24));
+      const h = Math.floor((diff / (1000*60*60)) % 24);
+      const m = Math.floor((diff / (1000*60)) % 60);
+      const s = Math.floor((diff / 1000) % 60);
+      document.getElementById('countdown').innerHTML = `
+        <div class="time-box">${d}<span>күн</span></div>
+        <div class="time-box">${h}<span>сағ</span></div>
+        <div class="time-box">${m}<span>мин</span></div>
+        <div class="time-box">${s}<span>сек</span></div>
+      `;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
 
     // Отправка формы
-    const form = document.getElementById('rsvpForm');
-    form.addEventListener('submit', e => {
+    const form = document.getElementById("rsvp-form");
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const data = new FormData(form);
-      fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
-        method: "POST",
-        body: data
-      })
-      .then(res => {
-        document.getElementById('responseMsg').innerText = "Рақмет! Жауабыңыз жіберілді 💌";
+      const name = document.getElementById("name").value.trim();
+      const attendance = document.querySelector("input[name='attendance']:checked")?.value;
+      if (!name || !attendance) return;
+      
+      try {
+        await fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
+          method: "POST",
+          body: new FormData(form)
+        });
+        document.getElementById("form-message").innerText = "Жауабыңыз сақталды! Рахмет 🌸";
         form.reset();
-      })
-      .catch(() => {
-        document.getElementById('responseMsg').innerText = "Қате! Кейінірек қайталап көріңіз.";
-      });
+      } catch {
+        document.getElementById("form-message").innerText = "Қате шықты, кейінірек қайталаңыз.";
+      }
     });
   </script>
 </body>
 </html>
+
