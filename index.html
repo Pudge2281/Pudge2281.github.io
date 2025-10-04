@@ -165,22 +165,3 @@ document.getElementById("guestForm").addEventListener("submit", function(e) {
 </script>
 
 
-    // Отправка формы
-function doPost(e) {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheets()[0];
-
-  const name = e.parameter.name || "";
-  const attendance = e.parameter.attendance || "";
-
-  sheet.appendRow([new Date(), name, attendance]);
-
-  return ContentService
-    .createTextOutput("OK")
-    .setMimeType(ContentService.MimeType.TEXT);
-      }
-    }
-  </script>
-</body>
-</html>
-
