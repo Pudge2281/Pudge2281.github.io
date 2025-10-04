@@ -1,254 +1,141 @@
-:root {
-  --gold: #d4af37;
-  --dark-gold: #b38f1c;
-  --brown: #3a2e2a;
-  --bg-light: rgba(255, 255, 250, 0.95);
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
 body {
+  margin: 0;
   font-family: 'Cormorant Garamond', serif;
   background: url('1.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: var(--brown);
+  color: #f5e2a9;
+  line-height: 1.6;
   text-align: center;
 }
-
-.wrap {
-  max-width: 960px;
-  margin: 30px auto;
-  padding: 30px;
-  background: var(--bg-light);
-  border-radius: 18px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-}
-
 header {
-  padding-bottom: 10px;
+  padding: 80px 20px 40px;
+  background: rgba(58,46,42,0.75);
+  border-bottom: 6px solid #d4af37;
 }
-
 header h1 {
   font-family: 'Great Vibes', cursive;
-  font-size: 72px;
+  font-size: 70px;
   margin: 0;
-  color: var(--gold);
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  color: #ffd700;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
 }
-
-header p.sub {
-  margin: 8px 0 0;
-  font-size: 20px;
-  color: #f5e2a9;
-  background: rgba(58,46,42,0.85);
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 10px;
-  border-bottom: 4px solid var(--dark-gold);
+header p {
+  font-size: 26px;
+  margin-top: 15px;
+  color: #fff;
 }
-
-.intro {
-  margin: 40px 0;
+.page {
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid #d4af37;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(212,175,55,0.4);
+  backdrop-filter: blur(8px);
 }
-
-.intro h2 {
+h2 {
   font-family: 'Great Vibes', cursive;
   font-size: 48px;
-  margin: 0;
-  color: var(--gold);
+  color: #ffd700;
+  margin-bottom: 25px;
 }
-
-.intro p.lead {
-  font-size: 18px;
-  max-width: 800px;
-  margin: 14px auto 0;
-  line-height: 1.8;
-}
-
-.intro p.name {
-  font-family: 'Great Vibes', cursive;
-  font-size: 56px;
-  margin: 18px 0;
-  color: var(--gold);
-}
-
-.date-block {
-  margin: 40px 0;
-}
-
-.date-block .when {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.calendar {
-  display: inline-block;
-  background: var(--bg-light);
-  padding: 20px 28px;
-  border-radius: 14px;
-  border: 6px double var(--gold);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-}
-
-.calendar .month {
-  font-size: 20px;
-  margin-bottom: 12px;
-  color: var(--brown);
-}
-
-.calendar table {
-  border-collapse: collapse;
-  font-size: 18px;
-  color: var(--brown);
-}
-
-.calendar th {
-  padding: 6px 10px;
-  color: var(--gold);
-  font-weight: 600;
-}
-
-.calendar td {
-  width: 36px;
-  height: 36px;
-  text-align: center;
-  vertical-align: middle;
-  padding: 4px;
-  position: relative;
-}
-
-.calendar td.empty {
-  color: transparent;
-}
-
-.calendar td.highlight {
-  background: var(--gold);
-  color: white;
-  border-radius: 50%;
-  font-weight: bold;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
-.place {
-  margin: 32px 0;
-}
-
-.place .addr {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-.place .buttons {
-  margin-top: 12px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--gold);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: transform 0.2s;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-}
-
-.schedule {
-  margin: 40px auto;
-  max-width: 700px;
-  text-align: left;
-  padding: 20px 28px;
-  background: linear-gradient(180deg, #fff, #fffaf5);
-  border-radius: 14px;
-  border: 2px solid rgba(0,0,0,0.04);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.schedule h3 {
-  margin-top: 0;
-  color: var(--brown);
-}
-
-.schedule ul {
-  margin: 14px 0 0;
-  padding-left: 20px;
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--brown);
-}
-
-.countdown-wrap {
-  margin-top: 32px;
-}
-
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  align-items: flex-end;
-  margin-top: 14px;
-}
-
-.countdown .box {
-  width: 100px;
-  padding: 16px 10px;
-  border-radius: 12px;
-  background: #fff;
-  border: 3px solid var(--gold);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-}
-
-.countdown .box span.num {
-  display: block;
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--gold);
-}
-
-.countdown .box small {
-  display: block;
-  margin-top: 6px;
-  font-size: 14px;
-  color: var(--brown);
-}
-
-.rsvp-section {
-  margin: 40px 0;
-}
-
-.rsvp-section h3 {
+p {
   font-size: 22px;
-  color: var(--brown);
-  margin-bottom: 14px;
+  color: #fff;
 }
-
-.rsvp-section iframe {
+.calendar table {
   width: 100%;
-  max-width: 700px;
-  height: 520px;
+  border-collapse: collapse;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
+.calendar th {
+  color: #ffd700;
+  padding-bottom: 10px;
+}
+.calendar td {
+  padding: 12px;
+  border-radius: 50%;
+}
+.highlight {
+  font-weight: bold;
+  color: #fff;
+  background: #d4af37;
+  border-radius: 50%;
+  padding: 10px 14px;
+  box-shadow: 0 0 10px rgba(212,175,55,0.8);
+}
+.map-btn {
+  display: inline-block;
+  background: #d4af37;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin: 15px 0;
+  font-size: 20px;
+  transition: 0.3s;
+}
+.map-btn:hover {
+  background: #b08c2b;
+}
+.schedule ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+.schedule li {
+  padding: 10px 0;
+  border-left: 4px solid #d4af37;
+  padding-left: 10px;
+  margin: 10px 0;
+  font-size: 20px;
+  color: #fff;
+}
+.countdown {
+  font-size: 28px;
+  border: 3px solid #d4af37;
+  border-radius: 20px;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  display: inline-block;
+  margin-top: 30px;
+  color: #ffd700;
+  box-shadow: 0 0 20px rgba(212,175,55,0.5);
+}
+.rsvp-form {
+  margin-top: 30px;
+}
+.rsvp-form input {
+  width: 80%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #d4af37;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+.rsvp-form button {
+  background: #d4af37;
+  color: #fff;
+  padding: 12px 25px;
   border: none;
+  border-radius: 12px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
 }
-
+.rsvp-form button:hover {
+  background: #b08c2b;
+}
 footer {
-  margin-top: 40px;
-  padding: 18px;
-  color: #f5e2a9;
-  background: rgba(58,46,42,0.88);
-  border-top: 6px solid var(--gold);
-  border-radius: 0 0 12px 12px;
+  padding: 30px;
+  background: rgba(58,46,42,0.9);
+  border-top: 6px solid #d4af37;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 60px;
 }
-
