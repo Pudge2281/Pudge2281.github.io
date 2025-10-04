@@ -3,121 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Айжанның Қыз Ұзату Тойы – 28 қараша 2025</title>
+  <title>Айжанның қыз ұзатуы</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- 🎵 Музыка -->
-  <audio id="wedding-music" autoplay loop>
+  <audio autoplay loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
-  <header>
-    <h1>Айжанның Қыз Ұзату Тойы</h1>
-    <p>28 қараша 2025 • Хан Шахар мейрамханасы</p>
-  </header>
-
-  <div class="page">
-    <p><strong>Құрметті қонақтар!</strong></p>
+  <div class="invitation">
+    <h1>Құрметті қонақтар!</h1>
+    <h2>Қыз ұзату</h2>
     <p>Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
-    <p>Сіздерді аяулы қызымыз <b>Айжанның</b> ыстық ұясынан құтты босағасына ұзату тойына арналған 
-    ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
 
-    <p><b>Басталу уақыты:</b> 28 қараша 2025 жыл</p>
+    <p>Сіздерді аяулы қызымыз</p>
+    <h3>Айжан</h3>
+    <p>ыстық ұясынан құтты босағасына ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!</p>
+
+    <p><strong>Басталу уақыты:</strong> 28 қараша 2025 жыл</p>
 
     <div class="calendar">
-      <h2>Қараша 2025</h2>
-      <table>
-        <tr>
-          <th>Дс</th><th>Сс</th><th>Ср</th><th>Бс</th><th>Жм</th><th>Сб</th><th>Жс</th>
-        </tr>
-        <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
-        <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
-        <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
-        <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
-        <tr><td>24</td><td>25</td><td>26</td><td>27</td><td><span class="highlight">28</span></td><td>29</td><td>30</td></tr>
-      </table>
+      <div class="calendar-header">Қараша 2025</div>
+      <div class="calendar-body">
+        <div>27</div>
+        <div class="active">28</div>
+        <div>29</div>
+      </div>
     </div>
 
-    <p><b>Мекен-жайымыз:</b> Хан Шахар мейрамханасы</p>
-    <a class="map-btn" href="https://2gis.kz/astana/firm/70000001061672825" target="_blank">Картада ашу (2ГИС)</a>
-
-    <div class="schedule">
-      <h2>Мерекелік бағдарлама</h2>
-      <ul>
-        <li>18:00 – Қонақтарды қарсы алу</li>
-        <li>18:30 – Қыз ұзату рәсімі</li>
-        <li>19:00 – Ақ тілек, бата</li>
-        <li>19:30 – Ән мен би кеші</li>
-        <li>21:00 – Құттықтаулар мен сыйлықтар</li>
-        <li>23:00 – Тойдың аяқталуы</li>
-      </ul>
+    <div class="place">
+      <p><strong>Мекен-жайымыз:</strong> Aktau Palace</p>
+      <a href="https://2gis.kz/aktau/inside/1234567890123456" target="_blank">
+        <img src="2gis.png" alt="2ГИС картасы" class="map-icon">
+      </a>
     </div>
 
-    <div class="countdown" id="countdown"></div>
+    <h2>Мерекелік бағдарлама</h2>
 
-    <div class="rsvp-form">
-      <h2>RSVP – Қатысуыңызды растаңыз</h2>
-      <form id="rsvpForm">
-        <input type="text" name="name" placeholder="Атыңыз және тегі" required>
-        <div>
-          <label><input type="radio" name="attendance" value="Келемін" required> Келемін</label>
-          <label><input type="radio" name="attendance" value="Келе алмаймын"> Келе алмаймын</label>
-        </div>
-        <button type="submit">Жіберу</button>
-      </form>
-      <p id="responseMsg"></p>
-    </div>
+    <div id="timer" class="timer"></div>
+
+    <form id="rsvpForm" class="rsvp-form">
+      <label for="name">Атыңыз (ФИО):</label>
+      <input type="text" id="name" name="name" required>
+
+      <div class="attendance">
+        <label><input type="radio" name="attendance" value="Приду" required> Приду</label>
+        <label><input type="radio" name="attendance" value="Не приду"> Не приду</label>
+      </div>
+
+      <button type="submit">Жіберу</button>
+      <p id="status"></p>
+    </form>
   </div>
 
-  <footer>
-    Айжанның Қыз Ұзату Тойы • 28 қараша 2025
-  </footer>
-
   <script>
-    // Музыка
-    const music = document.getElementById("wedding-music");
-    music.volume = 0.25;
-    document.addEventListener("click", () => {
-      if (music.paused) music.play();
-    }, { once: true });
-
     // Таймер
-    function updateCountdown() {
-      const weddingDate = new Date('2025-11-28T00:00:00+05:00');
-      const now = new Date();
-      const diff = weddingDate - now;
-      if (diff <= 0) {
-        document.getElementById('countdown').innerText = "Мереке басталды!";
+    const eventDate = new Date("November 28, 2025 18:00:00").getTime();
+    const timer = document.getElementById("timer");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance < 0) {
+        timer.innerHTML = "Той басталды!";
         return;
       }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff / (1000*60*60)) % 24);
-      const minutes = Math.floor((diff / (1000*60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-      document.getElementById('countdown').innerText =
-        `Қалған уақыт: ${days} күн ${hours} сағ ${minutes} мин ${seconds} сек`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
 
-    // Отправка формы в Google Apps Script
-    const form = document.getElementById('rsvpForm');
-    form.addEventListener('submit', e => {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timer.innerHTML = `
+        <div class="timer-box"><span>${days}</span><p>күн</p></div>
+        <div class="timer-box"><span>${hours}</span><p>сағат</p></div>
+        <div class="timer-box"><span>${minutes}</span><p>минут</p></div>
+        <div class="timer-box"><span>${seconds}</span><p>секунд</p></div>
+      `;
+    }, 1000);
+
+    // Отправка формы
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxgS14uWUx05c1jyZB0670AFrdvz7wuJ0lGgLEKON-3vorFG6929HwkXAfbeM5uWcuf/exec";
+    const form = document.getElementById("rsvpForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", e => {
       e.preventDefault();
-      const formData = new FormData(form);
-      fetch('https://script.google.com/macros/s/AKfycbxgS14uWUx05c1jyZB0670AFrdvz7wuJ0lGgLEKON-3vorFG6929HwkXAfbeM5uWcuf/exec', {
-        method: 'POST',
-        body: formData
-      })
-      .then(() => {
-        document.getElementById('responseMsg').innerText = 'Жауабыңыз сәтті жіберілді!';
-        form.reset();
-      })
-      .catch(() => {
-        document.getElementById('responseMsg').innerText = 'Қате! Қайта көріңіз.';
-      });
+      const data = new FormData(form);
+      fetch(scriptURL, { method: "POST", body: data })
+        .then(() => {
+          status.textContent = "✅ Жауабыңыз жіберілді!";
+          form.reset();
+        })
+        .catch(() => status.textContent = "⚠️ Қате! Қайта байқап көріңіз.");
     });
   </script>
 </body>
