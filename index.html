@@ -97,19 +97,19 @@
       <div id="countdown"></div>
     </section>
 
-    <section class="rsvp">
-      <h2>Қатысуыңызды растаңыз</h2>
-      <form id="rsvp-form">
-        <input type="text" id="name" placeholder="Атыңыз және тегі" required>
-        <div class="radio-group">
-          <label><input type="radio" name="attendance" value="Келемін" required> Келемін</label>
-          <label><input type="radio" name="attendance" value="Келе алмаймын"> Келе алмаймын</label>
-        </div>
-        <button type="submit">Жіберу</button>
-      </form>
-      <p id="form-message"></p>
-    </section>
-  </div>
+<form id="guestForm">
+  <label for="name">Аты-жөніңіз:</label><br>
+  <input type="text" id="name" name="name" placeholder="Атыңызды жазыңыз" required><br><br>
+
+  <label>Қатысуыңыз:</label><br>
+  <label><input type="radio" name="attendance" value="Приду" required> Приду</label>
+  <label><input type="radio" name="attendance" value="Не смогу"> Не смогу</label><br><br>
+
+  <button type="submit">Жіберу</button>
+</form>
+
+<p id="formMessage" style="text-align:center; margin-top:10px; color:goldenrod;"></p>
+
 
   <script>
     // Обратный отсчет
@@ -136,25 +136,28 @@
     updateCountdown();
 
     // Отправка формы
-    const form = document.getElementById("rsvp-form");
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value.trim();
-      const attendance = document.querySelector("input[name='attendance']:checked")?.value;
-      if (!name || !attendance) return;
-      
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
-          method: "POST",
-          body: new FormData(form)
-        });
-        document.getElementById("form-message").innerText = "Жауабыңыз сақталды! Рахмет 🌸";
-        form.reset();
-      } catch {
-        document.getElementById("form-message").innerText = "Қате шықты, кейінірек қайталаңыз.";
-      }
-    });
-  </script>
-</body>
-</html>
+   <script>
+document.getElementById("guestForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  fetch("https://script.google.com/macros/s/AKfycbxTD0xwkE8hbU2XjtzzzlNg9upzMcjcxucd23twtb7nsHoAhwjrSIGeCHJrIztKUZO5/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === 'ok') {
+      document.getElementById("formMessage").textContent = "Жауабыңыз сақталды!";
+      form.reset();
+    } else {
+      document.getElementById("formMessage").textContent = "Қате: " + data.message;
+    }
+  })
+  .catch(error => {
+    document.getElementById("formMessage").textContent = "Қате пайда болды: " + error;
+  });
+});
+</script>
 
