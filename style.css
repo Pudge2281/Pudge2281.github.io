@@ -260,50 +260,57 @@ p {
 }
 
 /* Дресс-код */
-.dress-code {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 215, 0, 0.2);
-    padding: 40px;
-    border-radius: 20px;
+/* Дресс-код */
+.dress-code-image-container {
+    max-width: 500px;
     margin: 30px auto;
-    max-width: 600px;
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
-}
-
-.dress-code-item {
-    margin: 25px 0;
     text-align: center;
 }
 
-.dress-code-title {
-    font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    color: #ffd700;
-    margin-bottom: 10px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
-}
-
-.dress-code-description {
-    font-size: 1.3rem;
-    color: #fff;
-    opacity: 0.9;
+.dress-code-image-wrapper {
+    position: relative;
+    display: inline-block;
 }
 
 .dress-code-image {
-    max-width: 500px;
-    margin: 30px auto 0;
-    text-align: center;
-}
-
-.dress-code-image img {
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
     transition: all 0.3s ease;
 }
 
-.dress-code-image img:hover {
+.dress-code-image:hover {
     transform: scale(1.02);
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3) !important;
+    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+}
+
+.dress-code-label {
+    position: absolute;
+    bottom: 20px;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.9), rgba(255, 237, 78, 0.9));
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.dress-code-label.left {
+    left: 20px;
+}
+
+.dress-code-label.right {
+    right: 20px;
+}
+
+/* Уберите старые стили дресс-кода если они есть */
+.dress-code {
+    display: none;
 }
 
 /* Форма */
