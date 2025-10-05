@@ -55,6 +55,7 @@
         .bg-2 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%23000000"/></linearGradient></defs><rect fill="url(%23g2)" width="1200" height="800"/></svg>'); }
         .bg-3 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23000000"/><stop offset="100%" stop-color="%231a1a1a"/></linearGradient></defs><rect fill="url(%23g3)" width="1200" height="800"/></svg>'); }
         .bg-4 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><radialGradient id="g4" cx="70%" cy="70%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%23000000"/></radialGradient></defs><rect fill="url(%23g4)" width="1200" height="800"/></svg>'); }
+        .bg-5 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="g5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23000000"/><stop offset="100%" stop-color="%231a1a1a"/></linearGradient></defs><rect fill="url(%23g5)" width="1200" height="800"/></svg>'); }
 
         .content {
             text-align: center;
@@ -267,15 +268,35 @@
             box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
         }
 
-        .time-badge {
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            color: #000;
-            padding: 10px 20px;
-            border-radius: 25px;
-            font-weight: bold;
-            margin-right: 20px;
+        /* Дресс-код */
+        .dress-code {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .dress-code-item {
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .dress-code-title {
             font-family: 'Cinzel', serif;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .dress-code-description {
+            font-size: 1.3rem;
+            color: #fff;
+            opacity: 0.9;
         }
 
         /* Форма */
@@ -424,6 +445,35 @@
             color: #e74c3c;
         }
 
+        /* Аудио контрол */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 215, 0, 0.2);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .audio-control:hover {
+            background: rgba(255, 215, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        .audio-control i {
+            color: #ffd700;
+            font-size: 1.2rem;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2.5rem; }
@@ -431,16 +481,23 @@
             .countdown-item { min-width: 80px; padding: 20px 15px; }
             .countdown-number { font-size: 2rem; }
             .checkbox-group { flex-direction: column; gap: 10px; }
+            .audio-control { bottom: 10px; left: 10px; width: 40px; height: 40px; }
         }
     </style>
 </head>
 <body>
+    <!-- Аудио контрол -->
+    <div class="audio-control" id="audioControl">
+        <i class="fas fa-play"></i>
+    </div>
+
     <!-- Навигационные точки -->
     <div class="nav-dots">
         <div class="dot active" data-section="0"></div>
         <div class="dot" data-section="1"></div>
         <div class="dot" data-section="2"></div>
         <div class="dot" data-section="3"></div>
+        <div class="dot" data-section="4"></div>
     </div>
 
     <!-- Секция 1: Главная -->
@@ -457,6 +514,14 @@
             <h1>Айжанының - Қыз ұзатуға шақыру</h1>
             <div class="divider"></div>
             <p style="font-size: 1.6rem; font-style: italic;">Қыз ұзату. Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
+            
+            <div style="max-width: 800px; margin: 30px auto;">
+                <p style="font-size: 1.4rem; line-height: 1.8; font-style: italic; color: #ffed4e;">
+                    Сіздерді аяулы қызымыз<br>
+                    Ақмөлдірді<br><br>
+                    ыстық ұясынан құтты босағасына ұзату тойына арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
+                </p>
+            </div>
             
             <div class="date-box">
                 <h3>28 Қараша 2025</h3>
@@ -588,9 +653,30 @@
         </div>
     </section>
 
-    <!-- Секция 4: Форма подтверждения -->
+    <!-- Секция 4: Дресс-код -->
     <section class="parallax-section" id="section4">
         <div class="parallax-bg bg-4"></div>
+        <div class="bg-overlay"></div>
+        <div class="content">
+            <h2>Киім стилі</h2>
+            
+            <div class="dress-code">
+                <div class="dress-code-item">
+                    <div class="dress-code-title">ЕРЛЕР ҚАУЫМЫ</div>
+                    <div class="dress-code-description">КЛАССИКАЛЫҚ КОСТЮМ</div>
+                </div>
+                
+                <div class="dress-code-item">
+                    <div class="dress-code-title">ӘЙЕЛДЕР ҚАУЫМЫ</div>
+                    <div class="dress-code-description">КЕШКІ КОЙЛЕК</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 5: Форма подтверждения -->
+    <section class="parallax-section" id="section5">
+        <div class="parallax-bg bg-5"></div>
         <div class="bg-overlay"></div>
         <div class="content">
             <h2>Қатысуынызды растаңыз</h2>
@@ -626,11 +712,42 @@
         </div>
     </section>
 
+    <!-- Аудио элемент -->
+    <audio id="backgroundMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const sections = document.querySelectorAll('.parallax-section');
             const contents = document.querySelectorAll('.content');
             const dots = document.querySelectorAll('.dot');
+            const audio = document.getElementById('backgroundMusic');
+            const audioControl = document.getElementById('audioControl');
+            let isPlaying = false;
+            
+            // Автозапуск музыки
+            audio.play().then(() => {
+                isPlaying = true;
+                audioControl.innerHTML = '<i class="fas fa-pause"></i>';
+            }).catch(error => {
+                console.log('Автозапуск музыки заблокирован браузером');
+                isPlaying = false;
+                audioControl.innerHTML = '<i class="fas fa-play"></i>';
+            });
+            
+            // Контрол музыки
+            audioControl.addEventListener('click', function() {
+                if (isPlaying) {
+                    audio.pause();
+                    audioControl.innerHTML = '<i class="fas fa-play"></i>';
+                } else {
+                    audio.play();
+                    audioControl.innerHTML = '<i class="fas fa-pause"></i>';
+                }
+                isPlaying = !isPlaying;
+            });
             
             contents[0].classList.add('visible');
             
@@ -699,7 +816,6 @@
                     attendance: formData.get('attendance')
                 };
 
-                // ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА ВАШУ ССЫЛКУ Google Apps Script
                 const scriptURL = 'https://script.google.com/macros/s/AKfycbymR8vXztyWVqvjsfbuEHW00bFp7VqedODVu1MXwBoeR8UdkVkFzp_ce_CJWNT5E-SP/exec';
 
                 fetch(scriptURL, {
