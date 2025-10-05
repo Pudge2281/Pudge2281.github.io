@@ -259,7 +259,7 @@ p {
     box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
 }
 
-/* Дресс-код */
+
 /* Дресс-код */
 .dress-code-image-container {
     max-width: 500px;
@@ -307,12 +307,6 @@ p {
 .dress-code-label.right {
     right: 20px;
 }
-
-/* Уберите старые стили дресс-кода если они есть */
-.dress-code {
-    display: none;
-}
-
 /* Форма */
 .form-container {
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
