@@ -72,7 +72,7 @@
 
         h1 {
             font-family: 'Cinzel', serif;
-            font-size: 5rem;
+            font-size: 4rem;
             margin-bottom: 30px;
             background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
             -webkit-background-clip: text;
@@ -81,6 +81,7 @@
             text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
             font-weight: 700;
             letter-spacing: 3px;
+            line-height: 1.2;
         }
 
         h2 {
@@ -167,7 +168,22 @@
             box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
         }
 
-        /* Календарь Ноября */
+        .location-link {
+            color: #ffd700;
+            text-decoration: none;
+            border-bottom: 1px solid #ffd700;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .location-link:hover {
+            color: #ffed4e;
+            border-bottom-color: #ffed4e;
+            transform: translateY(-2px);
+        }
+
+        /* Календарь Ноября 2025 */
         .calendar-container {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
             backdrop-filter: blur(15px);
@@ -262,6 +278,92 @@
             box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
         }
 
+        /* Форма */
+        .form-container {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffd700;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .checkbox-input {
+            width: 20px;
+            height: 20px;
+            accent-color: #ffd700;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            font-family: 'Cinzel', serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
         .divider {
             width: 100px;
             height: 2px;
@@ -302,12 +404,33 @@
             z-index: -1;
         }
 
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .message.success {
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+            color: #2ecc71;
+        }
+
+        .message.error {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+        }
+
         @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
+            h1 { font-size: 2.5rem; }
             h2 { font-size: 2.5rem; }
             .countdown { flex-wrap: wrap; gap: 15px; }
             .countdown-item { min-width: 80px; padding: 20px 15px; }
             .countdown-number { font-size: 2rem; }
+            .checkbox-group { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -331,18 +454,18 @@
         <div class="floral-decoration" style="bottom: 20%; left: 20%;">❁</div>
         
         <div class="content">
-            <h1>Айжанының -Қыз ұзатуға шақыру</h1>
+            <h1>Айжанының - Қыз ұзатуға шақыру</h1>
             <div class="divider"></div>
-            <p style="font-size: 1.6rem; font-style: italic;">Қыз ұзатуАғайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
+            <p style="font-size: 1.6rem; font-style: italic;">Қыз ұзату. Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
             
             <div class="date-box">
-                <h3>28 Қараша 2024</h3>
+                <h3>28 Қараша 2025</h3>
                 <p style="font-size: 1.3rem; margin-top: 10px;">Сәтті сағат 17:00</p>
             </div>
 
-            <!-- Календарь Ноября -->
+            <!-- Календарь Ноября 2025 -->
             <div class="calendar-container">
-                <div class="calendar-header">Қараша 2024</div>
+                <div class="calendar-header">Қараша 2025</div>
                 <div class="calendar">
                     <div class="calendar-weekday">Дс</div>
                     <div class="calendar-weekday">Сс</div>
@@ -352,7 +475,9 @@
                     <div class="calendar-weekday">Сб</div>
                     <div class="calendar-weekday">Жс</div>
                     
-                    <!-- Ноябрь 2024 начинается с пятницы -->
+                    <!-- Ноябрь 2025 начинается с субботы -->
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
@@ -399,15 +524,18 @@
         <div class="content">
             <h2>Орналасқан жері</h2>
             <div class="location-info">
-                <h3>«Алтын Сарай»</h3>
-                <p>Астана, Нұрсұлтан көшесі 18</p>
+                <h3>Aktau Palace</h3>
+                <p>Ақтау қаласы, Орталық алаң</p>
                 <div style="margin-top: 25px;">
                     <p style="font-size: 1.2rem; font-style: italic;">
-                        <i class="fas fa-star gold-text"></i> Сарай орталығында орналасқан<br>
+                        <i class="fas fa-star gold-text"></i> Орталықда орналасқан<br>
                         <i class="fas fa-car gold-text"></i> Тегін паркинг<br>
                         <i class="fas fa-utensils gold-text"></i> Дәстүрлі тағамдар
                     </p>
                 </div>
+                <a href="https://2gis.kz/aktau/geo/70000001079353411" class="location-link" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> 2GIS картада көру
+                </a>
             </div>
             
             <div class="countdown">
@@ -423,6 +551,10 @@
                     <span class="countdown-number" id="minutes">00</span>
                     <span class="countdown-label">Минут</span>
                 </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">Секунд</span>
+                </div>
             </div>
         </div>
     </section>
@@ -435,57 +567,62 @@
             <h2>Той бағдарламасы</h2>
             
             <div class="program-item">
-                <span class="time-badge">17:00</span>
                 <strong style="color: #ffd700; font-size: 1.3rem;">Қонақтарды қабылдау</strong>
                 <p>Шампанский және жеңіл тағамдар</p>
             </div>
             
             <div class="program-item">
-                <span class="time-badge">18:00</span>
                 <strong style="color: #ffd700; font-size: 1.3rem;">Неке рәсімі</strong>
                 <p>Дәстүрлі салтанатты рәсім</p>
             </div>
             
             <div class="program-item">
-                <span class="time-badge">19:30</span>
                 <strong style="color: #ffd700; font-size: 1.3rem;">Ас ішу</strong>
                 <p>Ерекше дайындалған той баптары</p>
             </div>
             
             <div class="program-item">
-                <span class="time-badge">21:00</span>
                 <strong style="color: #ffd700; font-size: 1.3rem;">Той кеші</strong>
                 <p>Ән-би, ойын-сауық бағдарламасы</p>
             </div>
         </div>
     </section>
 
-    <!-- Секция 4: Контакты -->
+    <!-- Секция 4: Форма подтверждения -->
     <section class="parallax-section" id="section4">
         <div class="parallax-bg bg-4"></div>
         <div class="bg-overlay"></div>
         <div class="content">
-            <h2>Бізбен байланысыңыз</h2>
+            <h2>Қатысуынызды растаңыз</h2>
             
-            <div class="location-info">
-                <h3>Той иелері</h3>
-                <p style="font-size: 1.3rem; margin: 20px 0;">
-                    <i class="fas fa-crown gold-text"></i> Айгүл мен Болат
-                </p>
+            <div class="form-container">
+                <form id="attendanceForm">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Аты-жөніңіз</label>
+                        <input type="text" id="name" name="name" class="form-input" required placeholder="Толық аты-жөніңізді енгізіңіз">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Қатысасыз ба?</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="radio" name="attendance" value="Иә, қатысамын" class="checkbox-input" required>
+                                <span>Иә, қатысамын</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="radio" name="attendance" value="Жоқ, қатыспаймын" class="checkbox-input" required>
+                                <span>Жоқ, қатыспаймын</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Жіберу
+                    </button>
+                </form>
                 
-                <div style="margin-top: 30px;">
-                    <p style="margin: 15px 0;">
-                        <i class="fas fa-phone gold-text"></i> +7 777 123 4567
-                    </p>
-                    <p style="margin: 15px 0;">
-                        <i class="fas fa-envelope gold-text"></i> akmoldir.toi@mail.kz
-                    </p>
-                </div>
+                <div id="message" class="message"></div>
             </div>
-            
-            <p style="margin-top: 40px; font-style: italic; font-size: 1.5rem;">
-                Сіздің қатысуыңыз біздің бақытымызға бақыт қосады! ✨
-            </p>
         </div>
     </section>
 
@@ -520,17 +657,19 @@
             });
             
             function updateCountdown() {
-                const eventDate = new Date('November 28, 2024 17:00:00').getTime();
+                const eventDate = new Date('November 28, 2025 17:00:00').getTime();
                 const now = new Date().getTime();
                 const distance = eventDate - now;
                 
                 const days = Math.floor(distance / (1000 * 60 * 60 * 24));
                 const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
                 document.getElementById('days').textContent = days.toString().padStart(2, '0');
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
             }
             
             setInterval(updateCountdown, 1000);
@@ -546,6 +685,53 @@
                     element.style.transform = `translateY(${yPos}px)`;
                 });
             });
+
+            // Обработка формы
+            const form = document.getElementById('attendanceForm');
+            const messageDiv = document.getElementById('message');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    attendance: formData.get('attendance')
+                };
+
+                // ЗАМЕНИТЕ ЭТУ ССЫЛКУ НА ВАШУ ССЫЛКУ Google Apps Script
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbymR8vXztyWVqvjsfbuEHW00bFp7VqedODVu1MXwBoeR8UdkVkFzp_ce_CJWNT5E-SP/exec';
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    body: new URLSearchParams(data),
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showMessage('Сіздің жауабыңыз сәтті жіберілді! Рахмет!', 'success');
+                        form.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showMessage('Қате орын алды. Өтінеміз, кейінірек қайталап көріңіз.', 'error');
+                });
+            });
+
+            function showMessage(text, type) {
+                messageDiv.textContent = text;
+                messageDiv.className = `message ${type}`;
+                messageDiv.style.display = 'block';
+                
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
         });
     </script>
 </body>
