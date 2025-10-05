@@ -1,167 +1,552 @@
 <!DOCTYPE html>
 <html lang="kk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Қыз ұзату – Айжан</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айжанының -Қыз ұзатуға шақыру</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #fff;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        .parallax-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -2;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.7) 0%, rgba(122, 85, 0, 0.3) 100%);
+            z-index: -1;
+        }
+
+        .bg-1 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><radialGradient id="g1" cx="30%" cy="30%"><stop offset="0%" stop-color="%23000000"/><stop offset="100%" stop-color="%231a1a1a"/></radialGradient></defs><rect fill="url(%23g1)" width="1200" height="800"/><circle fill="%23ffd700" cx="100" cy="100" r="2" opacity="0.8"/><circle fill="%23ffd700" cx="300" cy="200" r="1" opacity="0.6"/><circle fill="%23ffd700" cx="500" cy="150" r="1.5" opacity="0.7"/><circle fill="%23ffd700" cx="700" cy="300" r="1" opacity="0.5"/><circle fill="%23ffd700" cx="900" cy="250" r="2" opacity="0.9"/></svg>'); }
+        .bg-2 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%23000000"/></linearGradient></defs><rect fill="url(%23g2)" width="1200" height="800"/></svg>'); }
+        .bg-3 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23000000"/><stop offset="100%" stop-color="%231a1a1a"/></linearGradient></defs><rect fill="url(%23g3)" width="1200" height="800"/></svg>'); }
+        .bg-4 { background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800"><defs><radialGradient id="g4" cx="70%" cy="70%"><stop offset="0%" stop-color="%231a1a1a"/><stop offset="100%" stop-color="%23000000"/></radialGradient></defs><rect fill="url(%23g4)" width="1200" height="800"/></svg>'); }
+
+        .content {
+            text-align: center;
+            padding: 40px;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 40px;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            letter-spacing: 2px;
+        }
+
+        h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #ffd700;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            color: #fff;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .gold-text {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        .date-box {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #ffd700;
+            padding: 30px 25px;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.15);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            font-family: 'Cinzel', serif;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .countdown-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+        }
+
+        .location-info {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        /* Календарь Ноября */
+        .calendar-container {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+
+        .calendar-header {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin: 0 auto;
+        }
+
+        .calendar-weekday {
+            padding: 15px;
+            text-align: center;
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .calendar-day {
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .calendar-day:hover {
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+
+        .calendar-day.event {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transform: scale(1.1);
+            border: 2px solid #ffed4e;
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: none;
+        }
+
+        .program-item {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: all 0.3s ease;
+        }
+
+        .program-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .time-badge {
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #000;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-right: 20px;
+            font-family: 'Cinzel', serif;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .divider {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            margin: 30px auto;
+        }
+
+        /* Навигационные точки */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .dot {
+            width: 14px;
+            height: 14px;
+            background: rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: #ffd700;
+            transform: scale(1.4);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        }
+
+        .floral-decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 215, 0, 0.3);
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+            .countdown { flex-wrap: wrap; gap: 15px; }
+            .countdown-item { min-width: 80px; padding: 20px 15px; }
+            .countdown-number { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
-  <!-- Фон и музыка -->
-  <audio id="bg-music" autoplay loop>
-    <source src="https://raw.githubusercontent.com/Pudge2281/Pudge2281.github.io/main/music.p3" type="audio/mpeg">
-  </audio>
+    <!-- Навигационные точки -->
+    <div class="nav-dots">
+        <div class="dot active" data-section="0"></div>
+        <div class="dot" data-section="1"></div>
+        <div class="dot" data-section="2"></div>
+        <div class="dot" data-section="3"></div>
+    </div>
 
-  <script>
-    const music = document.getElementById("bg-music");
-    music.volume = 0.3;
-    document.addEventListener("click", () => {
-      if (music.paused) music.play();
-    }, { once: true });
-  </script>
+    <!-- Секция 1: Главная -->
+    <section class="parallax-section" id="section1">
+        <div class="parallax-bg bg-1"></div>
+        <div class="bg-overlay"></div>
+        
+        <!-- Декоративные элементы -->
+        <div class="floral-decoration" style="top: 10%; left: 10%;">❦</div>
+        <div class="floral-decoration" style="top: 15%; right: 15%;">✻</div>
+        <div class="floral-decoration" style="bottom: 20%; left: 20%;">❁</div>
+        
+        <div class="content">
+            <h1>Ақмөлдір</h1>
+            <div class="divider"></div>
+            <p style="font-size: 1.6rem; font-style: italic;">Қыз ұзатуАғайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!</p>
+            
+            <div class="date-box">
+                <h3>28 Қараша 2024</h3>
+                <p style="font-size: 1.3rem; margin-top: 10px;">Сәтті сағат 17:00</p>
+            </div>
 
-  <div class="container">
-    <section class="invitation">
-      <h1>Құрметті қонақтар!</h1>
-      <p>
-        Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат, дос-жаран, құрдастар, көршілер, ұжымдастар!<br><br>
-        Сіздерді аяулы қызымыз<br>
-        <span class="highlight">Айжан</span><br>
-        ыстық ұясынан құтты босағасына ұзату тойына арналған<br>
-        ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
-      </p>
+            <!-- Календарь Ноября -->
+            <div class="calendar-container">
+                <div class="calendar-header">Қараша 2024</div>
+                <div class="calendar">
+                    <div class="calendar-weekday">Дс</div>
+                    <div class="calendar-weekday">Сс</div>
+                    <div class="calendar-weekday">Ср</div>
+                    <div class="calendar-weekday">Бс</div>
+                    <div class="calendar-weekday">Жм</div>
+                    <div class="calendar-weekday">Сб</div>
+                    <div class="calendar-weekday">Жс</div>
+                    
+                    <!-- Ноябрь 2024 начинается с пятницы -->
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day">1</div>
+                    <div class="calendar-day">2</div>
+                    <div class="calendar-day">3</div>
+                    <div class="calendar-day">4</div>
+                    <div class="calendar-day">5</div>
+                    <div class="calendar-day">6</div>
+                    <div class="calendar-day">7</div>
+                    <div class="calendar-day">8</div>
+                    <div class="calendar-day">9</div>
+                    <div class="calendar-day">10</div>
+                    <div class="calendar-day">11</div>
+                    <div class="calendar-day">12</div>
+                    <div class="calendar-day">13</div>
+                    <div class="calendar-day">14</div>
+                    <div class="calendar-day">15</div>
+                    <div class="calendar-day">16</div>
+                    <div class="calendar-day">17</div>
+                    <div class="calendar-day">18</div>
+                    <div class="calendar-day">19</div>
+                    <div class="calendar-day">20</div>
+                    <div class="calendar-day">21</div>
+                    <div class="calendar-day">22</div>
+                    <div class="calendar-day">23</div>
+                    <div class="calendar-day">24</div>
+                    <div class="calendar-day">25</div>
+                    <div class="calendar-day">26</div>
+                    <div class="calendar-day">27</div>
+                    <div class="calendar-day event">28</div>
+                    <div class="calendar-day">29</div>
+                    <div class="calendar-day">30</div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="venue">
-      <h2>Мекен жайымыз</h2>
-      <p><strong>Aktau Palace</strong></p>
-      <a href="https://2gis.kz/aktau/firm/70000001030696537" target="_blank">
-        <img src="2gis.png" alt="2ГИС" class="map-icon">
-      </a>
+    <!-- Секция 2: Место проведения -->
+    <section class="parallax-section" id="section2">
+        <div class="parallax-bg bg-2"></div>
+        <div class="bg-overlay"></div>
+        <div class="content">
+            <h2>Орналасқан жері</h2>
+            <div class="location-info">
+                <h3>«Алтын Сарай»</h3>
+                <p>Астана, Нұрсұлтан көшесі 18</p>
+                <div style="margin-top: 25px;">
+                    <p style="font-size: 1.2rem; font-style: italic;">
+                        <i class="fas fa-star gold-text"></i> Сарай орталығында орналасқан<br>
+                        <i class="fas fa-car gold-text"></i> Тегін паркинг<br>
+                        <i class="fas fa-utensils gold-text"></i> Дәстүрлі тағамдар
+                    </p>
+                </div>
+            </div>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">Күн</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">Сағат</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">Минут</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-   <section class="calendar-section">
-  <h2>Күнтізбе</h2>
-  <div class="calendar">
-    <table>
-      <thead>
-        <tr>
-          <th>Дс</th>
-          <th>Сс</th>
-          <th>Ср</th>
-          <th>Бс</th>
-          <th>Жм</th>
-          <th>Сб</th>
-          <th>Жс</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td><td></td><td></td><td></td><td>1</td><td>2</td><td>3</td>
-        </tr>
-        <tr>
-          <td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
-        </tr>
-        <tr>
-          <td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
-        </tr>
-        <tr>
-          <td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
-        </tr>
-        <tr>
-          <td>25</td><td>26</td><td>27</td>
-          <td class="highlight">28</td>
-          <td>29</td><td>30</td><td></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-
-    <section class="schedule">
-      <h2>Мерекелік бағдарлама</h2>
-      <ul>
-        <li>Қонақтарды қарсы алу</li>
-        <li>Салтанатты рәсім</li>
-        <li>Бата және тілек</li>
-        <li>Айжанның алғашқы биі</li>
-        <li>Қызықты ойындар мен сыйлықтар</li>
-        <li>Түнгі көңілді би бағдарламасы</li>
-      </ul>
+    <!-- Секция 3: Программа -->
+    <section class="parallax-section" id="section3">
+        <div class="parallax-bg bg-3"></div>
+        <div class="bg-overlay"></div>
+        <div class="content">
+            <h2>Той бағдарламасы</h2>
+            
+            <div class="program-item">
+                <span class="time-badge">17:00</span>
+                <strong style="color: #ffd700; font-size: 1.3rem;">Қонақтарды қабылдау</strong>
+                <p>Шампанский және жеңіл тағамдар</p>
+            </div>
+            
+            <div class="program-item">
+                <span class="time-badge">18:00</span>
+                <strong style="color: #ffd700; font-size: 1.3rem;">Неке рәсімі</strong>
+                <p>Дәстүрлі салтанатты рәсім</p>
+            </div>
+            
+            <div class="program-item">
+                <span class="time-badge">19:30</span>
+                <strong style="color: #ffd700; font-size: 1.3rem;">Ас ішу</strong>
+                <p>Ерекше дайындалған той баптары</p>
+            </div>
+            
+            <div class="program-item">
+                <span class="time-badge">21:00</span>
+                <strong style="color: #ffd700; font-size: 1.3rem;">Той кеші</strong>
+                <p>Ән-би, ойын-сауық бағдарламасы</p>
+            </div>
+        </div>
     </section>
 
-    <section class="countdown-section">
-      <h2>Тойға дейін қалған уақыт</h2>
-      <div id="countdown"></div>
+    <!-- Секция 4: Контакты -->
+    <section class="parallax-section" id="section4">
+        <div class="parallax-bg bg-4"></div>
+        <div class="bg-overlay"></div>
+        <div class="content">
+            <h2>Бізбен байланысыңыз</h2>
+            
+            <div class="location-info">
+                <h3>Той иелері</h3>
+                <p style="font-size: 1.3rem; margin: 20px 0;">
+                    <i class="fas fa-crown gold-text"></i> Айгүл мен Болат
+                </p>
+                
+                <div style="margin-top: 30px;">
+                    <p style="margin: 15px 0;">
+                        <i class="fas fa-phone gold-text"></i> +7 777 123 4567
+                    </p>
+                    <p style="margin: 15px 0;">
+                        <i class="fas fa-envelope gold-text"></i> akmoldir.toi@mail.kz
+                    </p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 40px; font-style: italic; font-size: 1.5rem;">
+                Сіздің қатысуыңыз біздің бақытымызға бақыт қосады! ✨
+            </p>
+        </div>
     </section>
 
-<form id="guestForm">
-  <label for="name">Аты-жөніңіз:</label><br>
-  <input type="text" id="name" name="name" placeholder="Атыңызды жазыңыз" required><br><br>
-
-  <label>Қатысуыңыз:</label><br>
-  <label><input type="radio" name="attendance" value="Приду" required> Приду</label>
-  <label><input type="radio" name="attendance" value="Не смогу"> Не смогу</label><br><br>
-
-  <button type="submit">Жіберу</button>
-</form>
-
-<p id="formMessage" style="text-align:center; color:goldenrod;"></p>
-
-<script>
-document.getElementById("guestForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const formData = new FormData(form);
-
-  fetch("https://script.google.com/macros/s/AKfycbymR8vXztyWVqvjsfbuEHW00bFp7VqedODVu1MXwBoeR8UdkVkFzp_ce_CJWNT5E-SP/exec", {
-    method: "POST",
-    body: formData,
-    mode: "no-cors" // добавлено, чтобы Google принял запрос без CORS-ошибки
-  })
-  .then(() => {
-    document.getElementById("formMessage").textContent = "Жауабыңыз сақталды!";
-    form.reset();
-  })
-  .catch(() => {
-    document.getElementById("formMessage").textContent = "Қате пайда болды.";
-  });
-});
-</script>
-
-<script>
-  function updateCountdown() {
-    const weddingDate = new Date('2025-11-28T00:00:00+05:00'); // дата события
-    const now = new Date();
-    const diff = weddingDate - now;
-
-    const countdownEl = document.getElementById('countdown');
-    if (!countdownEl) return; // если элемента нет, не выполняем
-
-    if (diff <= 0) {
-      countdownEl.innerText = "Той басталды! 🎉";
-      return;
-    }
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const m = Math.floor((diff / (1000 * 60)) % 60);
-    const s = Math.floor((diff / 1000) % 60);
-
-    countdownEl.innerHTML = `
-      <div class="time-box">${d}<span>күн</span></div>
-      <div class="time-box">${h}<span>сағ</span></div>
-      <div class="time-box">${m}<span>мин</span></div>
-      <div class="time-box">${s}<span>сек</span></div>
-    `;
-  }
-
-  // вызываем сразу и обновляем каждую секунду
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
-
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.parallax-section');
+            const contents = document.querySelectorAll('.content');
+            const dots = document.querySelectorAll('.dot');
+            
+            contents[0].classList.add('visible');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const content = entry.target.querySelector('.content');
+                        content.classList.add('visible');
+                        
+                        const index = Array.from(sections).indexOf(entry.target);
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        if (dots[index]) dots[index].classList.add('active');
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            sections.forEach(section => observer.observe(section));
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const sectionIndex = this.getAttribute('data-section');
+                    sections[sectionIndex].scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            function updateCountdown() {
+                const eventDate = new Date('November 28, 2024 17:00:00').getTime();
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            }
+            
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+            
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-bg');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
