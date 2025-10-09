@@ -1,117 +1,975 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  color: #333;
-  background-color: #A8E6CF;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3a/Mint_Green_Floral_Pattern_Texture.jpg');
-  background-repeat: repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+    font-family: 'Playfair Display', serif;
+    color: #2C5D63;
+    overflow-x: hidden;
+    background: #F0F7F4;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
-* {
-  transition: all 0.3s ease-in-out;
+.parallax-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
 }
 
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: -2;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(240, 247, 244, 0.85);
+    z-index: -1;
+}
+
+.bg-1 { 
+    background: 
+        linear-gradient(135deg, rgba(121, 180, 169, 0.4) 0%, rgba(164, 216, 205, 0.3) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-2 { 
+    background: 
+        linear-gradient(135deg, rgba(111, 170, 159, 0.35) 0%, rgba(154, 206, 195, 0.25) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-3 { 
+    background: 
+        linear-gradient(135deg, rgba(131, 190, 179, 0.38) 0%, rgba(174, 226, 215, 0.28) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-4 { 
+    background: 
+        linear-gradient(135deg, rgba(101, 160, 149, 0.32) 0%, rgba(144, 196, 185, 0.22) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-5 { 
+    background: 
+        linear-gradient(135deg, rgba(141, 200, 189, 0.42) 0%, rgba(184, 236, 225, 0.32) 100%),
+        url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.content {
+    text-align: center;
+    padding: 40px;
+    max-width: 900px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-style: italic;
+    color: #2C5D63;
+    line-height: 1.4;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+/* Основной текст */
+p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #2C5D63;
+    font-weight: 400;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.2);
+}
+
+/* Особые акценты */
+strong, b {
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Стили для изображения невесты */
+.bride-image-top {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.bride-image-top .bride-image {
+    width: 750px;
+    height: 190vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.2));
+    opacity: 0.9;
+    animation: gentleFloat 4s ease-in-out infinite;
+}
+
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Главная секция с фото */
+.hero-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #2C5D63;
+    margin-bottom: 10px;
+    text-shadow: 0 0 25px rgba(121, 180, 169, 0.6);
+}
+
+.main-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #2C5D63;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(121, 180, 169, 0.5);
+}
+
+/* Круглая рамка с фото */
+.bride-hero-frame {
+    width: 70vmin;
+    height: 70vmin;
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.3) 0%, rgba(164, 216, 205, 0.2) 100%);
+    backdrop-filter: blur(20px);
+    border: 3px solid rgba(121, 180, 169, 0.4);
+    box-shadow: 
+        0 0 60px rgba(121, 180, 169, 0.4),
+        inset 0 0 60px rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bride-hero-image {
+    width: 95%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+/* Контент для скролла */
+.scroll-content {
+    margin-top: 50px;
+}
+
+/* Общая рамка приглашения */
+.invitation-combined {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+    text-align: center;
+}
+
+.greeting-list {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.invitation-content {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(121, 180, 169, 0.2);
+}
+
+.invitation-message {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: #2C5D63;
+}
+
+.bride-name {
+    font-size: 3rem !important;
+    font-weight: 600;
+    font-style: italic;
+    color: #2C5D63;
+    margin: 20px 0;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.date-box {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
+    display: inline-block;
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+}
+
+/* Стили для галереи программы */
+.program-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    margin: 50px 0;
+    max-width: 900px;
+}
+
+.program-item-image {
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.program-item-image:hover {
+    transform: translateY(-5px);
+}
+
+.image-frame {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    border: 3px solid rgba(121, 180, 169, 0.4);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(121, 180, 169, 0.2);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.program-item-image:hover .image-frame {
+    border-color: rgba(121, 180, 169, 0.7);
+    box-shadow: 0 12px 30px rgba(121, 180, 169, 0.3);
+    transform: scale(1.05);
+}
+
+.program-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.program-caption {
+    text-align: center;
+}
+
+.program-caption strong {
+    font-size: 1.3rem;
+    color: #2C5D63;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 50px 0;
+}
+
+.countdown-item {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.25) 0%, rgba(164, 216, 205, 0.2) 100%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    color: #2C5D63;
+    padding: 30px 25px;
+    border-radius: 15px;
+    min-width: 120px;
+    box-shadow: 0 8px 25px rgba(121, 180, 169, 0.2);
+}
+
+.countdown-number {
+    font-size: 3rem;
+    font-weight: bold;
+    display: block;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.countdown-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    color: #2C5D63;
+}
+
+.location-info {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+}
+
+.location-link {
+    color: #2C5D63;
+    text-decoration: none;
+    border-bottom: 1px solid #2C5D63;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.location-link:hover {
+    color: #79B4A9;
+    border-bottom-color: #79B4A9;
+    transform: translateY(-2px);
+}
+
+/* Календарь Ноября 2025 */
+.calendar-container {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    padding: 40px;
+    border-radius: 20px;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+}
+
+.calendar-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #2C5D63;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 12px;
+    margin: 0 auto;
+}
+
+.calendar-weekday {
+    padding: 15px;
+    text-align: center;
+    color: #2C5D63;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(121, 180, 169, 0.4);
+}
+
+.calendar-day {
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    color: #2C5D63;
+}
+
+.calendar-day:hover {
+    background: rgba(121, 180, 169, 0.3);
+    border-color: rgba(121, 180, 169, 0.4);
+}
+
+.calendar-day.event {
+    background: linear-gradient(135deg, #79B4A9, #A4D8CD);
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 20px rgba(121, 180, 169, 0.5);
+    transform: scale(1.1);
+    border: 2px solid #A4D8CD;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+}
+
+/* Дресс-код */
+.dress-code-image-container {
+    width: 700px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.dress-code-image-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.dress-code-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 3px solid rgba(121, 180, 169, 0.6);
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.3);
+    transition: all 0.3s ease;
+}
+
+.dress-code-image:hover {
+    transform: scale(1.7);
+    box-shadow: 0 15px 40px rgba(121, 180, 169, 0.4);
+}
+
+.dress-code-label {
+    position: absolute;
+    bottom: 20px;
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.9), rgba(164, 216, 205, 0.9));
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.dress-code-label.left {
+    left: 20px;
+}
+
+.dress-code-label.right {
+    right: 20px;
+}
+
+/* Форма - ШИРОКАЯ ВЕРСИЯ */
+.form-card {
+    background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    padding: 50px;
+    border-radius: 20px;
+    margin: 30px auto;
+    width: 95%;
+    max-width: 1150px;
+    box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+}
+
+.form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 500;
+    font-style: italic;
+    color: #2C5D63;
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.form-section {
+    margin-bottom: 40px;
+}
+
+.section-label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #2C5D63;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+}
+
+.section-description {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #2C5D63;
+    margin-bottom: 25px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.text-input, .number-input {
+    width: 100%;
+    padding: 20px 25px;
+    border: 2px solid rgba(121, 180, 169, 0.4);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    background: rgba(255, 255, 255, 0.8);
+    color: #2C5D63;
+    transition: all 0.3s ease;
+}
+
+.text-input:focus, .number-input:focus {
+    outline: none;
+    border-color: rgba(121, 180, 169, 0.7);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(121, 180, 169, 0.3);
+}
+
+.text-input::placeholder {
+    color: rgba(44, 93, 99, 0.6);
+    font-style: italic;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    border: 2px solid rgba(121, 180, 169, 0.4);
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.radio-option:hover {
+    border-color: rgba(121, 180, 169, 0.7);
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateY(-2px);
+}
+
+.radio-option input {
+    display: none;
+}
+
+.radio-custom {
+    width: 26px;
+    height: 26px;
+    border: 2px solid rgba(44, 93, 99, 0.5);
+    border-radius: 50%;
+    margin-right: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.radio-option input:checked + .radio-custom {
+    border-color: #2C5D63;
+    background: #2C5D63;
+}
+
+.radio-option input:checked + .radio-custom::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.radio-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2C5D63;
+    font-weight: 400;
+}
+
+.number-input {
+    max-width: 120px;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+.number-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.number-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #2C5D63;
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(135deg, rgba(44, 93, 99, 0.8), rgba(121, 180, 169, 0.8));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 25px;
+    font-size: 1.6rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(121, 180, 169, 0.4);
+    background: linear-gradient(135deg, #2C5D63, #79B4A9);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+.btn-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+.message {
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    display: none;
+    backdrop-filter: blur(10px);
+    border: 1px solid;
+}
+
+.message.success {
+    background: rgba(144, 238, 144, 0.2);
+    color: #2d7d32;
+    border-color: rgba(144, 238, 144, 0.4);
+}
+
+.message.error {
+    background: rgba(255, 182, 193, 0.2);
+    color: #c53030;
+    border-color: rgba(255, 182, 193, 0.4);
+}
+
+/* Аудио контрол */
 .audio-control {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  cursor: pointer;
-  z-index: 1000;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: rgba(121, 180, 169, 0.3);
+    border: 1px solid rgba(121, 180, 169, 0.4);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
 .audio-control:hover {
-  background: #DCC6E0;
-  color: #fff;
+    background: rgba(121, 180, 169, 0.4);
+    transform: scale(1.1);
 }
 
+.audio-control i {
+    color: #2C5D63;
+    font-size: 1.2rem;
+}
+
+/* Навигационные точки */
 .nav-dots {
-  position: fixed;
-  right: 25px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 999;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);
-  border: 2px solid #fff;
-  cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(121, 180, 169, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
 .dot.active {
-  background: #DCC6E0;
-  box-shadow: 0 0 10px #A8E6CF;
+    background: #2C5D63;
+    transform: scale(1.3);
 }
 
-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 60px 20px;
-  background: rgba(255,255,255,0.55);
-  backdrop-filter: blur(8px);
-  border-radius: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  margin: 30px auto;
-  width: 90%;
-  max-width: 1100px;
+.dot:hover {
+    background: rgba(121, 180, 169, 0.7);
 }
 
-h1, h2, h3, p {
-  margin: 10px 0;
+/* Декоративные элементы */
+.floral-decoration {
+    position: absolute;
+    font-size: 2rem;
+    color: rgba(121, 180, 169, 0.6);
+    z-index: -1;
+    animation: gentleFloat 6s ease-in-out infinite;
 }
 
-button, .btn {
-  background: linear-gradient(135deg, #A8E6CF, #DCC6E0);
-  border: none;
-  color: #333;
-  padding: 10px 25px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-button:hover, .btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-}
-
+/* Адаптивность */
 @media (max-width: 768px) {
-  section {
-    padding: 40px 15px;
-    width: 95%;
-  }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.6rem; }
+    .bride-name { font-size: 2.2rem !important; }
+    p { font-size: 1.2rem; }
+    
+    .program-gallery {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .program-image {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .image-frame {
+        padding: 15px;
+    }
+    
+    .program-caption strong {
+        font-size: 1.2rem;
+    }
+    
+    .countdown { flex-wrap: wrap; gap: 15px; }
+    .countdown-item { min-width: 80px; padding: 20px 15px; }
+    .countdown-number { font-size: 2rem; }
+    .audio-control { bottom: 10px; left: 10px; width: 40px; height: 40px; }
+    .dress-code-image-container { width: 90%; }
+    .dress-code-image { max-width: 100%; }
+    .calendar-container { padding: 20px; }
+    .calendar-day { padding: 12px; }
+    
+    .bride-image-top .bride-image {
+        max-width: 400px;
+        max-height: 80vh;
+    }
+    
+    .nav-dots {
+        right: 10px;
+        gap: 10px;
+    }
+    
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .form-card {
+        padding: 30px 25px;
+        width: 90%;
+    }
+    
+    .form-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+    
+    .section-label {
+        font-size: 1.5rem;
+    }
+    
+    .section-description {
+        font-size: 1.2rem;
+    }
+    
+    .radio-text {
+        font-size: 1.4rem;
+    }
+    
+    .text-input, .number-input {
+        padding: 18px 20px;
+        font-size: 1.3rem;
+    }
+    
+    .radio-option {
+        padding: 20px 25px;
+    }
+    
+    .submit-btn {
+        padding: 22px;
+        font-size: 1.4rem;
+    }
+    
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .main-subtitle {
+        font-size: 2rem;
+    }
+    
+    .bride-hero-frame {
+        width: 80vmin;
+        height: 80vmin;
+        max-width: 500px;
+        max-height: 500px;
+    }
+    
+    .invitation-combined {
+        padding: 30px;
+    }
+}
 
-  .audio-control {
-    width: 45px;
-    height: 45px;
-  }
-
-  .dot {
-    width: 10px;
-    height: 10px;
-  }
+@media (max-width: 480px) {
+    .program-gallery {
+        gap: 25px;
+    }
+    
+    .program-image {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .image-frame {
+        padding: 12px;
+        border-radius: 15px;
+    }
+    
+    .program-caption strong {
+        font-size: 1.1rem;
+    }
+    
+    .bride-image-top .bride-image {
+        max-width: 300px;
+        max-height: 60vh;
+    }
+    
+    .form-card {
+        padding: 25px 20px;
+        margin: 20px;
+    }
+    
+    .form-title {
+        font-size: 2.2rem;
+    }
+    
+    .radio-option {
+        padding: 18px 20px;
+    }
+    
+    .radio-text {
+        font-size: 1.3rem;
+    }
+    
+    .text-input, .number-input {
+        padding: 15px 18px;
+        font-size: 1.2rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .main-subtitle {
+        font-size: 1.8rem;
+    }
+    
+    .bride-hero-frame {
+        width: 85vmin;
+        height: 85vmin;
+        max-width: 400px;
+        max-height: 400px;
+    }
+    
+    .invitation-combined {
+        padding: 20px;
+    }
+    
+    .dress-code-label {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
 }
