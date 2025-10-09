@@ -131,4 +131,107 @@ document.addEventListener('DOMContentLoaded', function() {
     // Отправка формы
     const attendanceForm = document.getElementById('attendanceForm');
     if (attendanceForm) {
-        const SCRIPT_URL = 'https://script
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyW6Dv9gVmrPShnbcEr_9Y_4WdB0LVSLxrtKfas9_kS4E6V36ucpRWrr6YGaKQkqD6z/exec';
+
+        attendanceForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoader = submitBtn.querySelector('.btn-loader');
+            const messageDiv = document.getElementById('message');
+            
+            // Получаем данные формы
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const attendance = formData.get('attendance');
+            const people_count = formData.get('people_count');
+            
+            // Валидация
+            if (!name || !name.trim()) {
+                showMessage('Аты-жөніңізді енгізіңіз!', 'error');
+                return;
+            }
+            
+            if (!attendance) {
+                showMessage('Қатысу вариантын таңдаңыз!', 'error');
+                return;
+            }
+            
+            // Блокируем кнопку на время отправки
+            submitBtn.disabled = true;
+            if (btnText) btnText.style.display = 'none';
+            if (btnLoader) btnLoader.style.display = 'block';
+            
+            try {
+                const params = new URLSearchParams({
+                    name: name.trim(),
+                    attendance: attendance,
+                    people_count: people_count || '1'
+                });
+                
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: params,
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    }
+                });
+                
+                if (response.ok) {
+                    showMessage('Сіздің жауабыңыз сәтті жіберілді! Рахмет!', 'success');
+                    this.reset();
+                    // Сбрасываем количество людей на 1
+                    const peopleCountInput = document.getElementById('people_count');
+                    if (peopleCountInput) {
+                        peopleCountInput.value = '1';
+                    }
+                } else {
+                    throw new Error('Сервер қатесі');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Жіберу кезінде қате орын алды. Қайталап көріңіз.', 'error');
+            } finally {
+                // Разблокируем кнопку
+                submitBtn.disabled = false;
+                if (btnText) btnText.style.display = 'block';
+                if (btnLoader) btnLoader.style.display = 'none';
+            }
+        });
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            if (messageDiv) {
+                messageDiv.textContent = text;
+                messageDiv.className = `message ${type}`;
+                messageDiv.style.display = 'block';
+                
+                // Автоматически скрываем сообщение через 5 секунд
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        }
+
+        // Автоматический выбор первого варианта при загрузке
+        const firstRadio = document.querySelector('input[value="Ия, бүйірге келемін"]');
+        if (firstRadio) {
+            firstRadio.checked = true;
+        }
+    }
+
+    // Плавная прокрутка для всех внутренних ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
