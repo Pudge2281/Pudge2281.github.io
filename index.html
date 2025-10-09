@@ -6,83 +6,1065 @@
     <title>Айжан - Қыз ұзату тойы</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #2C5D63;
+            overflow-x: hidden;
+            background: #F0F7F4;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .parallax-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2379B4A9' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 247, 244, 0.85);
+            z-index: -1;
+        }
+
+        .bg-1 { background: linear-gradient(135deg, rgba(121, 180, 169, 0.4) 0%, rgba(164, 216, 205, 0.3) 100%); }
+        .bg-2 { background: linear-gradient(135deg, rgba(111, 170, 159, 0.35) 0%, rgba(154, 206, 195, 0.25) 100%); }
+        .bg-3 { background: linear-gradient(135deg, rgba(131, 190, 179, 0.38) 0%, rgba(174, 226, 215, 0.28) 100%); }
+        .bg-4 { background: linear-gradient(135deg, rgba(101, 160, 149, 0.32) 0%, rgba(144, 196, 185, 0.22) 100%); }
+        .bg-5 { background: linear-gradient(135deg, rgba(141, 200, 189, 0.42) 0%, rgba(184, 236, 225, 0.32) 100%); }
+
+        .content {
+            text-align: center;
+            padding: 40px;
+            max-width: 900px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Заголовки */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            font-style: italic;
+            color: #2C5D63;
+            line-height: 1.4;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        /* Основной текст */
+        p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: #2C5D63;
+            font-weight: 400;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.2);
+        }
+
+        /* Особые акценты */
+        strong, b {
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        /* Стили для изображения невесты */
+        .bride-image-top {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            transform: translateX(-50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bride-image-top .bride-image {
+            width: 750px;
+            height: 190vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.2));
+            opacity: 0.9;
+            animation: gentleFloat 4s ease-in-out infinite;
+        }
+
+        @keyframes gentleFloat {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Текст приветствия */
+        .greeting-text {
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.15) 0%, rgba(164, 216, 205, 0.1) 100%);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(121, 180, 169, 0.3);
+        }
+
+        /* Основной текст приглашения */
+        .invitation-main {
+            margin: 40px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+        }
+
+        .bride-name {
+            font-size: 3rem !important;
+            font-weight: 600;
+            font-style: italic;
+            color: #2C5D63;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .date-box {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            display: inline-block;
+            box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+        }
+
+        /* Стили для галереи программы */
+        .program-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+            max-width: 900px;
+        }
+
+        .program-item-image {
+            text-align: center;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .program-item-image:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-frame {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            border: 3px solid rgba(121, 180, 169, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(121, 180, 169, 0.2);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .program-item-image:hover .image-frame {
+            border-color: rgba(121, 180, 169, 0.7);
+            box-shadow: 0 12px 30px rgba(121, 180, 169, 0.3);
+            transform: scale(1.05);
+        }
+
+        .program-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .program-caption {
+            text-align: center;
+        }
+
+        .program-caption strong {
+            font-size: 1.3rem;
+            color: #2C5D63;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .countdown-item {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.25) 0%, rgba(164, 216, 205, 0.2) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            color: #2C5D63;
+            padding: 30px 25px;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 8px 25px rgba(121, 180, 169, 0.2);
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .countdown-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            letter-spacing: 1px;
+            color: #2C5D63;
+        }
+
+        .location-info {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+        }
+
+        .location-link {
+            color: #2C5D63;
+            text-decoration: none;
+            border-bottom: 1px solid #2C5D63;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .location-link:hover {
+            color: #79B4A9;
+            border-bottom-color: #79B4A9;
+            transform: translateY(-2px);
+        }
+
+        /* Календарь Ноября 2025 */
+        .calendar-container {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+        }
+
+        .calendar-header {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #2C5D63;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 12px;
+            margin: 0 auto;
+        }
+
+        .calendar-weekday {
+            padding: 15px;
+            text-align: center;
+            color: #2C5D63;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(121, 180, 169, 0.4);
+        }
+
+        .calendar-day {
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            color: #2C5D63;
+        }
+
+        .calendar-day:hover {
+            background: rgba(121, 180, 169, 0.3);
+            border-color: rgba(121, 180, 169, 0.4);
+        }
+
+        .calendar-day.event {
+            background: linear-gradient(135deg, #79B4A9, #A4D8CD);
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(121, 180, 169, 0.5);
+            transform: scale(1.1);
+            border: 2px solid #A4D8CD;
+        }
+
+        .calendar-day.empty {
+            background: transparent;
+            border: none;
+        }
+
+        /* Дресс-код */
+        .dress-code-image-container {
+            width: 700px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .dress-code-image-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dress-code-image {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 3px solid rgba(121, 180, 169, 0.6);
+            box-shadow: 0 10px 30px rgba(121, 180, 169, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .dress-code-image:hover {
+            transform: scale(1.7);
+            box-shadow: 0 15px 40px rgba(121, 180, 169, 0.4);
+        }
+
+        .dress-code-label {
+            position: absolute;
+            bottom: 20px;
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.9), rgba(164, 216, 205, 0.9));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .dress-code-label.left {
+            left: 20px;
+        }
+
+        .dress-code-label.right {
+            right: 20px;
+        }
+
+        /* Форма - ШИРОКАЯ ВЕРСИЯ */
+        .form-card {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 30px auto;
+            width: 95%;
+            max-width: 1150px;
+            box-shadow: 0 10px 30px rgba(121, 180, 169, 0.2);
+        }
+
+        .form-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 500;
+            font-style: italic;
+            color: #2C5D63;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #2C5D63;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .section-description {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #2C5D63;
+            margin-bottom: 25px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .text-input, .number-input {
+            width: 100%;
+            padding: 20px 25px;
+            border: 2px solid rgba(121, 180, 169, 0.4);
+            border-radius: 12px;
+            font-size: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            background: rgba(255, 255, 255, 0.8);
+            color: #2C5D63;
+            transition: all 0.3s ease;
+        }
+
+        .text-input:focus, .number-input:focus {
+            outline: none;
+            border-color: rgba(121, 180, 169, 0.7);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 20px rgba(121, 180, 169, 0.3);
+        }
+
+        .text-input::placeholder {
+            color: rgba(44, 93, 99, 0.6);
+            font-style: italic;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 25px 30px;
+            border: 2px solid rgba(121, 180, 169, 0.4);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .radio-option:hover {
+            border-color: rgba(121, 180, 169, 0.7);
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .radio-option input {
+            display: none;
+        }
+
+        .radio-custom {
+            width: 26px;
+            height: 26px;
+            border: 2px solid rgba(44, 93, 99, 0.5);
+            border-radius: 50%;
+            margin-right: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .radio-option input:checked + .radio-custom {
+            border-color: #2C5D63;
+            background: #2C5D63;
+        }
+
+        .radio-option input:checked + .radio-custom::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .radio-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2C5D63;
+            font-weight: 400;
+        }
+
+        .number-input {
+            max-width: 120px;
+            text-align: center;
+            font-size: 1.5rem;
+            padding: 15px;
+        }
+
+        .number-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .number-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2C5D63;
+            font-weight: 500;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(44, 93, 99, 0.8), rgba(121, 180, 169, 0.8));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            font-size: 1.6rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(121, 180, 169, 0.4);
+            background: linear-gradient(135deg, #2C5D63, #79B4A9);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .btn-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+        }
+
+        .message {
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid;
+        }
+
+        .message.success {
+            background: rgba(144, 238, 144, 0.2);
+            color: #2d7d32;
+            border-color: rgba(144, 238, 144, 0.4);
+        }
+
+        .message.error {
+            background: rgba(255, 182, 193, 0.2);
+            color: #c53030;
+            border-color: rgba(255, 182, 193, 0.4);
+        }
+
+        /* Адаптивность для широкой формы */
+        @media (max-width: 1200px) {
+            .form-card {
+                padding: 40px;
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-card {
+                padding: 30px 25px;
+                width: 90%;
+            }
+            
+            .form-title {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+            }
+            
+            .section-label {
+                font-size: 1.5rem;
+            }
+            
+            .section-description {
+                font-size: 1.2rem;
+            }
+            
+            .radio-text {
+                font-size: 1.4rem;
+            }
+            
+            .text-input, .number-input {
+                padding: 18px 20px;
+                font-size: 1.3rem;
+            }
+            
+            .radio-option {
+                padding: 20px 25px;
+            }
+            
+            .submit-btn {
+                padding: 22px;
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-card {
+                padding: 25px 20px;
+                margin: 20px;
+            }
+            
+            .form-title {
+                font-size: 2.2rem;
+            }
+            
+            .radio-option {
+                padding: 18px 20px;
+            }
+            
+            .radio-text {
+                font-size: 1.3rem;
+            }
+            
+            .text-input, .number-input {
+                padding: 15px 18px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Аудио контрол */
+        .audio-control {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(121, 180, 169, 0.3);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .audio-control:hover {
+            background: rgba(121, 180, 169, 0.4);
+            transform: scale(1.1);
+        }
+
+        .audio-control i {
+            color: #2C5D63;
+            font-size: 1.2rem;
+        }
+
+        /* Навигационные точки */
+        .nav-dots {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(121, 180, 169, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot.active {
+            background: #2C5D63;
+            transform: scale(1.3);
+        }
+
+        .dot:hover {
+            background: rgba(121, 180, 169, 0.7);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.6rem; }
+            .bride-name { font-size: 2.2rem !important; }
+            p { font-size: 1.2rem; }
+            
+            .program-gallery {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .program-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .image-frame {
+                padding: 15px;
+            }
+            
+            .program-caption strong {
+                font-size: 1.2rem;
+            }
+            
+            .countdown { flex-wrap: wrap; gap: 15px; }
+            .countdown-item { min-width: 80px; padding: 20px 15px; }
+            .countdown-number { font-size: 2rem; }
+            .audio-control { bottom: 10px; left: 10px; width: 40px; height: 40px; }
+            .dress-code-image { max-width: 300px; }
+            .calendar-container { padding: 20px; }
+            .calendar-day { padding: 12px; }
+            
+            .bride-image-top .bride-image {
+                max-width: 400px;
+                max-height: 80vh;
+            }
+            
+            .nav-dots {
+                right: 10px;
+                gap: 10px;
+            }
+            
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .form-card {
+                padding: 24px;
+                margin: 10px;
+            }
+            
+            .form-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .program-gallery {
+                gap: 25px;
+            }
+            
+            .program-image {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .image-frame {
+                padding: 12px;
+                border-radius: 15px;
+            }
+            
+            .program-caption strong {
+                font-size: 1.1rem;
+            }
+            
+            .bride-image-top .bride-image {
+                max-width: 300px;
+                max-height: 60vh;
+            }
+        }
+
+        /* Надпись над календарем */
+        .calendar-title {
+            background: linear-gradient(135deg, rgba(121, 180, 169, 0.2) 0%, rgba(164, 216, 205, 0.15) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(121, 180, 169, 0.4);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px auto;
+            max-width: 600px;
+            box-shadow: 0 8px 25px rgba(121, 180, 169, 0.2);
+            text-align: center;
+        }
+
+        .calendar-title h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #2C5D63;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(121, 180, 169, 0.3);
+        }
+
+        .calendar-title p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #2C5D63;
+            line-height: 1.6;
+            text-shadow: 0 0 8px rgba(121, 180, 169, 0.2);
+        }
+
+        /* Адаптивность для надписи */
+        @media (max-width: 768px) {
+            .calendar-title {
+                padding: 25px;
+                margin: 25px auto;
+                max-width: 500px;
+            }
+            
+            .calendar-title h3 {
+                font-size: 1.6rem;
+            }
+            
+            .calendar-title p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-title {
+                padding: 20px;
+                margin: 20px auto;
+                max-width: 400px;
+            }
+            
+            .calendar-title h3 {
+                font-size: 1.4rem;
+            }
+            
+            .calendar-title p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
-<body>  
+<body>
     <!-- Аудио контрол -->
     <div class="audio-control" id="audioControl">
-        <i class="fas fa-play"></i>
+        <i class="fas fa-volume-up"></i>
     </div>
-
-    <!-- Навигационные точки -->
-    <div class="nav-dots">
-        <div class="dot active" data-section="0"></div>
-        <div class="dot" data-section="1"></div>
-        <div class="dot" data-section="2"></div>
-        <div class="dot" data-section="3"></div>
-        <div class="dot" data-section="4"></div>
-    </div>
-
     
-<!-- Секция 1: Главная -->
-<section class="parallax-section" id="section1">
-    <div class="parallax-bg bg-1"></div>
-    <div class="bg-overlay"></div>
-
-    <!-- Декоративные элементы -->
-    <div class="floral-decoration" style="top: 10%; left: 10%;">❦</div>
-    <div class="floral-decoration" style="top: 15%; right: 15%;">✻</div>
-    <div class="floral-decoration" style="bottom: 20%; left: 20%;">❁</div>
-
-    <div class="content">
-        <!-- Главный заголовок и круглое фото -->
-        <div class="hero-section">
-            <h1 class="main-title">Айжан</h1>
-            <h2 class="main-subtitle">Қыз Ұзату</h2>
-            
-            <!-- Круглая рамка с фото -->
-            <div class="bride-hero-frame">
-                <img src="gbride.png" alt="Айжан" class="bride-hero-image">
+    <!-- Навигационные точки -->
+    <div class="nav-dots" id="navDots"></div>
+    
+    <!-- Изображение невесты -->
+    <div class="bride-image-top">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1200'%3E%3Cpath fill='%23A4D8CD' d='M400,100 C600,100 700,300 700,500 C700,700 600,900 400,900 C200,900 100,700 100,500 C100,300 200,100 400,100 Z'/%3E%3Cpath fill='%2379B4A9' d='M400,150 C550,150 650,300 650,500 C650,700 550,850 400,850 C250,850 150,700 150,500 C150,300 250,150 400,150 Z'/%3E%3Cpath fill='%232C5D63' d='M400,200 C500,200 600,350 600,500 C600,650 500,800 400,800 C300,800 200,650 200,500 C200,350 300,200 400,200 Z'/%3E%3C/svg%3E" alt="Айжан" class="bride-image">
+    </div>
+    
+    <!-- Секция 1: Приветствие -->
+    <section class="parallax-section" id="section1">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-1"></div>
+        <div class="content">
+            <div class="greeting-text">
+                <h1>Сізді қыз ұзату тойымызға шақырамыз!</h1>
+                <p>Біздің отбасымыздың ең жылы және ерекше күніне ортақ болуға шақырамыз. Біздің бақытты сәтімізбен бөлісуге келіңіздер!</p>
             </div>
         </div>
-
-        <!-- Остальной контент (будет ниже при скролле) -->
-        <div class="scroll-content">
-       <!-- Общая рамка для приглашения -->
-<div class="invitation-combined">
-    <h2>Құрметті қонақтар!</h2>
-    <p class="greeting-list">
-        Ағайын-туыс, бауырлар, нағашы-жиен, құда-жекжат,<br>
-        дос-жаран, құрдастар, көршілер, ұжымдастар!
-    </p>
+    </section>
     
-    <div class="invitation-content">
-        <h3>Сіздерді аяулы қызымыз</h3>
-        <h2 class="bride-name">Айжанды</h2>
-        <p class="invitation-message">
-            ыстық ұясынан құтты босағасына ұзату тойына<br>
-            арналған ақ дастарханымыздың қадірлі қонағы болуға шақырамыз!
-             <h3>Той иелері:</h3>
-                <p style="font-size: 1.3rem; line-height: 1.6; margin-top: 10px;">
-                    Ата-анасы: Еркiн-Светлана
-        </p>
-    </div>
-</div>
-            
-            <!-- Дата и время -->
-            <div class="date-box">
-                <h3>Басталу уақыты</h3> 
-                <h3>28 Қараша 2025 жылы</h3>
-                
-                <p style="font-size: 1.3rem; margin-top: 10px;">Сәтті сағат 18:00</p>
+    <!-- Секция 2: Приглашение -->
+    <section class="parallax-section" id="section2">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-2"></div>
+        <div class="content">
+            <div class="invitation-main">
+                <h2>Сізді құрметтейміз</h2>
+                <p class="bride-name">Айжан</p>
+                <p>болашақ ерлі-зайыптылардың тойына</p>
+                <div class="date-box">
+                    <h3>15 қараша 2025 жыл</h3>
+                    <p>Сағат 18:00</p>
+                </div>
+                <p>Біздің бақытты күнімізге ортақ болып, бізбен бірге тойлауға шақырамыз!</p>
             </div>
-
-            
-               
-                </p>
+        </div>
+    </section>
+    
+    <!-- Секция 3: Программа -->
+    <section class="parallax-section" id="section3">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-3"></div>
+        <div class="content">
+            <h2>Той бағдарламасы</h2>
+            <div class="program-gallery">
+                <div class="program-item-image">
+                    <div class="image-frame">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='%2379B4A9'/%3E%3C/svg%3E" alt="Қонақтарды қабылдау" class="program-image">
+                    </div>
+                    <div class="program-caption">
+                        <strong>Қонақтарды қабылдау</strong>
+                        <p>18:00 - 19:00</p>
+                    </div>
+                </div>
+                <div class="program-item-image">
+                    <div class="image-frame">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='%23A4D8CD'/%3E%3C/svg%3E" alt="Ниет айту" class="program-image">
+                    </div>
+                    <div class="program-caption">
+                        <strong>Ниет айту</strong>
+                        <p>19:00 - 19:30</p>
+                    </div>
+                </div>
+                <div class="program-item-image">
+                    <div class="image-frame">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='%2379B4A9'/%3E%3C/svg%3E" alt="Тамақ ішу" class="program-image">
+                    </div>
+                    <div class="program-caption">
+                        <strong>Тамақ ішу</strong>
+                        <p>19:30 - 21:00</p>
+                    </div>
+                </div>
+                <div class="program-item-image">
+                    <div class="image-frame">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='80' fill='%23A4D8CD'/%3E%3C/svg%3E" alt="Бізге қосылыңыз" class="program-image">
+                    </div>
+                    <div class="program-caption">
+                        <strong>Бізге қосылыңыз</strong>
+                        <p>21:00 - 00:00</p>
+                    </div>
+                </div>
             </div>
-
-            <!-- Календарь Ноября 2025 -->
+        </div>
+    </section>
+    
+    <!-- Секция 4: Обратный отсчет -->
+    <section class="parallax-section" id="section4">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-4"></div>
+        <div class="content">
+            <h2>Тойға дейін қалған уақыт</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="days">00</span>
+                    <span class="countdown-label">күн</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="hours">00</span>
+                    <span class="countdown-label">сағат</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutes">00</span>
+                    <span class="countdown-label">минут</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="seconds">00</span>
+                    <span class="countdown-label">секунд</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция 5: Местоположение -->
+    <section class="parallax-section" id="section5">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-5"></div>
+        <div class="content">
+            <h2>Той орналасқан жері</h2>
+            <div class="location-info">
+                <h3>«Асау» рестораны</h3>
+                <p>Астана қаласы, Есіл ауданы, Қажымұқан көшесі, 12</p>
+                <a href="https://maps.google.com" class="location-link" target="_blank">Картада көрсету</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция 6: Календарь -->
+    <section class="parallax-section" id="section6">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-1"></div>
+        <div class="content">
+            <div class="calendar-title">
+                <h3>Қараша айының 15 күні - біздің ерекше күніміз!</h3>
+                <p>Бұл күн біз үшін өте маңызды, өйткені біз отбасымыздың жаңа мүшесін ұзатамыз және оның жаңа өмір жолын бастауына қуаныштымыз.</p>
+            </div>
             <div class="calendar-container">
                 <div class="calendar-header">Қараша 2025</div>
                 <div class="calendar">
@@ -91,11 +1073,9 @@
                     <div class="calendar-weekday">Ср</div>
                     <div class="calendar-weekday">Бс</div>
                     <div class="calendar-weekday">Жм</div>
-                    <div class="calendar-weekday">Сб</div>
-                    <div class="calendar-weekday">Жс</div>
+                    <div class="calendar-weekday">Сн</div>
+                    <div class="calendar-weekday">Жк</div>
                     
-                    <!-- Ноябрь 2025 начинается с субботы -->
-                    <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
                     <div class="calendar-day empty"></div>
@@ -115,7 +1095,7 @@
                     <div class="calendar-day">12</div>
                     <div class="calendar-day">13</div>
                     <div class="calendar-day">14</div>
-                    <div class="calendar-day">15</div>
+                    <div class="calendar-day event">15</div>
                     <div class="calendar-day">16</div>
                     <div class="calendar-day">17</div>
                     <div class="calendar-day">18</div>
@@ -128,206 +1108,233 @@
                     <div class="calendar-day">25</div>
                     <div class="calendar-day">26</div>
                     <div class="calendar-day">27</div>
-                    <div class="calendar-day event">28</div>
+                    <div class="calendar-day">28</div>
                     <div class="calendar-day">29</div>
                     <div class="calendar-day">30</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Секция 2: Место проведения -->
-    <section class="parallax-section" id="section2">
-        <div class="parallax-bg bg-2"></div>
-        <div class="bg-overlay"></div>
-        <div class="content">
-            <h2>Мекен-Жайымыз</h2>
-            <div class="location-info">
-                <h3>Ақтау қаласы "Aktau Palace"</h3>
-                <p>Мейрамханасы</p>
-                <div style="margin-top: 25px;">
-                    <p style="font-size: 1.2rem; font-style: italic;"></p>
-                </div>
-                <a href="https://2gis.kz/aktau/firm/70000001030696537" class="location-link" target="_blank">
-                    <i class="fas fa-map-marker-alt"></i> 2GIS картада көру
-                </a>
-            </div>
-            
-            <div class="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-label">Күн</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-label">Сағат</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-label">Минут</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-label">Секунд</span>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
+                    <div class="calendar-day empty"></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Секция 3: Программа -->
-    <section class="parallax-section" id="section3">
-        <div class="parallax-bg bg-3"></div>
-        <div class="bg-overlay"></div>
+    
+    <!-- Секция 7: Дресс-код -->
+    <section class="parallax-section" id="section7">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-2"></div>
         <div class="content">
-            <h2>Той бағдарламасы</h2>
-            
-            <div class="program-gallery">
-                <div class="program-item-image">
-                    <div class="image-frame">
-                        <img src="program1.png" alt="Қонақтардың жиналуы" class="program-image">
-                    </div>
-                    <div class="program-caption">
-                        <strong>Қонақтардың жиналуы</strong>
-                    </div>
-                </div>
-                
-                <div class="program-item-image">
-                    <div class="image-frame">
-                        <img src="program2.png" alt="Ансамбль, фуршет,фотосессия" class="program-image">
-                    </div>
-                    <div class="program-caption">
-                        <strong>Ансамбль, фуршет,фотосессия</strong>
-                    </div>
-                </div>
-                
-                <div class="program-item-image">
-                    <div class="image-frame">
-                        <img src="program3.png" alt="Тойдың басталуы" class="program-image">
-                    </div>
-                    <div class="program-caption">
-                        <strong>Тойдың басталуы</strong>
-                    </div>
-                </div>
-                
-                <div class="program-item-image">
-                    <div class="image-frame">
-                        <img src="program4.png" alt="Ұзату рәсімі" class="program-image">
-                    </div>
-                    <div class="program-caption">
-                        <strong>Ұзату рәсімі</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция 4: Дресс-код -->
-    <section class="parallax-section" id="section4">
-        <div class="parallax-bg bg-4"></div>
-        <div class="bg-overlay"></div>
-        <div class="content">
-            <h2>Дресс-код</h2>
-            
+            <h2>Киім стилі</h2>
+            <p>Біз тойымызды мятный және ақ түстерінде өткізгіміз келеді. Сіздерді де осы стильге сай киінулеріңізді сұраймыз.</p>
             <div class="dress-code-image-container">
                 <div class="dress-code-image-wrapper">
-                    <img src="dress-code.png" alt="Дресс-код" class="dress-code-image">
-                    <div class="dress-code-label left">Әйелдерге кешкі көйлек</div>
-                    <div class="dress-code-label right">Ерлерге костюм</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23F0F7F4'/%3E%3Cpath d='M200,100 C300,50 500,50 600,100 C600,200 500,250 400,300 C300,250 200,200 200,100 Z' fill='%2379B4A9'/%3E%3Cpath d='M250,120 C350,70 450,70 550,120 C550,180 450,220 400,270 C350,220 250,180 250,120 Z' fill='%23A4D8CD'/%3E%3C/svg%3E" alt="Мятный стиль" class="dress-code-image">
+                    <div class="dress-code-label left">Мятный</div>
+                    <div class="dress-code-label right">Ақ</div>
                 </div>
             </div>
         </div>
     </section>
-
-<!-- Секция 5: Форма подтверждения -->
-<section class="parallax-section" id="section5">
-    <div class="parallax-bg bg-5"></div>
-    <div class="bg-overlay"></div>
-    <div class="content">
-        <div class="form-card">
-            <h1 class="form-title">Тойға келесіз бе?</h1>
-            
-            <form id="attendanceForm" class="attendance-form">
-                <!-- ФИО -->
-                <div class="form-section">
-                    <label class="section-label">Аты-жөніңіз</label>
-                    <p class="section-description">Толық аты-жөніңізді енгізіңіз</p>
-                    <input type="text" id="name" name="name" class="text-input" placeholder="Аты-жөніңіз" required>
-                </div>
-
-                <!-- Аттенданс -->
-                <div class="form-section">
-                    <label class="section-label">Қатысасыз ба?</label>
-                    <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="Ия, бүйірге келемін" required>
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Иә, бұйырса келемін</span>
-                        </label>
-                        
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="Жұбайыммен келемін">
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Жұбайыммен келемін</span>
-                        </label>
-                        
-                        <label class="radio-option">
-                            <input type="radio" name="attendance" value="Жоқ, келе алмаймын">
-                            <span class="radio-custom"></span>
-                            <span class="radio-text">Жоқ, келе алмаймын</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- Количество людей -->
-                <div class="form-section">
-                    <label class="section-label">Қанша адам келесіз?</label>
-                    <div class="number-section">
-                        <span class="number-label">Адам саны:</span>
-                        <input type="number" id="people_count" name="people_count" class="number-input" value="1" min="1" max="10" required>
-                    </div>
-                </div>
-
-                <!-- Сообщение -->
-                <div id="message" class="message"></div>
-
-                <!-- Кнопка отправки -->
-                <button type="submit" class="submit-btn" id="submitBtn">
-                    <span class="btn-text">жауапты жіберу</span>
-                    <div class="btn-loader" style="display: none;">Жіберілуде...</div>
-                </button>
-            </form>
-        </div>
-    </div>
-</section>
-
-    <!-- Фон и музыка -->
-    <audio id="bg-music" loop>
-        <source src="music.mp3" type="audio/mpeg">
-    </audio>
-
-    <script src="script.js"></script>
     
+    <!-- Секция 8: Форма подтверждения -->
+    <section class="parallax-section" id="section8">
+        <div class="parallax-bg bg-pattern"></div>
+        <div class="bg-overlay bg-3"></div>
+        <div class="content">
+            <div class="form-card">
+                <h2 class="form-title">Қатысуыңызды растау</h2>
+                
+                <div class="message" id="formMessage"></div>
+                
+                <form id="rsvpForm">
+                    <div class="form-section">
+                        <label class="section-label">Аты-жөніңіз</label>
+                        <p class="section-description">Тойға қатысатын барлық адамдардың аты-жөнін көрсетіңіз</p>
+                        <input type="text" class="text-input" id="guestNames" placeholder="Аты-жөніңіз" required>
+                    </div>
+                    
+                    <div class="form-section">
+                        <label class="section-label">Қатысасыз ба?</label>
+                        <p class="section-description">Біздің тойымызға қатысатыныңызбен бөлісіңіз</p>
+                        <div class="radio-group">
+                            <label class="radio-option">
+                                <input type="radio" name="attendance" value="yes" required>
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Ия, мен қатысамын!</span>
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="radio-custom"></span>
+                                <span class="radio-text">Кешіріңіз, мен қатыса алмаймын</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <label class="section-label">Қонақтар саны</label>
+                        <p class="section-description">Сізбен бірге қанша адам келетініңізді көрсетіңіз (өзіңізді есептегенде)</p>
+                        <div class="number-section">
+                            <span class="number-label">Адам саны:</span>
+                            <input type="number" class="number-input" id="guestCount" min="1" max="10" value="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <label class="section-label">Тілектеріңіз</label>
+                        <p class="section-description">Болашақ ерлі-зайыптыларға тілектеріңізбен бөлісіңіз (міндетті емес)</p>
+                        <textarea class="text-input" id="wishes" placeholder="Тілектеріңіз..." rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span class="btn-text">Жіберу</span>
+                        <span class="btn-loader" style="display: none;">Жіберілуде...</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <script>
-        // Простой скрипт для музыки
-        const music = document.getElementById("bg-music");
-        if (music) {
-            music.volume = 0.3;
+        // Аудио элемент
+        const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-happy-pop-138.mp3');
+        audio.loop = true;
+        let isPlaying = false;
+        
+        // Аудио контроллер
+        const audioControl = document.getElementById('audioControl');
+        audioControl.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+                audioControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                audio.play();
+                audioControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+        
+        // Параллакс эффект
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
             
-            // Пытаемся запустить музыку
-            music.play().catch(error => {
-                console.log('Автозапуск музыки заблокирован');
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px)`;
             });
+        });
+        
+        // Навигационные точки
+        const sections = document.querySelectorAll('.parallax-section');
+        const navDots = document.getElementById('navDots');
+        
+        sections.forEach((section, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
+            navDots.appendChild(dot);
+        });
+        
+        // Активная секция при скролле
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY + window.innerHeight / 2;
             
-            // Запускаем при клике
-            document.addEventListener("click", () => {
-                if (music.paused) {
-                    music.play().catch(error => {
-                        console.log('Не удалось запустить музыку');
-                    });
+            sections.forEach((section, index) => {
+                const dot = navDots.children[index];
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPos >= sectionTop && scrollPos <= sectionBottom) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
                 }
             });
+        });
+        
+        // Анимация появления контента
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.content').forEach(content => {
+            observer.observe(content);
+        });
+        
+        // Обратный отсчет
+        function updateCountdown() {
+            const eventDate = new Date('November 15, 2025 18:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
         }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Обработка формы
+        const form = document.getElementById('rsvpForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const messageDiv = document.getElementById('formMessage');
+        
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const guestNames = document.getElementById('guestNames').value;
+            const attendance = document.querySelector('input[name="attendance"]:checked').value;
+            const guestCount = document.getElementById('guestCount').value;
+            const wishes = document.getElementById('wishes').value;
+            
+            // Показать индикатор загрузки
+            submitBtn.querySelector('.btn-text').style.display = 'none';
+            submitBtn.querySelector('.btn-loader').style.display = 'block';
+            submitBtn.disabled = true;
+            
+            // Имитация отправки данных
+            setTimeout(() => {
+                // Показать сообщение об успехе
+                messageDiv.textContent = 'Сіздің жауабыңыз сәтті жіберілді! Біз тойымызда көргенімізге қуаныштымыз!';
+                messageDiv.className = 'message success';
+                messageDiv.style.display = 'block';
+                
+                // Сбросить форму
+                form.reset();
+                
+                // Скрыть индикатор загрузки
+                submitBtn.querySelector('.btn-text').style.display = 'block';
+                submitBtn.querySelector('.btn-loader').style.display = 'none';
+                submitBtn.disabled = false;
+                
+                // Скрыть сообщение через 5 секунд
+                setTimeout(() => {
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
     </script>
 </body>
 </html>
