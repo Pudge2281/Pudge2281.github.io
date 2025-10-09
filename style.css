@@ -1,0 +1,117 @@
+
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  color: #333;
+  background-color: #A8E6CF;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3a/Mint_Green_Floral_Pattern_Texture.jpg');
+  background-repeat: repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  transition: all 0.3s ease-in-out;
+}
+
+.audio-control {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.audio-control:hover {
+  background: #DCC6E0;
+  color: #fff;
+}
+
+.nav-dots {
+  position: fixed;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 999;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #DCC6E0;
+  box-shadow: 0 0 10px #A8E6CF;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin: 30px auto;
+  width: 90%;
+  max-width: 1100px;
+}
+
+h1, h2, h3, p {
+  margin: 10px 0;
+}
+
+button, .btn {
+  background: linear-gradient(135deg, #A8E6CF, #DCC6E0);
+  border: none;
+  color: #333;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 40px 15px;
+    width: 95%;
+  }
+
+  .audio-control {
+    width: 45px;
+    height: 45px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
