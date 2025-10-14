@@ -238,6 +238,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /*KNOPKA*/
 
-document.getElementById('themeToggle').addEventListener('click', function() {
-    window.location.href = 'gold/index.html';
-});
+const iframe = document.getElementById('preview');
+const greenBtn = document.getElementById('greenBtn');
+const goldBtn = document.getElementById('goldBtn');
+
+// при загрузке сохраняем выбор пользователя
+const saved = localStorage.getItem('design');
+if (saved) iframe.src = `${saved}/index.html`;
+
+greenBtn.onclick = () => {
+  iframe.src = 'index.html';
+  localStorage.setItem('design', 'green');
+};
+goldBtn.onclick = () => {
+  iframe.src = 'gold/index.html';
+  localStorage.setItem('design', 'gold');
+};
+
