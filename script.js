@@ -235,3 +235,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+/*KNOPKA*/
+
+function switchTheme() {
+    const currentPage = window.location.pathname;
+    
+    // Если находимся в корне (green.html)
+    if (currentPage.includes('green.html') || currentPage === '/' || !currentPage.includes('/gold/')) {
+        // Переходим в папку gold
+        window.location.href = '/gold/gold.html';
+    } 
+    // Если находимся в папке gold
+    else if (currentPage.includes('/gold/')) {
+        // Переходим в корень (green.html)
+        window.location.href = '/green.html';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', switchTheme);
+});
