@@ -1,124 +1,162 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>GREEN API Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-        }
-        .container {
-            display: flex;
-            width: 900px;
-            margin: 40px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 6px;
-        }
-        .left {
-            width: 45%;
-        }
-        .right {
-            width: 55%;
-            margin-left: 20px;
-        }
-        input, textarea, button {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
-        }
-        textarea {
-            height: 400px;
-            resize: none;
-        }
-        button {
-            cursor: pointer;
-        }
-        label {
-            font-size: 14px;
-        }
-    </style>
+<meta charset="UTF-8">
+<title>GREEN API Test</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+
+.wrapper {
+    width: 900px;
+    margin: 40px auto;
+    display: flex;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.left {
+    width: 40%;
+}
+
+.right {
+    width: 60%;
+    margin-left: 20px;
+}
+
+input, textarea, button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+textarea {
+    height: 420px;
+    resize: none;
+}
+
+button {
+    background: #2ecc71;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #27ae60;
+}
+
+label {
+    font-size: 13px;
+    color: #333;
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="left">
-        <label>ID Instance</label>
-        <input id="idInstance" placeholder="idInstance">
+<div class="wrapper">
 
-        <label>Api Token Instance</label>
-        <input id="apiToken" placeholder="ApiTokenInstance">
+<div class="left">
+    <label>ID Instance</label>
+    <input id="idInstance">
 
-        <button onclick="getSettings()">getSettings</button>
-        <button onclick="getStateInstance()">getStateInstance</button>
+    <label>ApiTokenInstance</label>
+    <input id="apiToken">
 
-        <label>Номер телефона (77771234567)</label>
-        <input id="phone" placeholder="77771234567">
+    <button onclick="getSettings()">getSettings</button>
+    <button onclick="getStateInstance()">getStateInstance</button>
 
-        <label>Сообщение</label>
-        <input id="message" placeholder="Hello world">
+    <label>Телефон (77771234567)</label>
+    <input id="phone">
 
-        <button onclick="sendMessage()">sendMessage</button>
+    <label>Сообщение</label>
+    <input id="message" value="Hello world">
 
-        <label>URL файла</label>
-        <input id="fileUrl" placeholder="https://site.com/file.jpg">
+    <button onclick="sendMessage()">sendMessage</button>
 
-        <button onclick="sendFileByUrl()">sendFileByUrl</button>
-    </div>
+    <label>URL файла</label>
+    <input id="fileUrl">
 
-    <div class="right">
-        <label>Ответ API</label>
-        <textarea id="response" readonly></textarea>
-    </div>
+    <button onclick="sendFileByUrl()">sendFileByUrl</button>
+</div>
+
+<div class="right">
+    <label>Ответ API</label>
+    <textarea id="response" readonly></textarea>
+</div>
+
 </div>
 
 <script>
-    function getBaseUrl() {
-        const id = document.getElementById("idInstance").value;
-        const token = document.getElementById("apiToken").value;
-        return `https://api.green-api.com/waInstance${id}`;
-    }
+function baseUrl() {
+    return `https://api.green-api.com/waInstance${idInstance.value}`;
+}
 
-    async function request(method, url, body = null) {
+async function callApi(method, url, body = null) {
+    try {
         const options = {
-            method: method,
+            method,
             headers: { "Content-Type": "application/json" }
         };
         if (body) options.body = JSON.stringify(body);
 
         const res = await fetch(url, options);
         const data = await res.json();
-        document.getElementById("response").value = JSON.stringify(data, null, 2);
-    }
 
-    function getSettings() {
-        const token = apiToken.value;
-        request("GET", `${getBaseUrl()}/getSettings/${token}`);
+        response.value = JSON.stringify(data, null, 2);
+    } catch (e) {
+        response.value = "Ошибка запроса: " + e;
     }
+}
 
-    function getStateInstance() {
-        const token = apiToken.value;
-        request("GET", `${getBaseUrl()}/getStateInstance/${token}`);
-    }
+function getSettings() {
+    callApi(
+        "GET",
+        `${baseUrl()}/getSettings/${apiToken.value}`
+    );
+}
 
-    function sendMessage() {
-        const token = apiToken.value;
-        request("POST", `${getBaseUrl()}/sendMessage/${token}`, {
+function getStateInstance() {
+    callApi(
+        "GET",
+        `${baseUrl()}/getStateInstance/${apiToken.value}`
+    );
+}
+
+function sendMessage() {
+    callApi(
+        "POST",
+        `${baseUrl()}/sendMessage/${apiToken.value}`,
+        {
             chatId: phone.value + "@c.us",
             message: message.value
-        });
-    }
+        }
+    );
+}
 
-    function sendFileByUrl() {
-        const token = apiToken.value;
-        request("POST", `${getBaseUrl()}/sendFileByUrl/${token}`, {
+function sendFileByUrl() {
+    callApi(
+        "POST",
+        `${baseUrl()}/sendFileByUrl/${apiToken.value}`,
+        {
             chatId: phone.value + "@c.us",
             urlFile: fileUrl.value,
             fileName: "file"
-        });
-    }
+        }
+    );
+}
 </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
