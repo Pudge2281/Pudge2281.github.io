@@ -1,45 +1,40 @@
-/* Основные стили (без изменений) */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f9fa;
-    color: #333;
-}
+/* --- ЗАМЕНИ ЭТИ СТИЛИ В СВОЕМ style.css --- */
 
-/* Хедер (обновлен заголовок и удален текст) */
+/* Хедер */
 header {
     background-color: #fff;
-    padding: 20px;
+    padding: 40px 20px; /* Добавили отступы, чтобы карточкам не было тесно */
     border-bottom: 1px solid #ddd;
+    overflow: hidden; 
 }
 
 .logo-container {
     position: relative;
-    max-width: 1200px;
+    max-width: 1260px; /* Чуть расширили, чтобы ровно влезли 4 по 300px + пробелы */
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центрируем логотип по вертикали */
 }
 
 .game-logo {
-    position: relative;
-    z-index: 2; /* Поверх участников */
-    font-size: 3.5em; /* Немного увеличим для нового названия */
+    position: absolute; /* Теперь логотип висит поверх карточек */
+    z-index: 2; 
+    font-size: 4em; /* Сделал чуть крупнее */
     font-weight: bold;
-    color: #fff; /* Розовый, но мы используем text-shadow для эффекта */
-    text-shadow: 0 0 10px #e91e63, 0 0 20px #e91e63, 2px 2px 4px #000; /* Эффект розового свечения с контуром */
+    color: #fff; 
+    text-shadow: 0 0 10px #e91e63, 0 0 20px #e91e63, 2px 2px 4px #000; 
     margin: 0;
+    text-align: center;
+    width: 100%;
+    pointer-events: none; /* Чтобы текст не мешал наводить мышку на карточки */
 }
 
 .members-behind {
-    position: absolute;
-    top: 60px; /* Регулируем высоту */
-    left: 0;
-    width: 100%;
-    display: flex;
+    display: flex; /* Вернули в нормальный поток, теперь они задают высоту хедера */
     justify-content: center;
     gap: 20px;
-    z-index: 1; /* Под логотипом */
+    z-index: 1; 
 }
 
 .member {
@@ -47,100 +42,14 @@ header {
     height: 500px;
     background-color: #e0e0e0;
     border-radius: 10px;
-    background-image: url('member_placeholder_silhouette.png');
     background-size: cover;
     background-position: center;
     transition: transform 0.3s ease;
-    /* Убрали старый текст из HTML, CSS не меняем */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Добавил легкую тень карточкам для красоты */
 }
 
 .member:hover {
     transform: scale(1.05);
 }
 
-/* Основной контент (без изменений) */
-main {
-    max-width: 1200px;
-    margin: 40px auto;
-    display: flex;
-    gap: 40px;
-    padding: 0 20px;
-}
-
-/* Видео блок (без изменений) */
-.video-block {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.video-container {
-    background-color: #f1f1f1;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.video-placeholder {
-    position: relative;
-    cursor: pointer;
-}
-
-.video-placeholder img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    padding: 15px 20px;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-.video-duration {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.8em;
-}
-
-/* Описание (без изменений) */
-.description-block {
-    flex: 2;
-}
-
-.description-content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    border: 2px solid #b71c1c; /* Красная рамка */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
-
-.description-content h2 {
-    color: #000;
-    margin-top: 0;
-}
-
-/* Футер (без изменений, кроме названия в HTML) */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #fff;
-    border-top: 1px solid #ddd;
-    margin-top: 40px;
-}
+/* --- ДАЛЬШЕ ИДЕТ ОСТАЛЬНОЙ КОД (main, видео, описание) БЕЗ ИЗМЕНЕНИЙ --- */
