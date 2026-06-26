@@ -1,55 +1,200 @@
-/* --- ЗАМЕНИ ЭТИ СТИЛИ В СВОЕМ style.css --- */
-
-/* Хедер */
-header {
-    background-color: #fff;
-    padding: 40px 20px; /* Добавили отступы, чтобы карточкам не было тесно */
-    border-bottom: 1px solid #ddd;
-    overflow: hidden; 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-.logo-container {
-    position: relative;
-    max-width: 1260px; /* Чуть расширили, чтобы ровно влезли 4 по 300px + пробелы */
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Центрируем логотип по вертикали */
+body{
+
+background:#090909;
+color:white;
+
 }
 
-.game-logo {
-    position: absolute; /* Теперь логотип висит поверх карточек */
-    z-index: 2; 
-    font-size: 4em; /* Сделал чуть крупнее */
-    font-weight: bold;
-    color: #fff; 
-    text-shadow: 0 0 10px #e91e63, 0 0 20px #e91e63, 2px 2px 4px #000; 
-    margin: 0;
-    text-align: center;
-    width: 100%;
-    pointer-events: none; /* Чтобы текст не мешал наводить мышку на карточки */
+header{
+
+position:relative;
+height:360px;
+overflow:hidden;
+border-bottom:3px solid #ff4da6;
+
+background:linear-gradient(#171717,#090909);
+
 }
 
-.members-behind {
-    display: flex; /* Вернули в нормальный поток, теперь они задают высоту хедера */
-    justify-content: center;
-    gap: 20px;
-    z-index: 1; 
+.logo{
+
+position:absolute;
+
+left:50%;
+bottom:25px;
+
+transform:translateX(-50%);
+
+font-size:70px;
+font-weight:bold;
+letter-spacing:5px;
+
+color:#ff5fa8;
+
+text-shadow:
+0 0 15px hotpink,
+0 0 40px hotpink;
+
+z-index:10;
+
 }
 
-.member {
-    width: 300px;
-    height: 500px;
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Добавил легкую тень карточкам для красоты */
+.girls{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
 }
 
-.member:hover {
-    transform: scale(1.05);
+.girl{
+
+position:absolute;
+
+bottom:0;
+
+height:95%;
+
+pointer-events:none;
+
+transition:.4s;
+
 }
 
-/* --- ДАЛЬШЕ ИДЕТ ОСТАЛЬНОЙ КОД (main, видео, описание) БЕЗ ИЗМЕНЕНИЙ --- */
+.girl:hover{
+
+transform:translateY(-10px) scale(1.03);
+
+}
+
+.girl1{
+
+left:8%;
+
+}
+
+.girl2{
+
+left:30%;
+
+}
+
+.girl3{
+
+left:53%;
+
+}
+
+.girl4{
+
+right:6%;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:center;
+gap:70px;
+
+padding:20px;
+
+background:#111;
+
+border-bottom:2px solid hotpink;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-size:20px;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#ff5fa8;
+
+}
+
+.container{
+
+display:flex;
+
+width:90%;
+
+margin:auto;
+
+margin-top:40px;
+
+gap:30px;
+
+}
+
+main{
+
+flex:3;
+
+padding:40px;
+
+background:#121212;
+
+border:2px solid hotpink;
+
+border-radius:20px;
+
+line-height:35px;
+
+font-size:20px;
+
+}
+
+aside{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+.video{
+
+background:#171717;
+
+padding:20px;
+
+border-radius:15px;
+
+border:2px solid hotpink;
+
+}
+
+iframe{
+
+width:100%;
+height:220px;
+
+border:none;
+
+background:#000;
+
+}
