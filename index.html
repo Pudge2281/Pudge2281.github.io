@@ -1,83 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLACKPINK AI GAME</title>
-
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLACKPINK AI GAME</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
+    <header class="hero-banner">
+        <div class="hero-placeholder">
+            МЕСТО ДЛЯ КАРТИНКИ С ДЕВУШКАМИ И ЛОГОТИПОМ
+        </div>
+    </header>
 
-    <div class="girls">
+    <main class="container">
+        
+        <section class="game-info-panel">
+            <div class="panel-header">
+                <h2>✦ BLACKPINK AI GAME ✦</h2>
+                <div class="heart-divider">♥</div>
+            </div>
+            
+            <p class="intro-text">
+                Погрузись в уникальный мир BLACKPINK с искусственным интеллектом!<br>
+                Собирай карты, выполняй миссии и стань лучшим фанатом.
+            </p>
 
-        <img src="images/girl1.png" class="girl girl1">
-        <img src="images/girl2.png" class="girl girl2">
-        <img src="images/girl3.png" class="girl girl3">
-        <img src="images/girl4.png" class="girl girl4">
+            <div class="features-layout">
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="icon">💎</span>
+                        <div class="feature-text">
+                            <h3>СОБИРАЙ КАРТЫ</h3>
+                            <p>Собери всех участниц BLACKPINK</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">⭐</span>
+                        <div class="feature-text">
+                            <h3>ВЫПОЛНЯЙ МИССИИ</h3>
+                            <p>Проходи задания и зарабатывай награды</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">🏆</span>
+                        <div class="feature-text">
+                            <h3>СОРЕВНУЙСЯ</h3>
+                            <p>Попади в топ лучших игроков</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <span class="icon">💖</span>
+                        <div class="feature-text">
+                            <h3>ОЩУТИ АТМОСФЕРУ</h3>
+                            <p>Музыка, стиль и магия BLACKPINK</p>
+                        </div>
+                    </div>
+                </div>
 
-    </div>
+                <div class="crown-graphic">
+                    <img src="crown_placeholder.png" alt="Crown Logo">
+                </div>
+            </div>
 
-    <div class="logo">
+            <div class="action-btn-container">
+                <button class="play-now-btn">ИГРАТЬ СЕЙЧАС &gt;</button>
+            </div>
+        </section>
 
-        BLACKPINK AI GAME
+        <aside class="video-panel">
+            <div class="panel-header">
+                <h2>✦ ВИДЕО ✦</h2>
+            </div>
 
-    </div>
+            <div class="video-card">
+                <div class="video-thumbnail" data-video="1">
+                    <img src="video1_bg.jpg" alt="Video 1 Background">
+                    <button class="play-circle">▶</button>
+                </div>
+                <p class="video-title">VIDEO 1</p>
+            </div>
 
-</header>
-
-<nav>
-
-    <a href="#">HOME</a>
-    <a href="#">DOWNLOAD</a>
-    <a href="#">NEWS</a>
-    <a href="#">CONTACT</a>
-
-</nav>
-
-<div class="container">
-
-    <main>
-
-        <h1>About the Game</h1>
-
-        <p>
-            Здесь будет большое описание игры.
-            Ты можешь написать историю,
-            особенности AI,
-            информацию о девушках,
-            обновления и т.д.
-        </p>
+            <div class="video-card">
+                <div class="video-thumbnail" data-video="2">
+                    <img src="video2_bg.jpg" alt="Video 2 Background">
+                    <button class="play-circle">▶</button>
+                </div>
+                <p class="video-title">VIDEO 2</p>
+            </div>
+        </aside>
 
     </main>
 
-    <aside>
-
-        <div class="video">
-
-            <iframe
-            src=""
-            allowfullscreen>
-            </iframe>
-
-        </div>
-
-        <div class="video">
-
-            <iframe
-            src=""
-            allowfullscreen>
-            </iframe>
-
-        </div>
-
-    </aside>
-
-</div>
-
-<script src="script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
