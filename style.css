@@ -18,13 +18,14 @@ body {
 
 /* Шапка сайта (картинка с девушками) */
 .hero-banner {
-    background-image: url('/bepink.jfif');
+    background-image: url('bepink.jfif'); /* Твой путь к картинке */
     width: 100%;
-    height: 240px; /* Настрой высоту под свою картинку */
+    height: 240px; /* Высота твоей картинки */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-size: cover;
+    background-size: contain; /* ИЗМЕНЕНО: теперь картинка влезает целиком */
+    background-repeat: no-repeat; /* ДОБАВЛЕНО: чтобы картинка не дублировалась мозаикой */
     background-position: center;
     margin-bottom: 20px;
 }
