@@ -19,8 +19,8 @@ body {
 /* Шапка сайта (картинка с девушками) */
 .hero-banner {
     background-image: url('/bepink.jfif');
-    width: 100%;
-    height: 450px; /* Настрой высоту под свою картинку */
+    width: 80%;
+    height: 550px; /* Настрой высоту под свою картинку */
     display: flex;
     justify-content: center;
     align-items: center;
