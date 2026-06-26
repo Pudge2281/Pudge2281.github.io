@@ -1,162 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>GREEN API Test</title>
-
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background: #f0f2f5;
-}
-
-.wrapper {
-    width: 900px;
-    margin: 40px auto;
-    display: flex;
-    background: #fff;
-    border-radius: 6px;
-    padding: 20px;
-}
-
-.left {
-    width: 40%;
-}
-
-.right {
-    width: 60%;
-    margin-left: 20px;
-}
-
-input, textarea, button {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 8px;
-    font-size: 14px;
-}
-
-textarea {
-    height: 420px;
-    resize: none;
-}
-
-button {
-    background: #2ecc71;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #27ae60;
-}
-
-label {
-    font-size: 13px;
-    color: #333;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-pink : AI Adventure</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <header>
+        <div class="logo-container">
+            <h1 class="game-logo">B-pink : AI Adventure</h1>
+            <div class="members-behind">
+                <div class="member member-1" title="JISOO - Карточка 1"></div>
+                <div class="member member-2" title="JENNIE - Карточка 2"></div>
+                <div class="member member-3" title="ROSÉ - Карточка 3"></div>
+                <div class="member member-4" title="LISA - Карточка 4"></div>
+            </div>
+        </div>
+    </header>
 
-<div class="wrapper">
+    <main>
+        <aside class="video-block">
+            <div class="video-container">
+                <h3>VIDEO 1: TRAILER</h3>
+                <div class="video-placeholder" data-video-id="VIDEO1_ID">
+                    <img src="video_thumb1.jpg" alt="Video 1 Thumbnail">
+                    <button class="play-button" aria-label="Play Video 1">▶</button>
+                    <span class="video-duration">03:03</span>
+                </div>
+            </div>
+            <div class="video-container">
+                <h3>VIDEO 2: GAMEPLAY</h3>
+                <div class="video-placeholder" data-video-id="VIDEO2_ID">
+                    <img src="video_thumb2.jpg" alt="Video 2 Thumbnail">
+                    <button class="play-button" aria-label="Play Video 2">▶</button>
+                </div>
+            </div>
+        </aside>
 
-<div class="left">
-    <label>ID Instance</label>
-    <input id="idInstance">
+        <section class="description-block">
+            <div class="description-content">
+                <h2>GAME DESCRIPTION</h2>
+                <p>Immerse yourself in the world of BLACKPINK AI, to matte your game being. in precipitate the most opportant in complete, as can benefits and new...</p>
+                
+                <h2>KEY FEATURES</h2>
+                <ul>
+                    <li>Convereer, sm rwntunza and ncttleded game</li>
+                    <li>Entsoted shurks of quality inverments</li>
+                    <li>Unboning comeroeation and snaiosable mn features</li>
+                    <li>Collavertions to work mandnonsily action and players</li>
+                </ul>
 
-    <label>ApiTokenInstance</label>
-    <input id="apiToken">
+                <h2>ABOUT THE JOURNEY</h2>
+                <p>About the Journey. One word of BLACKPINK AI rererernote yoursiting the raners from the contas to you can losiioy a cantorrot The Journey. About this key time rew. mementh, as poor the five sonds regretian ce and world that perbolling terolection and journey.</p>
+            </div>
+        </section>
+    </main>
 
-    <button onclick="getSettings()">getSettings</button>
-    <button onclick="getStateInstance()">getStateInstance</button>
+    <footer>
+        <p>&copy; 2024 B-pink AI Game | All Rights Reserved</p>
+    </footer>
 
-    <label>Телефон (77771234567)</label>
-    <input id="phone">
-
-    <label>Сообщение</label>
-    <input id="message" value="Hello world">
-
-    <button onclick="sendMessage()">sendMessage</button>
-
-    <label>URL файла</label>
-    <input id="fileUrl">
-
-    <button onclick="sendFileByUrl()">sendFileByUrl</button>
-</div>
-
-<div class="right">
-    <label>Ответ API</label>
-    <textarea id="response" readonly></textarea>
-</div>
-
-</div>
-
-<script>
-function baseUrl() {
-    return `https://api.green-api.com/waInstance${idInstance.value}`;
-}
-
-async function callApi(method, url, body = null) {
-    try {
-        const options = {
-            method,
-            headers: { "Content-Type": "application/json" }
-        };
-        if (body) options.body = JSON.stringify(body);
-
-        const res = await fetch(url, options);
-        const data = await res.json();
-
-        response.value = JSON.stringify(data, null, 2);
-    } catch (e) {
-        response.value = "Ошибка запроса: " + e;
-    }
-}
-
-function getSettings() {
-    callApi(
-        "GET",
-        `${baseUrl()}/getSettings/${apiToken.value}`
-    );
-}
-
-function getStateInstance() {
-    callApi(
-        "GET",
-        `${baseUrl()}/getStateInstance/${apiToken.value}`
-    );
-}
-
-function sendMessage() {
-    callApi(
-        "POST",
-        `${baseUrl()}/sendMessage/${apiToken.value}`,
-        {
-            chatId: phone.value + "@c.us",
-            message: message.value
-        }
-    );
-}
-
-function sendFileByUrl() {
-    callApi(
-        "POST",
-        `${baseUrl()}/sendFileByUrl/${apiToken.value}`,
-        {
-            chatId: phone.value + "@c.us",
-            urlFile: fileUrl.value,
-            fileName: "file"
-        }
-    );
-}
-</script>
-
-</body>
-</html>
-
-
+    <script src="script.js"></script>
 </body>
 </html>
