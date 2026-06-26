@@ -221,3 +221,58 @@ body {
     font-weight: bold;
     color: #fff;
 }
+
+/* =========================================================
+   АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ ТЕЛЕФОНЫ (Экраны меньше 768px)
+   ========================================================= */
+@media (max-width: 768px) {
+    /* 1. Ставим блоки друг под друга вместо того, чтобы держать их в ряд */
+    .container {
+        flex-direction: column;
+        padding: 0 15px 30px 15px; /* Уменьшаем боковые отступы, экономим место */
+        gap: 20px;
+    }
+
+    /* 2. Делаем баннер меньше, чтобы он не оставлял огромных пустых полей */
+    .hero-banner {
+        height: 120px; /* Подстраиваем под пропорции телефона */
+        margin-bottom: 10px;
+    }
+
+    /* 3. Уменьшаем внутренние отступы в рамках */
+    .game-info-panel, .video-panel {
+        padding: 20px;
+    }
+
+    /* 4. Центрируем и перестраиваем фичи (иконки и текст) */
+    .features-layout {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .feature-item {
+        flex-direction: column; /* Иконка будет над текстом */
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+
+    .feature-text h3 {
+        font-size: 1em;
+    }
+
+    /* 5. Уменьшаем размер короны */
+    .crown-graphic img {
+        max-width: 120px;
+        margin-top: 20px;
+    }
+
+    /* 6. Чуть уменьшаем шрифты заголовков */
+    .panel-header h2 {
+        font-size: 1.2em;
+    }
+    
+    .intro-text {
+        font-size: 1em;
+        margin-bottom: 25px;
+    }
+}
