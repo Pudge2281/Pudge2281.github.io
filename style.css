@@ -1,200 +1,221 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+/* Базовые настройки и цвета */
+:root {
+    --bg-color: #050005; /* Очень темный, почти черный фон */
+    --neon-pink: #ff1493; /* Ярко-розовый */
+    --dark-pink: #800040;
+    --text-light: #f0f0f0;
+    --text-muted: #aaaaaa;
 }
 
-body{
-
-background:#090909;
-color:white;
-
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-image: radial-gradient(circle at 50% 0%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
 }
 
-header{
-
-position:relative;
-height:360px;
-overflow:hidden;
-border-bottom:3px solid #ff4da6;
-
-background:linear-gradient(#171717,#090909);
-
+/* Шапка сайта (картинка с девушками) */
+.hero-banner {
+    width: 100%;
+    height: 450px; /* Настрой высоту под свою картинку */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;
 }
 
-.logo{
-
-position:absolute;
-
-left:50%;
-bottom:25px;
-
-transform:translateX(-50%);
-
-font-size:70px;
-font-weight:bold;
-letter-spacing:5px;
-
-color:#ff5fa8;
-
-text-shadow:
-0 0 15px hotpink,
-0 0 40px hotpink;
-
-z-index:10;
-
+/* Заглушка, пока нет картинки */
+.hero-placeholder {
+    color: var(--neon-pink);
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 0 0 10px var(--neon-pink);
+    border: 2px dashed var(--neon-pink);
+    padding: 50px;
 }
 
-.girls{
-
-position:absolute;
-
-width:100%;
-height:100%;
-
+/* Контейнер для двух блоков */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    padding: 0 20px 50px 20px;
 }
 
-.girl{
-
-position:absolute;
-
-bottom:0;
-
-height:95%;
-
-pointer-events:none;
-
-transition:.4s;
-
+/* Общие стили для панелей (неоновые рамки) */
+.game-info-panel, .video-panel {
+    background: rgba(20, 0, 10, 0.6);
+    border: 1px solid var(--neon-pink);
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.2), inset 0 0 10px rgba(255, 20, 147, 0.1);
+    padding: 30px;
 }
 
-.girl:hover{
-
-transform:translateY(-10px) scale(1.03);
-
+/* Левая панель шире */
+.game-info-panel {
+    flex: 1.8;
 }
 
-.girl1{
-
-left:8%;
-
+/* Правая панель с видео */
+.video-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.girl2{
-
-left:30%;
-
+/* Заголовки панелей */
+.panel-header {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.girl3{
-
-left:53%;
-
+.panel-header h2 {
+    color: #fff;
+    font-size: 1.5em;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.8);
 }
 
-.girl4{
-
-right:6%;
-
+.heart-divider {
+    color: var(--neon-pink);
+    font-size: 1.2em;
+    margin-top: 5px;
 }
 
-nav{
-
-display:flex;
-
-justify-content:center;
-gap:70px;
-
-padding:20px;
-
-background:#111;
-
-border-bottom:2px solid hotpink;
-
+.intro-text {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1em;
+    margin-bottom: 40px;
+    line-height: 1.5;
 }
 
-nav a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:20px;
-
-transition:.3s;
-
+/* Список фич и иконка короны */
+.features-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-nav a:hover{
-
-color:#ff5fa8;
-
+.features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.container{
-
-display:flex;
-
-width:90%;
-
-margin:auto;
-
-margin-top:40px;
-
-gap:30px;
-
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-main{
-
-flex:3;
-
-padding:40px;
-
-background:#121212;
-
-border:2px solid hotpink;
-
-border-radius:20px;
-
-line-height:35px;
-
-font-size:20px;
-
+.icon {
+    font-size: 2em;
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
 }
 
-aside{
-
-flex:1;
-
-display:flex;
-
-flex-direction:column;
-
-gap:25px;
-
+.feature-text h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1em;
+    color: #fff;
 }
 
-.video{
-
-background:#171717;
-
-padding:20px;
-
-border-radius:15px;
-
-border:2px solid hotpink;
-
+.feature-text p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9em;
 }
 
-iframe{
+.crown-graphic img {
+    max-width: 250px;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 15px var(--neon-pink));
+}
 
-width:100%;
-height:220px;
+/* Кнопка "ИГРАТЬ СЕЙЧАС" */
+.action-btn-container {
+    text-align: center;
+    margin-top: 40px;
+}
 
-border:none;
+.play-now-btn {
+    background: linear-gradient(90deg, #600030, #a00050);
+    border: 2px solid var(--neon-pink);
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.4);
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px #fff;
+}
 
-background:#000;
+.play-now-btn:hover {
+    background: linear-gradient(90deg, #800040, #c00060);
+    box-shadow: 0 0 25px rgba(255, 20, 147, 0.8);
+    transform: scale(1.05);
+}
 
+/* Блок с видео */
+.video-card {
+    text-align: center;
+}
+
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background-color: #222;
+    border-radius: 10px;
+    border: 1px solid var(--dark-pink);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.video-thumbnail:hover {
+    border-color: var(--neon-pink);
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.play-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 20, 147, 0.7);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5px; /* Чтобы треугольник казался по центру */
+    box-shadow: 0 0 15px var(--neon-pink);
+}
+
+.video-title {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #fff;
 }
