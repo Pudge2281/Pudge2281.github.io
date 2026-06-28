@@ -93,7 +93,15 @@
                     ADVENTURE
                 </span>
             </h1>
-            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent mt-6 opacity-80"></div>
+            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent mt-4 opacity-80"></div>
+            
+            <!-- Кнопка Скачать на видном месте -->
+            <div class="mt-8 z-40 relative pointer-events-auto">
+                <a href="#" class="group relative inline-flex items-center justify-center px-8 py-4 font-black text-white transition-all duration-300 bg-pink-600 rounded-xl hover:bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105">
+                    <i data-lucide="download" class="w-6 h-6 mr-3"></i>
+                    <span data-i18n="main_download_btn" class="tracking-widest">DOWNLOAD GAME</span>
+                </a>
+            </div>
         </div>
 
         <!-- Контент с вкладками -->
@@ -125,6 +133,14 @@
                         <p data-i18n="info_p1">Welcome to the <strong class="text-pink-400">Blackpink AI Experience</strong>. This is a deep simulation of real-life interactions with the 4 members and plenty of NPCs for any scene (cafes, streets, fans, etc.).</p>
                         <p data-i18n="info_p2">First, you set up the starting situation for your meeting (e.g., a private island, airport, or fan meeting), and then the girls will send you their first messages.</p>
                         
+                        <!-- Плашка с языками -->
+                        <div class="bg-pink-950/20 border border-pink-500/30 rounded-lg p-4 mt-6 flex gap-3 items-start shadow-inner">
+                            <i data-lucide="languages" class="text-pink-500 w-6 h-6 shrink-0 mt-0.5"></i>
+                            <p data-i18n="info_languages" class="text-zinc-300 leading-relaxed text-base">
+                                <strong>Bilingual Support:</strong> The app fully supports both English and Russian. This changes not only the user interface but also the language the girls use to communicate with you!
+                            </p>
+                        </div>
+
                         <div class="grid sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-800">
                             <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
                                 <i data-lucide="heart-handshake" class="text-pink-500 mb-2"></i>
@@ -239,12 +255,14 @@
         // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ---
         const translations = {
             ru: {
+                main_download_btn: "СКАЧАТЬ ИГРУ",
                 tab_info: "ИНФО",
                 tab_start: "КАК НАЧАТЬ",
                 tab_pluses: "ПЛЮСЫ И МИНУСЫ",
                 info_title: "О ПРОЕКТЕ",
                 info_p1: 'Добро пожаловать в <strong class="text-pink-400">Blackpink AI Experience</strong>. Это глубокая симуляция реального общения с 4 участницами группы и множеством NPC для любых сцен (кафе, улицы, толпы фанатов и т.д.).',
                 info_p2: 'Сначала вы сами задаете ситуацию, при которой встретились (например, закрытый остров, аэропорт или фан-встреча), после чего девушки отправляют вам свои первые сообщения.',
+                info_languages: "<strong>Два языка:</strong> Приложение полностью поддерживает русский и английский языки. Выбор языка меняет не только интерфейс, но и язык общения самих девушек!",
                 info_card1_title: "Шкала симпатии",
                 info_card1_desc: "Отношение девушек меняется в зависимости от ваших действий и уровня симпатии.",
                 info_card2_title: "Глубокая память",
@@ -273,12 +291,14 @@
                 minuses_item1: "Приложение делал один разработчик-фанат, так что могут быть мелкие баги."
             },
             en: {
+                main_download_btn: "DOWNLOAD GAME",
                 tab_info: "INFO",
                 tab_start: "HOW TO START",
                 tab_pluses: "PROS & CONS",
                 info_title: "ABOUT THE PROJECT",
                 info_p1: 'Welcome to the <strong class="text-pink-400">Blackpink AI Experience</strong>. This is a deep simulation of real-life interactions with the 4 members and plenty of NPCs for any scene (cafes, streets, fans, etc.).',
                 info_p2: 'First, you set up the starting situation for your meeting (e.g., a private island, airport, or fan meeting), and then the girls will send you their first messages.',
+                info_languages: "<strong>Bilingual Support:</strong> The app fully supports both English and Russian. This changes not only the user interface but also the language the girls use to communicate with you!",
                 info_card1_title: "Sympathy Bar",
                 info_card1_desc: "The girls' responses and attitudes change based on your actions and their level of sympathy towards you.",
                 info_card2_title: "Deep Memory",
