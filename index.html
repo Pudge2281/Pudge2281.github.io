@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <!-- Подключаем библиотеку иконок Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Кастомные стили и анимации, которые в React шли плагинами -->
+    <!-- Кастомные стили и анимации -->
     <style>
         @keyframes slideInFade {
             0% { opacity: 0; transform: translateY(20px); }
@@ -20,7 +20,6 @@
         .animate-in {
             animation: slideInFade 0.5s ease-out forwards;
         }
-        /* Фикс для вертикального выравнивания иконок */
         .lucide { display: inline-block; }
     </style>
 </head>
@@ -82,7 +81,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- Логотип -->
@@ -313,28 +311,6 @@
         // Инициализация иконок Lucide
         lucide.createIcons();
 
-        // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА (Оставляем как было) ---
-                <i data-lucide="message-square" class="w-7 h-7"></i> <!-- Discord -->
-            </a>
-        </div>
-        
-        <!-- Дисклеймер (Отказ от ответственности) -->
-        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-4 sm:p-6 max-w-3xl shadow-inner">
-            <p data-i18n="footer_disclaimer" class="text-zinc-500 text-xs sm:text-sm leading-relaxed text-justify sm:text-center">
-                <strong>ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong> Это неофициальный фанатский проект, созданный исключительно в развлекательных целях. Он не связан, не спонсируется и не одобрен YG Entertainment или группой BLACKPINK. Все образы и имена персонажей принадлежат их соответствующим правообладателям.
-            </p>
-        </div>
-
-        <p data-i18n="footer_credit" class="text-zinc-600 text-sm font-medium tracking-wide">
-            Сделано с любовью фанатом. 2024
-        </p>
-    </footer>
-
-    <!-- Скрипт для работы вкладок, иконок, языков и галереи -->
-    <script>
-        // Инициализация иконок Lucide
-        lucide.createIcons();
-
         // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ---
         const translations = {
             ru: {
@@ -372,12 +348,7 @@
                 pluses_item4: "Можно апгрейднуть Google API до Gemini Pro (улучшит опыт на 10-15%, но бесплатная версия и так отлично справляется).",
                 pluses_subtitle2: "Минусы",
                 minuses_item1: "Приложение делал один разработчик-фанат, так что могут быть мелкие баги.",
-                
-                // Переводы галереи и футера
                 gallery_title: "ГАЛЕРЕЯ ИГРЫ",
-                gallery_slide1: "Живой стильный чат",
-                gallery_slide2: "Слоты сохранений и меню",
-                gallery_slide3: "Отслеживание симпатии",
                 footer_disclaimer: "<strong>ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong> Это неофициальный фанатский проект, созданный исключительно в развлекательных целях. Он не связан, не спонсируется и не одобрен YG Entertainment или группой BLACKPINK. Все образы и имена персонажей принадлежат их соответствующим правообладателям.",
                 footer_credit: "Сделано с любовью фанатом. 2024"
             },
@@ -416,12 +387,7 @@
                 pluses_item4: "Optional upgrade to Gemini Pro (improves experience by 10-15%, but the free tier works great).",
                 pluses_subtitle2: "The Cons",
                 minuses_item1: "Developed by a single fan, so you might encounter minor bugs.",
-                
-                // Gallery and Footer Translations
                 gallery_title: "GAMEPLAY SNEAK PEEK",
-                gallery_slide1: "Realistic Stylish Chat",
-                gallery_slide2: "Save Slots & Menus",
-                gallery_slide3: "Sympathy Tracking",
                 footer_disclaimer: "<strong>DISCLAIMER:</strong> This is an unofficial, fan-made project created entirely for entertainment purposes. It is not affiliated with, endorsed, or sponsored by YG Entertainment or BLACKPINK. All character images and names belong to their respective copyright holders.",
                 footer_credit: "Made with love by a BLINK. 2024"
             }
@@ -472,10 +438,10 @@
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             
-            img.src = src; // Подставляем картинку высокого разрешения
-            lightbox.classList.remove('hidden'); // Показываем блок
+            img.src = src; // Подставляем картинку
+            lightbox.classList.remove('hidden'); 
             
-            // Задержка 10мс нужна, чтобы сработала CSS анимация прозрачности
+            // Задержка 10мс нужна для CSS анимации
             setTimeout(() => {
                 lightbox.classList.remove('opacity-0');
                 img.classList.remove('scale-95');
@@ -487,20 +453,18 @@
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             
-            // Запускаем анимацию исчезновения
             lightbox.classList.add('opacity-0');
             img.classList.remove('scale-100');
             img.classList.add('scale-95');
             
-            // Ждем завершения анимации (300мс), потом полностью скрываем блок
             setTimeout(() => {
                 lightbox.classList.add('hidden');
-                img.src = ""; // Очищаем источник, чтобы старое фото не моргало при следующем клике
+                img.src = ""; 
             }, 300);
         }
 
-        // Инициализируем язык по умолчанию
-        toggleLang(); // Вызываем дважды, чтобы применить английский
+        // Инициализируем язык (английский по умолчанию)
+        toggleLang();
         toggleLang();
     </script>
 </body>
