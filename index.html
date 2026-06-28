@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,7 @@
     <!-- Подключаем библиотеку иконок Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Кастомные стили и анимации -->
+    <!-- Кастомные стили и анимации, которые в React шли плагинами -->
     <style>
         @keyframes slideInFade {
             0% { opacity: 0; transform: translateY(20px); }
@@ -97,7 +97,7 @@
             
             <!-- Кнопка Скачать на видном месте -->
             <div class="mt-8 z-40 relative pointer-events-auto">
-                <a href="#" class="group relative inline-flex items-center justify-center px-8 py-4 font-black text-white transition-all duration-300 bg-pink-600 rounded-xl hover:bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105">
+                <a href="https://github.com/Pudge2281/Pudge2281.github.io/releases/download/v1/b-pink.apk" class="group relative inline-flex items-center justify-center px-8 py-4 font-black text-white transition-all duration-300 bg-pink-600 rounded-xl hover:bg-pink-500 shadow-[0_0_20px_rgba(236,72,153,0.5)] hover:shadow-[0_0_40px_rgba(236,72,153,0.8)] hover:scale-105">
                     <i data-lucide="download" class="w-6 h-6 mr-3"></i>
                     <span data-i18n="main_download_btn" class="tracking-widest">DOWNLOAD GAME</span>
                 </a>
@@ -207,10 +207,10 @@
                                 </p>
                             </div>
                         </div>
-                        <button class="mt-4 flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 px-6 rounded transition-colors w-full sm:w-auto justify-center">
+                        <a href="https://github.com/Pudge2281/Pudge2281.github.io/releases/download/v1/b-pink.apk" class="mt-4 flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 px-6 rounded transition-colors w-full sm:w-auto justify-center">
                             <i data-lucide="download"></i>
                             <span data-i18n="start_btn">Download APK (Android)</span>
-                        </button>
+                        </a>
                     </div>
                 </div>
 
@@ -249,18 +249,22 @@
             <div class="mt-12 pt-8 border-t-[3px] border-zinc-900/50">
                 <h2 data-i18n="gallery_title" class="text-lg sm:text-xl font-black uppercase text-zinc-500 tracking-wider text-center mb-6">GAMEPLAY SNEAK PEEK</h2>
                 
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
                     <!-- Миниатюра 1 -->
-                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('https://placehold.co/1200x800/1a0b2e/ec4899?text=SCREENSHOT+1')">
-                        <img src="https://placehold.co/600x400/1a0b2e/ec4899?text=SCREENSHOT+1" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 1">
+                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('chat1.png')">
+                        <img src="chat1.png" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 1" onerror="this.src='https://placehold.co/600x400/1a0b2e/ec4899?text=CHAT+1'">
                     </div>
                     <!-- Миниатюра 2 -->
-                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('https://placehold.co/1200x800/1a0b2e/ec4899?text=SCREENSHOT+2')">
-                        <img src="https://placehold.co/600x400/1a0b2e/ec4899?text=SCREENSHOT+2" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 2">
+                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('chat2.png')">
+                        <img src="chat2.png" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 2" onerror="this.src='https://placehold.co/600x400/1a0b2e/ec4899?text=CHAT+2'">
                     </div>
-                    <!-- Миниатюра 3 (скрыта на очень маленьких экранах для красоты сетки) -->
-                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group hidden sm:block" onclick="openLightbox('https://placehold.co/1200x800/1a0b2e/ec4899?text=SCREENSHOT+3')">
-                        <img src="https://placehold.co/600x400/1a0b2e/ec4899?text=SCREENSHOT+3" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 3">
+                    <!-- Миниатюра 3 -->
+                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('chat3.png')">
+                        <img src="chat3.png" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 3" onerror="this.src='https://placehold.co/600x400/1a0b2e/ec4899?text=CHAT+3'">
+                    </div>
+                    <!-- Миниатюра 4 -->
+                    <div class="cursor-pointer overflow-hidden rounded-lg border-2 border-pink-900/40 hover:border-pink-500 transition-all duration-300 group" onclick="openLightbox('chat4.png')">
+                        <img src="chat4.png" class="w-full h-20 sm:h-28 object-cover transition-transform duration-500 group-hover:scale-110 group-hover:brightness-110" alt="Gameplay 4" onerror="this.src='https://placehold.co/600x400/1a0b2e/ec4899?text=CHAT+4'">
                     </div>
                 </div>
             </div>
@@ -300,7 +304,29 @@
         </div>
 
         <p data-i18n="footer_credit" class="text-zinc-600 text-sm font-medium tracking-wide">
-            Made with love by a BLINK. 2026
+            Made with love by a BLINK. 2024
+        </p>
+    </footer>
+
+    <!-- Скрипт для работы вкладок, иконок, языков и галереи -->
+    <script>
+        // Инициализация иконок Lucide
+        lucide.createIcons();
+
+        // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА (Оставляем как было) ---
+                <i data-lucide="message-square" class="w-7 h-7"></i> <!-- Discord -->
+            </a>
+        </div>
+        
+        <!-- Дисклеймер (Отказ от ответственности) -->
+        <div class="bg-zinc-900/30 border border-zinc-800 rounded-xl p-4 sm:p-6 max-w-3xl shadow-inner">
+            <p data-i18n="footer_disclaimer" class="text-zinc-500 text-xs sm:text-sm leading-relaxed text-justify sm:text-center">
+                <strong>ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong> Это неофициальный фанатский проект, созданный исключительно в развлекательных целях. Он не связан, не спонсируется и не одобрен YG Entertainment или группой BLACKPINK. Все образы и имена персонажей принадлежат их соответствующим правообладателям.
+            </p>
+        </div>
+
+        <p data-i18n="footer_credit" class="text-zinc-600 text-sm font-medium tracking-wide">
+            Сделано с любовью фанатом. 2024
         </p>
     </footer>
 
@@ -346,9 +372,14 @@
                 pluses_item4: "Можно апгрейднуть Google API до Gemini Pro (улучшит опыт на 10-15%, но бесплатная версия и так отлично справляется).",
                 pluses_subtitle2: "Минусы",
                 minuses_item1: "Приложение делал один разработчик-фанат, так что могут быть мелкие баги.",
+                
+                // Переводы галереи и футера
                 gallery_title: "ГАЛЕРЕЯ ИГРЫ",
+                gallery_slide1: "Живой стильный чат",
+                gallery_slide2: "Слоты сохранений и меню",
+                gallery_slide3: "Отслеживание симпатии",
                 footer_disclaimer: "<strong>ОТКАЗ ОТ ОТВЕТСТВЕННОСТИ:</strong> Это неофициальный фанатский проект, созданный исключительно в развлекательных целях. Он не связан, не спонсируется и не одобрен YG Entertainment или группой BLACKPINK. Все образы и имена персонажей принадлежат их соответствующим правообладателям.",
-                footer_credit: "Сделано с любовью фанатом. 2026"
+                footer_credit: "Сделано с любовью фанатом. 2024"
             },
             en: {
                 main_download_btn: "DOWNLOAD GAME",
@@ -385,9 +416,14 @@
                 pluses_item4: "Optional upgrade to Gemini Pro (improves experience by 10-15%, but the free tier works great).",
                 pluses_subtitle2: "The Cons",
                 minuses_item1: "Developed by a single fan, so you might encounter minor bugs.",
+                
+                // Gallery and Footer Translations
                 gallery_title: "GAMEPLAY SNEAK PEEK",
+                gallery_slide1: "Realistic Stylish Chat",
+                gallery_slide2: "Save Slots & Menus",
+                gallery_slide3: "Sympathy Tracking",
                 footer_disclaimer: "<strong>DISCLAIMER:</strong> This is an unofficial, fan-made project created entirely for entertainment purposes. It is not affiliated with, endorsed, or sponsored by YG Entertainment or BLACKPINK. All character images and names belong to their respective copyright holders.",
-                footer_credit: "Made with love by a BLINK. 2026"
+                footer_credit: "Made with love by a BLINK. 2024"
             }
         };
 
@@ -436,9 +472,10 @@
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             
-            img.src = src; 
-            lightbox.classList.remove('hidden'); 
+            img.src = src; // Подставляем картинку высокого разрешения
+            lightbox.classList.remove('hidden'); // Показываем блок
             
+            // Задержка 10мс нужна, чтобы сработала CSS анимация прозрачности
             setTimeout(() => {
                 lightbox.classList.remove('opacity-0');
                 img.classList.remove('scale-95');
@@ -450,13 +487,15 @@
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
             
+            // Запускаем анимацию исчезновения
             lightbox.classList.add('opacity-0');
             img.classList.remove('scale-100');
             img.classList.add('scale-95');
             
+            // Ждем завершения анимации (300мс), потом полностью скрываем блок
             setTimeout(() => {
                 lightbox.classList.add('hidden');
-                img.src = ""; 
+                img.src = ""; // Очищаем источник, чтобы старое фото не моргало при следующем клике
             }, 300);
         }
 
