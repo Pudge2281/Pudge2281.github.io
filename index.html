@@ -3,95 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLACKPINK AI GAME</title>
-    <link rel="stylesheet" href="style.css">
+    <title>B-PINK AI ADVENTURE</title>
+    
+    <!-- Подключаем Tailwind CSS для стилей -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Подключаем библиотеку иконок Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Кастомные стили и анимации, которые в React шли плагинами -->
+    <style>
+        @keyframes slideInFade {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-in {
+            animation: slideInFade 0.5s ease-out forwards;
+        }
+        /* Фикс для вертикального выравнивания иконок */
+        .lucide { display: inline-block; }
+    </style>
 </head>
-<body>
+<body class="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans overflow-x-hidden selection:bg-pink-500 selection:text-white flex items-center justify-center py-20 px-4 sm:px-8 relative">
 
-    <header class="hero-banner">
-    </header>
-        
-           
+    <!-- Фоновые свечения -->
+    <div class="fixed top-[-20%] left-[-10%] w-96 h-96 bg-pink-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+    <div class="fixed bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-fuchsia-600/10 blur-[150px] rounded-full pointer-events-none"></div>
 
-    <main class="container">
+    <!-- Основной контейнер -->
+    <div class="relative w-full max-w-5xl border-[4px] border-zinc-800 bg-[#111] shadow-2xl mt-32 sm:mt-48 min-h-[700px] flex flex-col">
         
-        <section class="game-info-panel">
-            <div class="panel-header">
-                <h2>✦ BLACKPINK AI GAME ✦</h2>
-                <div class="heart-divider">♥</div>
-            </div>
+        <!-- Девушки в неоновых квадратах -->
+        <div class="absolute -top-16 sm:-top-24 md:-top-32 left-0 w-full flex justify-center items-end gap-2 sm:gap-6 md:gap-8 z-10 px-2 pointer-events-none pb-4">
             
-            <p class="intro-text">
-                Погрузись в уникальный мир BLACKPINK с искусственным интеллектом!<br>
-                Собирай карты, выполняй миссии и стань лучшим фанатом.
-            </p>
+            <!-- JISOO -->
+            <div class="relative w-24 sm:w-40 md:w-52 pointer-events-auto group">
+                <div class="bg-[#0f0514] border-2 sm:border-[3px] border-pink-500/80 p-1.5 sm:p-2.5 rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] group-hover:-translate-y-4 group-hover:border-pink-400">
+                    <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
+                        <img src="1.png" alt="JISOO" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=JISOO'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
+                    </div>
+                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">JISOO</span>
+                    </div>
+                </div>
+            </div>
 
-            <div class="features-layout">
-                <div class="features-list">
-                    <div class="feature-item">
-                        <span class="icon">💎</span>
-                        <div class="feature-text">
-                            <h3>СОБИРАЙ КАРТЫ</h3>
-                            <p>Собери всех участниц BLACKPINK</p>
-                        </div>
+            <!-- JENNIE -->
+            <div class="relative w-24 sm:w-40 md:w-52 pointer-events-auto group">
+                <div class="bg-[#0f0514] border-2 sm:border-[3px] border-pink-500/80 p-1.5 sm:p-2.5 rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] group-hover:-translate-y-4 group-hover:border-pink-400">
+                    <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
+                        <img src="2.png" alt="JENNIE" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=JENNIE'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">⭐</span>
-                        <div class="feature-text">
-                            <h3>ВЫПОЛНЯЙ МИССИИ</h3>
-                            <p>Проходи задания и зарабатывай награды</p>
-                        </div>
+                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">JENNIE</span>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">🏆</span>
-                        <div class="feature-text">
-                            <h3>СОРЕВНУЙСЯ</h3>
-                            <p>Попади в топ лучших игроков</p>
-                        </div>
+                </div>
+            </div>
+
+            <!-- ROSÉ -->
+            <div class="relative w-24 sm:w-40 md:w-52 pointer-events-auto group">
+                <div class="bg-[#0f0514] border-2 sm:border-[3px] border-pink-500/80 p-1.5 sm:p-2.5 rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] group-hover:-translate-y-4 group-hover:border-pink-400">
+                    <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
+                        <img src="4.png" alt="ROSÉ" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=ROSE'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">💖</span>
-                        <div class="feature-text">
-                            <h3>ОЩУТИ АТМОСФЕРУ</h3>
-                            <p>Музыка, стиль и магия BLACKPINK</p>
+                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">ROSÉ</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LISA -->
+            <div class="relative w-24 sm:w-40 md:w-52 pointer-events-auto group">
+                <div class="bg-[#0f0514] border-2 sm:border-[3px] border-pink-500/80 p-1.5 sm:p-2.5 rounded shadow-[0_0_15px_rgba(236,72,153,0.3)] transition-all duration-500 group-hover:shadow-[0_0_30px_rgba(236,72,153,0.7)] group-hover:-translate-y-4 group-hover:border-pink-400">
+                    <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
+                        <img src="3.png" alt="LISA" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=LISA'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
+                    </div>
+                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">LISA</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Логотип -->
+        <div class="pt-16 sm:pt-24 px-4 flex flex-col items-center justify-center z-40 relative pointer-events-none">
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-pink-400 to-purple-600 tracking-tighter uppercase italic text-center drop-shadow-[0_0_25px_rgba(236,72,153,0.6)]" style="-webkit-text-stroke: 1px rgba(236,72,153,0.3)">
+                B-PINK AI
+                <span class="block text-4xl sm:text-5xl md:text-7xl mt-1 text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-white">
+                    ADVENTURE
+                </span>
+            </h1>
+            <div class="w-32 h-1 bg-gradient-to-r from-transparent via-pink-500 to-transparent mt-6 opacity-80"></div>
+        </div>
+
+        <!-- Контент с вкладками -->
+        <div class="pt-12 sm:pt-16 px-4 sm:px-8 md:px-12 pb-12 flex-1 flex flex-col z-30">
+            
+            <!-- Кнопки вкладок -->
+            <div class="flex flex-col sm:flex-row w-full border-[3px] border-zinc-800 bg-[#0a0a0a] mb-10 shadow-lg" id="tab-buttons">
+                <button onclick="switchTab('info')" id="btn-info" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300">
+                    ИНФО
+                </button>
+                <button onclick="switchTab('start')" id="btn-start" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
+                    КАК НАЧАТЬ
+                </button>
+                <button onclick="switchTab('pluses')" id="btn-pluses" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
+                    ПЛЮСЫ И МИНУСЫ
+                </button>
+            </div>
+
+            <!-- Область контента -->
+            <div class="flex-1 min-h-[300px] relative">
+                
+                <!-- Вкладка: ИНФО -->
+                <div id="content-info" class="animate-in hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="sparkles" class="text-pink-500 w-8 h-8"></i>
+                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">О ПРОЕКТЕ</h2>
+                    </div>
+                    <div class="space-y-4 text-zinc-300 leading-relaxed text-lg">
+                        <p>Добро пожаловать в <strong class="text-pink-400">Blackpink AI Experience</strong>. Это интерактивное текстовое приключение с открытым исходным кодом, созданное для BLINK и энтузиастов ИИ.</p>
+                        <p>Игра позволяет вам проходить уникальные сюжетные линии, симулировать закулисную подготовку к концертам и взаимодействовать с динамичными ИИ-персонажами Джису, Дженни, Розэ и Лисы.</p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-800">
+                            <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
+                                <i data-lucide="gamepad-2" class="text-pink-500 mb-2"></i>
+                                <h3 class="font-bold text-white mb-1">Интерактивный сюжет</h3>
+                                <p class="text-sm">Формируйте историю своими решениями. Каждое прохождение уникально.</p>
+                            </div>
+                            <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
+                                <i data-lucide="cpu" class="text-pink-500 mb-2"></i>
+                                <h3 class="font-bold text-white mb-1">Динамичный ИИ</h3>
+                                <p class="text-sm">Генерация ответов в реальном времени делает каждый диалог живым.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="crown-graphic">
-                    <img src="crown_placeholder.png" alt="Crown Logo">
+                <!-- Вкладка: КАК НАЧАТЬ -->
+                <div id="content-start" class="animate-in hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="terminal" class="text-pink-500 w-8 h-8"></i>
+                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">КАК НАЧАТЬ</h2>
+                    </div>
+                    <div class="space-y-6 text-zinc-300">
+                        <p class="text-lg">Выполните эти шаги для запуска игры локально:</p>
+                        <div class="space-y-4">
+                            <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden group">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
+                                <p class="text-zinc-500 mb-1"># 1. Клонировать репозиторий</p>
+                                <p class="text-pink-400">git clone <span class="text-white">https://github.com/yourusername/bp-ai-game.git</span></p>
+                            </div>
+                            <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
+                                <p class="text-zinc-500 mb-1"># 2. Установить зависимости</p>
+                                <p class="text-pink-400">cd <span class="text-white">bp-ai-game</span></p>
+                                <p class="text-pink-400">npm <span class="text-white">install</span></p>
+                            </div>
+                            <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
+                                <p class="text-zinc-500 mb-1"># 3. Добавить API ключ ИИ в .env</p>
+                                <p class="text-white">VITE_AI_API_KEY=<span class="text-zinc-500">"ваш_ключ_api"</span></p>
+                            </div>
+                            <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
+                                <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
+                                <p class="text-zinc-500 mb-1"># 4. Запустить сервер разработки</p>
+                                <p class="text-pink-400">npm run <span class="text-white">dev</span></p>
+                            </div>
+                        </div>
+                        <button class="mt-4 flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 px-6 rounded transition-colors w-full sm:w-auto justify-center">
+                            <i data-lucide="github"></i>
+                            Посмотреть на GitHub
+                        </button>
+                    </div>
                 </div>
-            </div>
 
-            <div class="action-btn-container">
-                <button class="play-now-btn">ИГРАТЬ СЕЙЧАС &gt;</button>
-            </div>
-        </section>
-
-        <aside class="video-panel">
-            <div class="panel-header">
-                <h2>✦ ВИДЕО ✦</h2>
-            </div>
-
-            <div class="video-card">
-                <div class="video-thumbnail" data-video="1">
-                    <img src="video1_bg.jpg" alt="Video 1 Background">
-                    <button class="play-circle">▶</button>
+                <!-- Вкладка: ПЛЮСЫ И МИНУСЫ -->
+                <div id="content-pluses" class="animate-in hidden">
+                    <div class="flex items-center gap-3 mb-8">
+                        <i data-lucide="heart" class="text-pink-500 w-8 h-8"></i>
+                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">ПЛЮСЫ И МИНУСЫ</h2>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-zinc-900/40 p-6 rounded-xl border border-green-500/20">
+                            <h3 class="text-xl font-bold text-green-400 mb-6 flex items-center gap-2 border-b border-zinc-800 pb-3">
+                                <i data-lucide="check-circle-2"></i> Плюсы
+                            </h3>
+                            <ul class="space-y-4 text-zinc-300">
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Глубокое погружение и персонализированные сюжеты.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Открытый исходный код, легко модифицировать.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Стильный адаптивный интерфейс в духе K-Pop.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Бесконечная реиграбельность благодаря ИИ.</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-zinc-900/40 p-6 rounded-xl border border-red-500/20">
+                            <h3 class="text-xl font-bold text-red-400 mb-6 flex items-center gap-2 border-b border-zinc-800 pb-3">
+                                <i data-lucide="x-circle"></i> Минусы
+                            </h3>
+                            <ul class="space-y-4 text-zinc-300">
+                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Требуется активный API-ключ (OpenAI/Anthropic).</span></li>
+                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>ИИ может иногда выходить из роли (галлюцинировать).</span></li>
+                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Оптимизировано для ПК/веб (пока нет мобильного приложения).</span></li>
+                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Первая загрузка может быть долгой в зависимости от ИИ.</span></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <p class="video-title">VIDEO 1</p>
+
             </div>
+        </div>
+    </div>
 
-            <div class="video-card">
-                <div class="video-thumbnail" data-video="2">
-                    <img src="video2_bg.jpg" alt="Video 2 Background">
-                    <button class="play-circle">▶</button>
-                </div>
-                <p class="video-title">VIDEO 2</p>
-            </div>
-        </aside>
+    <!-- Скрипт для работы вкладок и иконок -->
+    <script>
+        // Инициализация иконок Lucide
+        lucide.createIcons();
 
-    </main>
+        // Логика переключения вкладок
+        const tabs = ['info', 'start', 'pluses'];
+        
+        function switchTab(activeTab) {
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`btn-${tab}`);
+                const content = document.getElementById(`content-${tab}`);
+                
+                if (tab === activeTab) {
+                    // Активная вкладка: кнопка
+                    btn.className = "flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 bg-pink-500 text-black shadow-[inset_0_0_20px_rgba(0,0,0,0.2)]";
+                    if(tab !== 'info') btn.classList.add('sm:border-l-[3px]', 'border-zinc-800', 'border-t-[3px]', 'sm:border-t-0');
+                    
+                    // Показываем контент (перезапускаем анимацию)
+                    content.classList.remove('hidden');
+                    content.classList.remove('animate-in');
+                    void content.offsetWidth; // Магия для перезапуска CSS-анимации
+                    content.classList.add('animate-in');
+                } else {
+                    // Неактивная вкладка: кнопка
+                    btn.className = "flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 text-zinc-500 hover:text-pink-400 hover:bg-zinc-900";
+                    if(tab !== 'info') btn.classList.add('sm:border-l-[3px]', 'border-zinc-800', 'border-t-[3px]', 'sm:border-t-0');
+                    
+                    // Прячем контент
+                    content.classList.add('hidden');
+                }
+            });
+        }
 
-    <script src="script.js"></script>
+        // Включаем вкладку 'info' по умолчанию при загрузке страницы
+        switchTab('info');
+    </script>
 </body>
 </html>
