@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,13 @@
 </head>
 <body class="min-h-screen bg-[#0a0a0a] text-zinc-100 font-sans overflow-x-hidden selection:bg-pink-500 selection:text-white flex items-center justify-center py-20 px-4 sm:px-8 relative">
 
+    <!-- Переключатель языков -->
+    <div class="absolute top-4 right-4 sm:top-8 sm:right-8 z-50">
+        <button onclick="toggleLang()" id="lang-btn" class="bg-[#0f0514] border-2 border-pink-500 text-pink-300 px-4 py-2 rounded-full font-black tracking-widest text-sm hover:bg-pink-500 hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(236,72,153,0.3)]">
+            EN
+        </button>
+    </div>
+
     <!-- Фоновые свечения -->
     <div class="fixed top-[-20%] left-[-10%] w-96 h-96 bg-pink-600/20 blur-[120px] rounded-full pointer-events-none"></div>
     <div class="fixed bottom-[-20%] right-[-10%] w-[500px] h-[500px] bg-fuchsia-600/10 blur-[150px] rounded-full pointer-events-none"></div>
@@ -43,9 +50,6 @@
                         <img src="1.png" alt="JISOO" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=JISOO'">
                         <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
                     </div>
-                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">JISOO</span>
-                    </div>
                 </div>
             </div>
 
@@ -55,9 +59,6 @@
                     <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
                         <img src="2.png" alt="JENNIE" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=JENNIE'">
                         <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
-                    </div>
-                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">JENNIE</span>
                     </div>
                 </div>
             </div>
@@ -69,9 +70,6 @@
                         <img src="4.png" alt="ROSÉ" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=ROSE'">
                         <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
                     </div>
-                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">ROSÉ</span>
-                    </div>
                 </div>
             </div>
 
@@ -81,9 +79,6 @@
                     <div class="relative w-full aspect-square rounded-sm overflow-hidden border-2 border-purple-500/50 bg-black">
                         <img src="3.png" alt="LISA" class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-500 group-hover:scale-110" onerror="this.src='https://placehold.co/400x400/2a103c/ec4899?text=LISA'">
                         <div class="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-transparent opacity-50"></div>
-                    </div>
-                    <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span class="text-white font-black tracking-widest text-sm sm:text-lg drop-shadow-[0_0_5px_rgba(236,72,153,1)]">LISA</span>
                     </div>
                 </div>
             </div>
@@ -106,14 +101,14 @@
             
             <!-- Кнопки вкладок -->
             <div class="flex flex-col sm:flex-row w-full border-[3px] border-zinc-800 bg-[#0a0a0a] mb-10 shadow-lg" id="tab-buttons">
-                <button onclick="switchTab('info')" id="btn-info" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300">
-                    ИНФО
+                <button onclick="switchTab('info')" id="btn-info" data-i18n="tab_info" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300">
+                    INFO
                 </button>
-                <button onclick="switchTab('start')" id="btn-start" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
-                    КАК НАЧАТЬ
+                <button onclick="switchTab('start')" id="btn-start" data-i18n="tab_start" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
+                    HOW TO START
                 </button>
-                <button onclick="switchTab('pluses')" id="btn-pluses" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
-                    ПЛЮСЫ И МИНУСЫ
+                <button onclick="switchTab('pluses')" id="btn-pluses" data-i18n="tab_pluses" class="flex-1 py-4 px-2 text-sm sm:text-base font-black tracking-widest uppercase transition-all duration-300 sm:border-l-[3px] border-zinc-800 border-t-[3px] sm:border-t-0">
+                    PROS & CONS
                 </button>
             </div>
 
@@ -124,22 +119,32 @@
                 <div id="content-info" class="animate-in hidden">
                     <div class="flex items-center gap-3 mb-6">
                         <i data-lucide="sparkles" class="text-pink-500 w-8 h-8"></i>
-                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">О ПРОЕКТЕ</h2>
+                        <h2 data-i18n="info_title" class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">ABOUT THE PROJECT</h2>
                     </div>
                     <div class="space-y-4 text-zinc-300 leading-relaxed text-lg">
-                        <p>Добро пожаловать в <strong class="text-pink-400">Blackpink AI Experience</strong>. Это интерактивное текстовое приключение с открытым исходным кодом, созданное для BLINK и энтузиастов ИИ.</p>
-                        <p>Игра позволяет вам проходить уникальные сюжетные линии, симулировать закулисную подготовку к концертам и взаимодействовать с динамичными ИИ-персонажами Джису, Дженни, Розэ и Лисы.</p>
+                        <p data-i18n="info_p1">Welcome to the <strong class="text-pink-400">Blackpink AI Experience</strong>. This is a deep simulation of real-life interactions with the 4 members and plenty of NPCs for any scene (cafes, streets, fans, etc.).</p>
+                        <p data-i18n="info_p2">First, you set up the starting situation for your meeting (e.g., a private island, airport, or fan meeting), and then the girls will send you their first messages.</p>
                         
                         <div class="grid sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-zinc-800">
                             <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
-                                <i data-lucide="gamepad-2" class="text-pink-500 mb-2"></i>
-                                <h3 class="font-bold text-white mb-1">Интерактивный сюжет</h3>
-                                <p class="text-sm">Формируйте историю своими решениями. Каждое прохождение уникально.</p>
+                                <i data-lucide="heart-handshake" class="text-pink-500 mb-2"></i>
+                                <h3 data-i18n="info_card1_title" class="font-bold text-white mb-1">Sympathy Bar</h3>
+                                <p data-i18n="info_card1_desc" class="text-sm">The girls' responses and attitudes change based on your actions and their level of sympathy towards you.</p>
                             </div>
                             <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
-                                <i data-lucide="cpu" class="text-pink-500 mb-2"></i>
-                                <h3 class="font-bold text-white mb-1">Динамичный ИИ</h3>
-                                <p class="text-sm">Генерация ответов в реальном времени делает каждый диалог живым.</p>
+                                <i data-lucide="brain-circuit" class="text-pink-500 mb-2"></i>
+                                <h3 data-i18n="info_card2_title" class="font-bold text-white mb-1">Deep Memory</h3>
+                                <p data-i18n="info_card2_desc" class="text-sm">Excellent long-term memory. The girls can easily remind you of a nickname or a mistake you made 20 days ago.</p>
+                            </div>
+                            <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
+                                <i data-lucide="save" class="text-pink-500 mb-2"></i>
+                                <h3 data-i18n="info_card3_title" class="font-bold text-white mb-1">3 Save Slots</h3>
+                                <p data-i18n="info_card3_desc" class="text-sm">Run up to three different games (storylines) simultaneously without losing your progress.</p>
+                            </div>
+                            <div class="bg-zinc-900/50 p-4 rounded-lg border border-pink-500/20">
+                                <i data-lucide="message-circle" class="text-pink-500 mb-2"></i>
+                                <h3 data-i18n="info_card4_title" class="font-bold text-white mb-1">Lively Stylish Chat</h3>
+                                <p data-i18n="info_card4_desc" class="text-sm">Each girl has her own text color. They describe actions, talk to each other, and react to your messages together.</p>
                             </div>
                         </div>
                     </div>
@@ -149,36 +154,46 @@
                 <div id="content-start" class="animate-in hidden">
                     <div class="flex items-center gap-3 mb-6">
                         <i data-lucide="terminal" class="text-pink-500 w-8 h-8"></i>
-                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">КАК НАЧАТЬ</h2>
+                        <h2 data-i18n="start_title" class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">HOW TO START</h2>
                     </div>
                     <div class="space-y-6 text-zinc-300">
-                        <p class="text-lg">Выполните эти шаги для запуска игры локально:</p>
+                        <p data-i18n="start_desc" class="text-lg">Follow these steps to get the AI game running on your Android device:</p>
                         <div class="space-y-4">
+                            <!-- Шаг 1 -->
                             <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden group">
                                 <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
-                                <p class="text-zinc-500 mb-1"># 1. Клонировать репозиторий</p>
-                                <p class="text-pink-400">git clone <span class="text-white">https://github.com/yourusername/bp-ai-game.git</span></p>
+                                <p data-i18n="start_step1_title" class="text-zinc-500 mb-1"># 1. Get an API Key</p>
+                                <p class="text-pink-400">
+                                    <span data-i18n="start_step1_content">Create a key in Google API: </span>
+                                    <a href="https://aistudio.google.com/app/apikey" target="_blank" class="text-white hover:text-pink-300 underline">aistudio.google.com</a>
+                                </p>
                             </div>
+                            
+                            <!-- Шаг 2 -->
                             <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
                                 <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
-                                <p class="text-zinc-500 mb-1"># 2. Установить зависимости</p>
-                                <p class="text-pink-400">cd <span class="text-white">bp-ai-game</span></p>
-                                <p class="text-pink-400">npm <span class="text-white">install</span></p>
+                                <p data-i18n="start_step2_title" class="text-zinc-500 mb-1"># 2. Download the Game</p>
+                                <p data-i18n="start_step2_content" class="text-white">Download and install the game's APK file on your Android.</p>
                             </div>
+                            
+                            <!-- Шаг 3 -->
                             <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
                                 <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
-                                <p class="text-zinc-500 mb-1"># 3. Добавить API ключ ИИ в .env</p>
-                                <p class="text-white">VITE_AI_API_KEY=<span class="text-zinc-500">"ваш_ключ_api"</span></p>
+                                <p data-i18n="start_step3_title" class="text-zinc-500 mb-1"># 3. Enter the Key</p>
+                                <p data-i18n="start_step3_content" class="text-white">Launch the game, copy your API key, and paste it into the settings.</p>
                             </div>
-                            <div class="bg-black border border-zinc-800 rounded-lg p-4 font-mono text-sm shadow-inner relative overflow-hidden">
-                                <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
-                                <p class="text-zinc-500 mb-1"># 4. Запустить сервер разработки</p>
-                                <p class="text-pink-400">npm run <span class="text-white">dev</span></p>
+
+                            <!-- Плашка безопасности -->
+                            <div class="bg-pink-950/20 border border-pink-500/30 rounded-lg p-4 text-sm shadow-inner relative overflow-hidden flex gap-3 items-start mt-4">
+                                <i data-lucide="shield-check" class="text-pink-500 w-6 h-6 shrink-0 mt-0.5"></i>
+                                <p data-i18n="start_note" class="text-zinc-300 leading-relaxed">
+                                    <strong>Important:</strong> The Android app does not collect or send your key information to anyone. Your key is stored securely and locally on your device, used solely for direct communication with the AI.
+                                </p>
                             </div>
                         </div>
                         <button class="mt-4 flex items-center gap-2 bg-pink-600 hover:bg-pink-500 text-white font-bold py-3 px-6 rounded transition-colors w-full sm:w-auto justify-center">
-                            <i data-lucide="github"></i>
-                            Посмотреть на GitHub
+                            <i data-lucide="download"></i>
+                            <span data-i18n="start_btn">Download APK (Android)</span>
                         </button>
                     </div>
                 </div>
@@ -187,29 +202,26 @@
                 <div id="content-pluses" class="animate-in hidden">
                     <div class="flex items-center gap-3 mb-8">
                         <i data-lucide="heart" class="text-pink-500 w-8 h-8"></i>
-                        <h2 class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">ПЛЮСЫ И МИНУСЫ</h2>
+                        <h2 data-i18n="pluses_title" class="text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">PROS & CONS</h2>
                     </div>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="bg-zinc-900/40 p-6 rounded-xl border border-green-500/20">
                             <h3 class="text-xl font-bold text-green-400 mb-6 flex items-center gap-2 border-b border-zinc-800 pb-3">
-                                <i data-lucide="check-circle-2"></i> Плюсы
+                                <i data-lucide="check-circle-2"></i> <span data-i18n="pluses_subtitle1">The Pros</span>
                             </h3>
                             <ul class="space-y-4 text-zinc-300">
-                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Глубокое погружение и персонализированные сюжеты.</span></li>
-                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Открытый исходный код, легко модифицировать.</span></li>
-                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Стильный адаптивный интерфейс в духе K-Pop.</span></li>
-                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span>Бесконечная реиграбельность благодаря ИИ.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span data-i18n="pluses_item1">Completely free app, no freemium nonsense.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span data-i18n="pluses_item2">AI model selection (defaults to gemini 3.1-flash-lite).</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span data-i18n="pluses_item3">Default AI gives you 500 free messages per day.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-green-500 mt-1">✦</span><span data-i18n="pluses_item4">Optional upgrade to Gemini Pro (improves experience by 10-15%, but the free tier works great).</span></li>
                             </ul>
                         </div>
                         <div class="bg-zinc-900/40 p-6 rounded-xl border border-red-500/20">
                             <h3 class="text-xl font-bold text-red-400 mb-6 flex items-center gap-2 border-b border-zinc-800 pb-3">
-                                <i data-lucide="x-circle"></i> Минусы
+                                <i data-lucide="x-circle"></i> <span data-i18n="pluses_subtitle2">The Cons</span>
                             </h3>
                             <ul class="space-y-4 text-zinc-300">
-                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Требуется активный API-ключ (OpenAI/Anthropic).</span></li>
-                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>ИИ может иногда выходить из роли (галлюцинировать).</span></li>
-                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Оптимизировано для ПК/веб (пока нет мобильного приложения).</span></li>
-                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span>Первая загрузка может быть долгой в зависимости от ИИ.</span></li>
+                                <li class="flex items-start gap-3"><span class="text-red-500 mt-1">✦</span><span data-i18n="minuses_item1">Developed by a single fan, so you might encounter minor bugs.</span></li>
                             </ul>
                         </div>
                     </div>
@@ -219,12 +231,99 @@
         </div>
     </div>
 
-    <!-- Скрипт для работы вкладок и иконок -->
+    <!-- Скрипт для работы вкладок, иконок и языков -->
     <script>
         // Инициализация иконок Lucide
         lucide.createIcons();
 
-        // Логика переключения вкладок
+        // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ЯЗЫКА ---
+        const translations = {
+            ru: {
+                tab_info: "ИНФО",
+                tab_start: "КАК НАЧАТЬ",
+                tab_pluses: "ПЛЮСЫ И МИНУСЫ",
+                info_title: "О ПРОЕКТЕ",
+                info_p1: 'Добро пожаловать в <strong class="text-pink-400">Blackpink AI Experience</strong>. Это глубокая симуляция реального общения с 4 участницами группы и множеством NPC для любых сцен (кафе, улицы, толпы фанатов и т.д.).',
+                info_p2: 'Сначала вы сами задаете ситуацию, при которой встретились (например, закрытый остров, аэропорт или фан-встреча), после чего девушки отправляют вам свои первые сообщения.',
+                info_card1_title: "Шкала симпатии",
+                info_card1_desc: "Отношение девушек меняется в зависимости от ваших действий и уровня симпатии.",
+                info_card2_title: "Глубокая память",
+                info_card2_desc: "Отличная долгосрочная память. Девушки легко напомнят вам о прозвище или ошибке, совершенной 20 дней назад.",
+                info_card3_title: "3 слота сохранений",
+                info_card3_desc: "Ведите до трех разных игр (сюжетов) одновременно, не теряя прогресс.",
+                info_card4_title: "Живой стильный чат",
+                info_card4_desc: "У каждой свой цвет текста. Девушки описывают свои действия, общаются между собой и реагируют на ваши реплики.",
+                start_title: "КАК НАЧАТЬ",
+                start_desc: "Выполните эти шаги для запуска игры на вашем Android-устройстве:",
+                start_step1_title: "# 1. Получите API ключ",
+                start_step1_content: "Создайте ключ в Google API: ",
+                start_step2_title: "# 2. Скачайте игру",
+                start_step2_content: "Скачайте и установите APK файл игры на ваш Android.",
+                start_step3_title: "# 3. Введите ключ",
+                start_step3_content: "Запустите игру, скопируйте ваш API ключ и вставьте его в настройки.",
+                start_note: "<strong>Важно:</strong> Приложение на Android никаким образом не собирает и не отправляет информацию о вашем ключе третьим лицам. Ключ хранится исключительно локально на вашем устройстве и используется только для прямой связи с нейросетью.",
+                start_btn: "Скачать APK (Android)",
+                pluses_title: "ПЛЮСЫ И МИНУСЫ",
+                pluses_subtitle1: "Плюсы",
+                pluses_item1: "Приложение абсолютно бесплатное, без фремиум-фигни.",
+                pluses_item2: "Есть плашка для выбора модели ИИ (стандартно стоит gemini 3.1-flash-lite).",
+                pluses_item3: "Стандартная ИИ дает вам 500 бесплатных сообщений в день.",
+                pluses_item4: "Можно апгрейднуть Google API до Gemini Pro (улучшит опыт на 10-15%, но бесплатная версия и так отлично справляется).",
+                pluses_subtitle2: "Минусы",
+                minuses_item1: "Приложение делал один разработчик-фанат, так что могут быть мелкие баги."
+            },
+            en: {
+                tab_info: "INFO",
+                tab_start: "HOW TO START",
+                tab_pluses: "PROS & CONS",
+                info_title: "ABOUT THE PROJECT",
+                info_p1: 'Welcome to the <strong class="text-pink-400">Blackpink AI Experience</strong>. This is a deep simulation of real-life interactions with the 4 members and plenty of NPCs for any scene (cafes, streets, fans, etc.).',
+                info_p2: 'First, you set up the starting situation for your meeting (e.g., a private island, airport, or fan meeting), and then the girls will send you their first messages.',
+                info_card1_title: "Sympathy Bar",
+                info_card1_desc: "The girls' responses and attitudes change based on your actions and their level of sympathy towards you.",
+                info_card2_title: "Deep Memory",
+                info_card2_desc: "Excellent long-term memory. The girls can easily remind you of a nickname or a mistake you made 20 days ago.",
+                info_card3_title: "3 Save Slots",
+                info_card3_desc: "Run up to three different games (storylines) simultaneously without losing your progress.",
+                info_card4_title: "Lively Stylish Chat",
+                info_card4_desc: "Each girl has her own text color. They describe actions, talk to each other, and react to your messages together.",
+                start_title: "HOW TO START",
+                start_desc: "Follow these steps to get the AI game running on your Android device:",
+                start_step1_title: "# 1. Get an API Key",
+                start_step1_content: "Create a key in Google API: ",
+                start_step2_title: "# 2. Download the Game",
+                start_step2_content: "Download and install the game's APK file on your Android.",
+                start_step3_title: "# 3. Enter the Key",
+                start_step3_content: "Launch the game, copy your API key, and paste it into the settings.",
+                start_note: "<strong>Important:</strong> The Android app does not collect or send your key information to anyone. Your key is stored securely and locally on your device, used solely for direct communication with the AI.",
+                start_btn: "Download APK (Android)",
+                pluses_title: "PROS & CONS",
+                pluses_subtitle1: "The Pros",
+                pluses_item1: "Completely free app, no freemium nonsense.",
+                pluses_item2: "AI model selection (defaults to gemini 3.1-flash-lite).",
+                pluses_item3: "Default AI gives you 500 free messages per day.",
+                pluses_item4: "Optional upgrade to Gemini Pro (improves experience by 10-15%, but the free tier works great).",
+                pluses_subtitle2: "The Cons",
+                minuses_item1: "Developed by a single fan, so you might encounter minor bugs."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function toggleLang() {
+            currentLang = currentLang === 'ru' ? 'en' : 'ru';
+            document.getElementById('lang-btn').innerText = currentLang.toUpperCase();
+            
+            // Находим все элементы с атрибутом data-i18n и меняем их текст
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК ---
         const tabs = ['info', 'start', 'pluses'];
         
         function switchTab(activeTab) {
